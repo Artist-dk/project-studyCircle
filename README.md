@@ -23,12 +23,17 @@ Study Circle is an innovative educational platform designed to revolutionize the
 
 1. Clone the repository: `git clone https://github.com/Artist-dk/study-cricle.git`
 2. Navigate to the project folder: `cd study-circle`
-3. Install dependencies: 
+3. Install front-end dependencies: 
 - `npm install sass`
 - `npm install react-router-dom`
 - `npm install --save react-google-charts`
 - `npm install react-router-dom`
 - `npm install react-router-dom`
+
+4. Install back-end dependencies:
+- `npm init -y`
+- `npm install express mysql cors nodemon`
+- `npm start`
 
 4. Set up the database and configuration: 
 
