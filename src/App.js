@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Main from './components/Main';
 import Student from './components/Student';
 import Teacher from './components/Teacher';
@@ -7,6 +7,12 @@ import './style/style.scss';
 import './style/themeDark.scss';
 
 export default function App(){
+  useEffect(() => {
+    fetch('http://localhost:8081/users')
+    .then(res => res.json())
+    .then(data => console.log(data))
+    .catch(err => console.log(err))
+  })
   const [page, setPage] = useState(<Main />);
   return (
     <>  
