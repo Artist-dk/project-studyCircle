@@ -10,34 +10,93 @@
       content="Web site created using create-react-app"
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
+    <!--  -->
+    
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide|Sofia|Trirong">
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.151.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.151.0/examples/jsm/"
+        }
+      }
+    </script>
+    <title>StudyCircle</title>
+    <!-- <link rel="stylesheet" href="putla.css"> -->
+    <style>
+      .page {
+          transition: 1s;
+      }
+      .loaded-page {
+          display: block;
+      }
+      .background {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: fixed;
+          /* top:0; */
+          /* left:0; */
+          width:100vw;
+          height: 100vh;
+          /* background: whitesmoke; */
+          z-index: -1;
+          text-align: center;
+          /* background-image: url(img.jpg); */
+      
+          background-size: cover;
+          background-repeat: no-repeat;
+      }
+      .background-cover {
+          position: fixed;
+          width: 100vw;
+          height: 100vh;
+          z-index: -1;
+          /* background: #ffffffaa; */
+          /* backdrop-filter: blur(5px); */
+      }
+      .background span {
+          display: flex;
+          /* border: solid 2px black; */
+          /* height: 500px; */
+          /* width:500px;  */
+          /* border-radius: 50%; */
+          font-size: 100px;
+          color:var(--cb);
+          justify-content: center;
+      }
+      /* .background .block1 {
+          background: var(--b1);
+      
+      } */
+      .background .block2 {
+          background: var(--b2);
+      }
+      .background .block3 {
+          background: var(--b3);
+      }
+      .background .block4 {
+          background: var(--b4);
+      }
+      .page {
+          margin: 0 auto;
+          min-width: 0;
+          /* max-width: 1200px;s */
+          /* background: #ffffffa0; */
+          min-height: 100vh;
+          /* backdrop-filter: blur(6px); */
+          /* box-shadow: 0 0 10px black; */
+      }
+    </style>
+    <!--  -->
     <title>React App</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
   </body>
 </html>
