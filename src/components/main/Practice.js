@@ -4,100 +4,113 @@ import '../../style/typing.css';
 export default function Practice() {
   return (
     <>
-    <div className="center">
-        <div className="display01" id="display01">
-            <textarea className="text01" id="text01"></textarea>
-            <div className="highlighter01" id="highlighter01"></div>
+      <div className="body home">
+            <div className="h-box-1 welcome">
+                <div className="mid">
+                    <p>Education is the most powerful weapon which you can use to change the world.</p>
+                    <h1><span className="grad"><span>W</span>ELCOME</span> TO STUDY CIRCLE<br />YOU CAN ACHIVE MORE</h1>
+                    <p className="glass fit-center box-3">Welcome to Study Circle- your one-stop destination for all your academic needs! With our comprehensive evaluation system, you can easily track your progress and identify areas that need improvement. We also provide a vast collection of study materials that cater to all levels of education, ensuring that you have access to the latest and most relevant information. At Study Town, we understand that education is the key to unlocking your potential, and we are committed to helping you achieve your academic goals. Join us today and take the first step towards a brighter future!</p>
+                    <div className="btnarea">
+                        <div className="btn-wrapper">
+                            <div className="btn">
+                                <button>LOGIN</button>
+                            </div>
+                        </div>
+                        <div className="btn-wrapper">
+                            <div className="btn">
+                                <button>CREATE ACC</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="box">
+                <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <path className="path-3" d="M0,100  L0,0 100,100z"></path>
+                    <path className="path-2 " d="M100,0  L15,0  90,100z"></path>
+                </svg>
+            </div>
+            <div className="box-2">
+                <div className="mid">
+                    <h1>OUR GOAL</h1>
+                    <p>At Study Town, our goal is to empower students to take control of their academic journey. We believe that every student has the potential to succeed, and we are committed to providing the tools and resources needed to achieve that success. Our platform offers a comprehensive evaluation system that allows students to track their progress, identify areas for improvement, and measure their growth over time. Additionally, our extensive collection of study materials covers a wide range of subjects and levels of education, ensuring that every student has access to the information they need to excel. With Study Town, you can be confident that you have everything you need to reach your academic goals.</p>
+                    <p>Our target at Study Circleis to make education accessible to all. We understand that every student has unique needs and learning styles, and we strive to cater to those needs by providing personalized evaluation and study material. Our aim is to create a platform that empowers students to take control of their learning, no matter their age, background, or skill level. We believe that education is a powerful tool that can transform lives, and we are committed to providing a platform that enables students to reach their full potential. Join us at Study Circleand discover the power of education!</p>
+                </div>
+            </div>
+            <div className="box bgSvg2">
+                <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <path className="path-1" d="M0,100  L0,0 100,100z"></path>
+                    <path className="path-2" d="M100,0  L15,0  90,100z"></path>
+                </svg>
+            </div>
+            <div className="box-1">
+                <div className="mid">
+                    <h1>LIBRARY</h1>
+                    <p>The library at Study Circleis a comprehensive collection of study materials that cover a wide range of subjects and levels of education. Our library features a vast array of resources, including textbooks, practice exams, study guides, and video tutorials. We understand that every student has different learning needs, and that's why our library offers multiple formats to cater to different learning styles. Whether you prefer visual aids or hands-on activities, our library has everything you need to succeed. Our study material is regularly updated to ensure that students have access to the latest and most relevant information. With Study Town's library, you can be confident that you have all the resources you need to excel academically.</p>
+                </div>
+            </div>
+            <div className="box bgSvg1">
+                <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <path className="path-3" d="M0,100  L0,0 100,100z"></path>
+                    <path className="path-2" d="M100,0  L15,0  90,100z"></path>
+                </svg>
+            </div>
+            <div className="box-2">
+                <div className="mid">
+                    <h1>CONTESTS</h1>
+                    <p>At Study Town, we believe that healthy competition is a great motivator for learning. That's why we regularly organize contests that encourage students to showcase their knowledge and skills. Our contests are designed to be both fun and educational, and we offer a range of topics and levels of difficulty to cater to all students. By participating in our contests, students have the opportunity to test their knowledge, learn from their peers, and earn recognition for their hard work. We believe that contests are an excellent way to engage students and promote a love of learning, and we are committed to creating a platform where students can challenge themselves and reach their full potential. Join us at Study Circleand take part in our exciting contests today!</p>
+                </div>
+            </div>
+            <div className="box bgSvg2">
+                <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <path className="path-1" d="M0,100  L0,0 100,100z"></path>
+                    <path className="path-2" d="M100,0  L15,0  90,100z"></path>
+                </svg>
+            </div>
+            <div className="box-1">
+                <div className="mid">
+                    <h1>PRACTICE</h1>
+                    <p>The Practice Platform at Study Circleis a valuable resource that allows students to hone their skills and knowledge in a safe, supportive environment. Our platform offers a wide range of practice exercises and quizzes that cover a variety of subjects and levels of education. Whether you're preparing for an exam or simply looking to reinforce your understanding of a particular topic, our Practice Platform is the perfect tool to help you achieve your goals. Our platform is designed to be user-friendly and interactive, providing instant feedback and explanations to help you learn as you go. With Study Town's Practice Platform, you can build confidence in your abilities and achieve success in your academic pursuits. Join us today and start practicing!</p>
+                </div>
+            </div>
+            <div className="box bgSvg1">
+                <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <path className="path-3" d="M0,100  L0,0 100,100z"></path>
+                    <path className="path-2" d="M100,0  L15,0  90,100z"></path>
+                </svg>
+            </div>
+            <div className="box-2">
+                <div className="mid">
+                    <h1>ROLE OF TEACHERS</h1>
+                    <p>At Study Town, the role of teachers is to provide students with regular updates and to assist them in their learning journey. Teachers on Study Circleare responsible for verifying and checking students' responses to queries and providing feedback and guidance to help them improve their understanding of the material. They are also available to answer any questions that students may have and to provide additional support as needed. By creating a collaborative environment between teachers and students, Study Circleaims to enhance the learning experience and help students reach their academic goals.</p>
+                </div>
+            </div>
+            <div className="box bgSvg2">
+                <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <path className="path-1" d="M0,100  L0,0 100,100z"></path>
+                    <path className="path-2" d="M100,0  L15,0  90,100z"></path>
+                </svg>
+            </div>
+        <div className="box-1">
+            <div className="mid">
+                <h1>Instruction</h1>
+                <ul>
+                    <li>dashboard</li>
+                    <li>dashboardStudent</li>
+                    <li>College will apply for StudyCircle Registration by filling required details.</li>
+                    <li>College through College Login will verify the student details and after StudyCircle verification ID will be generated and Student will get enrolled in the StudyCircle.</li>
+                    <li>User Name is ID and Password can be generated on clicking Forgot Password.</li>
+                    <li>For any queries regarding your account issue please contact us.</li>
+                </ul>
+                <p></p>
+            </div>
         </div>
-    </div>
-    <div className="center">
-        <div className="keyboard01">
-            <div className="line01">
-                <button id="charCode96" className="keya01 key01 tildekey01"><span className="top01">~</span><span className="bottom01">`</span></button>
-                <button id="charCode49" className="keya01 key01"><span className="top01">!</span><span className="bottom01">1</span></button>
-                <button id="charCode50" className="keyb01 key01"><span className="top01">@</span><span className="bottom01">2</span></button>
-                <button id="charCode51" className="keyc01 key01"><span className="top01">#</span><span className="bottom01">3</span></button>
-                <button id="charCode52" className="keyd01 key01"><span className="top01">$</span><span className="bottom01">4</span></button>
-                <button id="charCode53" className="keyd01 key01"><span className="top01">%</span><span className="bottom01">5</span></button>
-                <button id="charCode54" className="keyd01 key01"><span className="top01">^</span><span className="bottom01">6</span></button>
-                <button id="charCode55" className="keyd01 key01"><span className="top01">&</span><span className="bottom01">7</span></button>
-                <button id="charCode56" className="keyc01 key01"><span className="top01">*</span><span className="bottom01">8</span></button>
-                <button id="charCode57" className="keyb01 key01"><span className="top01">(</span><span className="bottom01">9</span></button>
-                <button id="charCode48" className="keya01 key01"><span className="top01">)</span><span className="bottom01">0</span></button>
-                <button id="charCode45" className="keya01 key01"><span className="top01">_</span><span className="bottom01">-</span></button>
-                <button id="charCode61" className="keya01 key01"><span className="top01">+</span><span className="bottom01">=</span></button>
-                <button id="charCode" className="keya01 key01 backspacekey01"><span>backspace</span></button>
+            <div className="box bgSvg1">
+                <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <path className="path-3" d="M0,100  L0,0 100,100z"></path>
+                    <path className="path-2" d="M100,0  L15,0  90,100z"></path>
+                </svg>
             </div>
-            <div className="line01">
-                <button id="charCode" className="keya01 key01 tabkey01">tab</button>
-                <button id="charCode81" className="keya01 key01">Q</button>
-                <button id="charCode87" className="keyb01 key01">W</button>
-                <button id="charCode69" className="keyc01 key01">E</button>
-                <button id="charCode82" className="keyd01 key01">R</button>
-                <button id="charCode84" className="keyd01 key01">T</button>
-                <button id="charCode89" className="keyd01 key01">Y</button>
-                <button id="charCode85" className="keyd01 key01">U</button>
-                <button id="charCode73" className="keyc01 key01">I</button>
-                <button id="charCode79" className="keyb01 key01">O</button>
-                <button id="charCode80" className="keya01 key01">P</button>
-                <button id="charCode91" className="keya01 key01"><span className="top01">
-                  {/* { */}
-                
-                </span><span className="bottom01">[</span></button>
-                <button id="charCode93" className="keya01 key01"><span className="top01">
-                  {/* } */}
-                  </span><span className="bottom01">]</span></button>
-                <button id="charCode92" className="keya01 key01 backslashkey01"><span className="top01">|</span><span className="bottom01">\</span></button>
-            </div>
-            <div className="line01">
-                <button id="charCode" className="keya01 key01 capslockkey01">caps lock</button>
-                <button id="charCode65" className="keya01 key01">A</button>
-                <button id="charCode83" className="keyb01 key01">S</button>
-                <button id="charCode68" className="keyc01 key01">D</button>
-                <button id="charCode70" className="keyd01 key01">F</button>
-                <button id="charCode71" className="keyd01 key01">G</button>
-                <button id="charCode72" className="keyd01 key01">H</button>
-                <button id="charCode74" className="keyd01 key01">J</button>
-                <button id="charCode75" className="keyc01 key01">K</button>
-                <button id="charCode76" className="keyb01 key01">L</button>
-                <button id="charCode59" className="keya01 key01"><span className="top01">:</span><span className="bottom01">;</span></button>
-                <button id="charCode39" className="keya01 key01"><span className="top01">"</span><span className="bottom01">'</span></button>
-                <button id="charCode" className="keya01 key01 enterkey01">enter</button>
-            </div>
-            <div className="line01">
-                <button id="lshift" className="keya01 key01 lshiftkey01">shift</button>
-                <button id="charCode90" className="keya01 key01">Z</button>
-                <button id="charCode88" className="keyb01 key01">X</button>
-                <button id="charCode67" className="keyc01 key01">C</button>
-                <button id="charCode86" className="keyd01 key01">V</button>
-                <button id="charCode66" className="keyd01 key01">B</button>
-                <button id="charCode78" className="keyd01 key01">N</button>
-                <button id="charCode77" className="keyd01 key01">M</button>
-                <button id="charCode44" className="keyc01 key01"><span className="top01">
-                  {/* < */}
-                </span><span className="bottom01">,</span></button>
-                <button id="charCode46" className="keyb01 key01"><span className="top01">
-                  {/* > */}
-                </span><span className="bottom01">.</span></button>
-                <button id="charCode47" className="keya01 key01"><span className="top01">?</span><span className="bottom01">/</span></button>
-                <button id="rshift" className="keya01 key01 rshiftkey01">shift</button>
-            </div>
-            <div className="line01">
-                <button className="key01 llkey01 ctrlkey01">ctrl</button>
-                <button className="key01 llkey01">w</button>
-                <button className="key01 llkey01">alt</button>
-                <button className="key01 llkey01 spacekey01" id="spacekey">space</button>
-                <button className="key01 llkey01">alt</button>
-                <button className="key01 llkey01">p</button>
-                <button className="key01 llkey01">p</button>
-                <button className="key01 llkey01">ctrl</button>
-            </div>
-        </div>
-    </div>
-    <div className="center">
-        <div>
-            <canvas className="handContainter01" id="handContainer01" height="170" width="300"></canvas>
-        </div>
     </div>
     </>
   )
