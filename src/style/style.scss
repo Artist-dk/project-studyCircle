@@ -557,22 +557,6 @@ form p {
 
 // dashboard 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .hidden {
     display: none;
 }
@@ -1030,15 +1014,16 @@ h1  {
     margin-bottom: 40px;
     font-size: 48px;
 }
-.welcome {
+.h-box-1 {
     text-align: center;
     font-stretch: extra-expanded;
     font-family: monospace;
     font-weight: bold;
     background-size: cover;
     background-attachment: fixed;
-    min-height: 80vh;
+    // min-height: 80vh;
     display: flex;
+    padding-top: 100px;
     align-items: center;
     p {
         text-align: center;
@@ -1116,12 +1101,6 @@ h1  {
         -webkit-clip-path: polygon(70% 5%, 75% 0, 100% 0, 100% 85%, 95% 90%, 40% 90%, 30% 100%, 0 100%, 0 9%, 70% 10%);
         clip-path: polygon(70% 5%, 75% 0, 100% 0, 100% 85%, 95% 90%, 40% 90%, 30% 100%, 0 100%, 0 9%, 70% 10%);
         }
-    }
-    .h-box-2 {
-        padding: 10px;
-    }
-    .h-box-1 {
-        padding: 60px 40px;
     }
 }
 
