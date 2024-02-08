@@ -9,7 +9,7 @@ const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: '',
-  database: 'users'
+  database: 'scchatapp'
 }) 
 
 app.get('/',(re,res)=> {
@@ -17,12 +17,24 @@ app.get('/',(re,res)=> {
 })
 
 app.get('/users', (req, res)=> {
-  const sql = "SELECT * FROM users";
+  db.query("USE scchatapp")
+  const sql = "SELECT * FROM messages";
   db.query(sql, (err,data)=> {
     if(err) return res.json(err);
     return res.json(data);
   })
 })
+app.get('/get', (req, res)=> {
+  let sql = "USE scchatapp"
+  sql =  `SELECT * FROM messages WHERE sender = 1 AND receiver = 2`;
+  db.query(sql, ()=> {
+    if(err) return res.json(err)
+    return res.json(data)
+  })
+})
+
+
+
 app.listen(8081, () => {
   console.log("listening")
 })
