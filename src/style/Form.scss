@@ -1,0 +1,231 @@
+
+// form 
+
+/* button, checkbox, color, date, datetime, datetime-local, email, file, hidden, image, month, number, password, radio, range, reset, search, submit, text, time, url, week */
+
+$width: 340px;
+.form-cont{    
+    // display: grid;
+    grid-template-columns:  auto;
+    margin: 20px auto;
+    // max-width: 400px;
+    width: fit-content;
+    box-sizing: border-box;
+    z-index: 10;
+    h1 {
+        margin:0;
+        width: $width;
+    }
+    p{        
+        width: $width;
+    }
+    form {
+        // .msg {}
+        .i-cont {
+            display: flex;
+            justify-content: flex-end;
+            i {
+                float: left;
+                align-items: flex-end;
+            }
+        }
+        .textareaBox {
+            $height: 100px;
+            position: relative;
+            height: $height;
+            width: $width;
+            margin: 0 auto;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            div {
+                textarea{
+                    resize: none;
+                    position: relative;
+                    bottom: 0;
+                    height: $height;
+                    width: $width;
+                    padding: 12px;
+                    border: none;
+                    outline: none;
+                    color:var(--color-c);
+                    font-size: 1em;
+                    letter-spacing: 0.05em;
+                    z-index: 10;
+                    box-sizing: border-box; 
+                    border-bottom: solid 2px var(--cdpfg);
+                    box-shadow: 0 5px 5px -5px black;
+                }
+                .textarea-label {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    font-size: 16px;
+                    pointer-events: none;
+                    letter-spacing: 0.05em;
+                    transition: 0.5s;
+                    box-sizing: border-box;
+                }
+                i {
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    width: $width;
+                    height: 0px;
+                    transition: 0.5s;
+                    pointer-events: none;
+                    z-index: 9;
+                    width: 100%;
+                    box-sizing: border-box;
+                    padding: 0 10px;
+                }
+                .error-msg {
+                    transform: translateY( -44px );
+                    transform: translate( 0px, - calc($height) );
+                    align-self: flex-end;
+                    transition: .5s;
+                }
+                textarea:valid ~ i,
+                textarea:focus ~ i {
+                    height: $height;
+                }
+                textarea:valid ~ .textarea-label, 
+                textarea:focus ~ .textarea-label {
+                    transform: translate( 2px,  calc(-20px ));
+                    position: absolute;
+                    top: 0;
+                    font-size: 14px;
+                    pointer-events: none;
+                    letter-spacing: 0.05em;
+                    transition: 0.5s;
+                    box-sizing: border-box;
+                    padding: 0;
+                    margin: 0;
+                }
+                textarea:valid ~ .error-msg, 
+                textarea:focus ~ .error-msg {
+                    transform: translate( -2px, - calc($height + 32px) );
+                }
+                p {
+                    display: flex;
+                    justify-content: end;
+                }
+            }
+        }
+        .inputBox {
+            position: relative;
+            height: 45px;
+            width: $width;
+            margin: 0 auto;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            input[type="submit"] {
+                border-bottom: none;
+                font-weight: bold;
+                width: $width;
+                margin: 0 auto;
+                cursor: pointer;
+                padding: 12px 0;
+            }
+            input[type="submit"]:hover {
+            }
+            div {
+                input {
+                    position: relative;
+                    width: $width;
+                    padding: 12px;
+                    border: none;
+                    outline: none;
+                    font-size: 1em;
+                    letter-spacing: 0.05em;
+                    z-index: 10;
+                    box-sizing: border-box; 
+                }
+                input[type="submit"] {
+                    border-bottom: none;
+                    font-weight: bold;
+                    width: $width;
+                    margin: 0 auto;
+                    cursor: pointer;
+                    padding: 12px 0;
+                }
+                input[type="file" i] {
+                    position: relative;
+                    width: $width;
+                    padding: 5px;
+                    border: none;
+                    outline: none;
+                    font-size: 1em;
+                    letter-spacing: 0.05em;
+                    z-index: 10;
+                    box-sizing: border-box;
+                }
+                ::-webkit-file-upload-button {
+                    cursor: pointer;
+                    padding: 5px;
+                    border-radius: 0px;
+                }
+                button {
+                    padding: 10px 20px;
+                    width: $width;
+                }
+                .input-label {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    font-size: 16px;
+                    pointer-events: none;
+                    letter-spacing: 0.05em;
+                    transition: 0.5s;
+                    box-sizing: border-box;
+                }
+                i {
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    width: $width;
+                    height: 0;
+                    transition: 0.5s;
+                    pointer-events: none;
+                    z-index: 9;
+                    width: 100%;
+                    box-sizing: border-box;
+                    padding: 0 10px;
+                }
+                .error-msg {
+                    transform: translateY( -44px );
+                    align-self: flex-end;
+                    transition: .5s;
+                }
+                textarea:valid ~ i,
+                textarea:focus ~ i, 
+                input:valid ~ i,
+                input:focus ~ i {
+                    height: 44px;
+                }
+                input:valid ~ .input-label, 
+                input:focus ~ .input-label {
+                    transform: translate( 2px,  calc(-20px ));
+                    position: absolute;
+                    top: 0;
+                    font-size: 14px;
+                    pointer-events: none;
+                    letter-spacing: 0.05em;
+                    transition: 0.5s;
+                    box-sizing: border-box;
+                    padding: 0;
+                    margin: 0;
+                }
+                input:valid ~ .error-msg, 
+                input:focus ~ .error-msg {
+                    transform: translate( -2px, -72px );
+                }
+                p {
+                    display: flex;
+                    justify-content: end;
+                }
+            }
+        }
+    }
+}

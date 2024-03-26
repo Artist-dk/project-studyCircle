@@ -1,5 +1,6 @@
 import React from 'react'
 import img1 from '../../images/profilepic.jpg'
+import Footer from './footer'
 export default function About() {
   return (<>
     <div className="box-3">
@@ -45,6 +46,7 @@ export default function About() {
             <p>Our target at Study Circleis to make education accessible to all. We understand that every student has unique needs and learning styles, and we strive to cater to those needs by providing personalized evaluation and study material. Our aim is to create a platform that empowers students to take control of their learning, no matter their age, background, or skill level. We believe that education is a powerful tool that can transform lives, and we are committed to providing a platform that enables students to reach their full potential. Join us at Study Circleand discover the power of education!</p>
         </div>
     </div>
+    <Footer />
 </>
   )
 }

@@ -4,8 +4,7 @@ import React from 'react';
 export default function STuserLogin() {
   return (
     <div className="mid">
-        <div className="glass list box-3 fit-center">
-            <div className="form-cont">
+        <div className="glass list box-3 fit-center form-cont">
                 <h1>STUDY TOWN USER LOGIN</h1>
                 <form data-validation="1">
                     <div className="msg">
@@ -83,7 +82,6 @@ export default function STuserLogin() {
                         </div>
                     </div>
                 </form>
-            </div>
         </div>
     </div>
   )

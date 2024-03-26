@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-
 import Home from './main/Home';
 import Accounts from './main/Accounts';
 import Contactus from './main/Contactus';
@@ -10,14 +9,11 @@ import Contests from './main/Contests';
 import Library from './main/Library';
 import About from './main/About';
 
-
-
 export default function Main() {  
     
 const [page, setPage] = useState(<Home />);
 return (
   <>
-
     <header className="header">
         <div className="row1">
             <div className="col1">

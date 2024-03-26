@@ -15,8 +15,9 @@ Study Circle is an innovative educational platform designed to revolutionize the
 ## Getting Started
 
 ### Prerequisites
-
+- [React.js]()
 - [Node.js](https://nodejs.org/)
+- [Express.js]()
 - [MySQL](https://www.mysql.com/)
 
 ### Installation
@@ -27,11 +28,12 @@ Study Circle is an innovative educational platform designed to revolutionize the
 - `npm install sass`
 - `npm install react-router-dom`
 - `npm install --save react-google-charts`
+- `npm start`
 4. Install back-end dependencies:
 - `npm init -y`
 - `npm install express mysql cors`
 - `npm i -g nodemon`
-- `npm start`
+- `nnodemon start`
 
 4. Set up the database and configuration: 
 

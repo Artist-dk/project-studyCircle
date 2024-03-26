@@ -5,7 +5,7 @@ export default function Contactus() {
   <>
     <div className="box">
       <div className="mid">
-          <div className="glass list box-3 fit-center">
+          <div className="glass list box-3 form-cont fit-center">
               <div className="form-cont">
                   <h1>CONTACT US</h1>
                   <form data-validation="1">

@@ -4,8 +4,7 @@ import React from 'react';
 export default function LibrarianLogin() {
   return (
     <div className="mid">
-        <div className="glass list box-3 fit-center">
-            <div className="form-cont">
+        <div className="glass list box-3 fit-center form-cont">
                 <h1>LIBRARIAN LOGIN</h1>
                 <form data-validation="1">
                     <div className="msg">
@@ -83,7 +82,6 @@ export default function LibrarianLogin() {
                         </div>
                     </div>
                 </form>
-            </div>
         </div>
     </div>
   )
