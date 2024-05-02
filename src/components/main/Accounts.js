@@ -6,7 +6,7 @@ import LibrarianLogin from './forms/LibrarianLogin';
 import SCuserLogin from './forms/SCuserLogin';
 import TeacherLogin from './forms/TeacherLogin';
 
-import '../../style/Form.scss'
+import './Form.css'
 
 
 let tp;

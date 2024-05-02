@@ -1,27 +1,25 @@
 import React from 'react'
-import '../../style/MainFooter.scss'
+import './MainFooter.css'
 
 export default function Footer() {
   return (
     <div className="footer">
       <div className="mid">
         <h1>Study Circle</h1>
-        <h4>Sub Heading</h4>
+        <h2>Supportive Academic Environment</h2>
+        <p>A comprehensive educational platform for students and educators.</p>
         <nav className="linkBox">
-          <ul>
-            <li>Home</li>
-            <li>Contact</li>
-            <li>About</li>
-          </ul>
+      <ul class="links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Courses</a></li>
+        <li><a href="#">Tutorials</a></li>
+        <li><a href="#">Community</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
         </nav>
-        <nav className="btnBox">
-          <ul>
-            <li><button>H</button></li>
-            <li><button>H</button></li>
-            <li><button>H</button></li>
-          </ul>
-        </nav>
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus soluta impedit cum illo laudantium corporis assumenda mollitia sapiente. Blanditiis porro odit accusantium voluptatum rem pariatur a obcaecati rerum consectetur voluptatem!</p>
+  <div class="footer-bottom">
+    <p>&copy; 2024 Study Circle. All rights reserved. | Designed by Digambar Kumbhar</p>
+  </div>
       </div>
     </div>
   )

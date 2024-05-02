@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './header.css'
 
 import Home from './main/Home';
 import Accounts from './main/Accounts';

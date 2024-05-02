@@ -28,6 +28,8 @@ Study Circle is an innovative educational platform designed to revolutionize the
 - `npm install sass`
 - `npm install react-router-dom`
 - `npm install --save react-google-charts`
+- `npm install axios`
+- `npm i -D react-router-dom@latest`
 - `npm start`
 4. Install back-end dependencies:
 - `npm init -y`

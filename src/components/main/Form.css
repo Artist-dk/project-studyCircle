@@ -1,26 +1,28 @@
 
-// form 
+/* form  */
 
 /* button, checkbox, color, date, datetime, datetime-local, email, file, hidden, image, month, number, password, radio, range, reset, search, submit, text, time, url, week */
 
-$width: 340px;
+:root {
+    --width: 340px;
+    --height: 44px;
+}
+
 .form-cont{    
-    // display: grid;
     grid-template-columns:  auto;
     margin: 20px auto;
-    // max-width: 400px;
     width: fit-content;
     box-sizing: border-box;
     z-index: 10;
     h1 {
         margin:0;
-        width: $width;
+        width: var(--width);
     }
     p{        
-        width: $width;
+        width: var(--width);
     }
     form {
-        // .msg {}
+        /* // .msg {} */
         .i-cont {
             display: flex;
             justify-content: flex-end;
@@ -30,10 +32,10 @@ $width: 340px;
             }
         }
         .textareaBox {
-            $height: 100px;
+            height: 100px;
             position: relative;
-            height: $height;
-            width: $width;
+            height: var(--height);
+            width: var(--width);
             margin: 0 auto;
             margin-top: 50px;
             margin-bottom: 20px;
@@ -43,8 +45,8 @@ $width: 340px;
                     resize: none;
                     position: relative;
                     bottom: 0;
-                    height: $height;
-                    width: $width;
+                    height:var(--height);
+                    width: var(--width);
                     padding: 12px;
                     border: none;
                     outline: none;
@@ -70,7 +72,7 @@ $width: 340px;
                     position: absolute;
                     left: 0;
                     bottom: 0;
-                    width: $width;
+                    width: var(--width);
                     height: 0px;
                     transition: 0.5s;
                     pointer-events: none;
@@ -81,13 +83,13 @@ $width: 340px;
                 }
                 .error-msg {
                     transform: translateY( -44px );
-                    transform: translate( 0px, - calc($height) );
+                    transform: translate( 0px, - calc(var(--width)) );
                     align-self: flex-end;
                     transition: .5s;
                 }
                 textarea:valid ~ i,
                 textarea:focus ~ i {
-                    height: $height;
+                    height: var(--height);
                 }
                 textarea:valid ~ .textarea-label, 
                 textarea:focus ~ .textarea-label {
@@ -104,7 +106,7 @@ $width: 340px;
                 }
                 textarea:valid ~ .error-msg, 
                 textarea:focus ~ .error-msg {
-                    transform: translate( -2px, - calc($height + 32px) );
+                    transform: translate( -2px, - calc(var(--height) + 32px) );
                 }
                 p {
                     display: flex;
@@ -115,7 +117,7 @@ $width: 340px;
         .inputBox {
             position: relative;
             height: 45px;
-            width: $width;
+            width: var(--width);
             margin: 0 auto;
             margin-top: 50px;
             margin-bottom: 20px;
@@ -123,17 +125,17 @@ $width: 340px;
             input[type="submit"] {
                 border-bottom: none;
                 font-weight: bold;
-                width: $width;
+                width: var(--width);
                 margin: 0 auto;
                 cursor: pointer;
                 padding: 12px 0;
             }
-            input[type="submit"]:hover {
-            }
+            /* input[type="submit"]:hover {
+            } */
             div {
                 input {
                     position: relative;
-                    width: $width;
+                    width: var(--width);
                     padding: 12px;
                     border: none;
                     outline: none;
@@ -145,14 +147,14 @@ $width: 340px;
                 input[type="submit"] {
                     border-bottom: none;
                     font-weight: bold;
-                    width: $width;
+                    width: var(--width);
                     margin: 0 auto;
                     cursor: pointer;
                     padding: 12px 0;
                 }
                 input[type="file" i] {
                     position: relative;
-                    width: $width;
+                    width: var(--width);
                     padding: 5px;
                     border: none;
                     outline: none;
@@ -168,7 +170,7 @@ $width: 340px;
                 }
                 button {
                     padding: 10px 20px;
-                    width: $width;
+                    width: var(--width);
                 }
                 .input-label {
                     position: absolute;
@@ -184,7 +186,7 @@ $width: 340px;
                     position: absolute;
                     left: 0;
                     bottom: 0;
-                    width: $width;
+                    width: var(--width);
                     height: 0;
                     transition: 0.5s;
                     pointer-events: none;

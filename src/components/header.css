@@ -1,0 +1,36 @@
+
+
+
+.header {
+    overflow: hidden;
+    transition: .5s;
+    .row1, .row3 {
+        display:flex;
+        span {
+            display: inline-block;
+            padding: 10px 20px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    }
+    .row1 {
+        justify-content: space-between;
+    }
+    .row3 {
+        justify-content: center;
+    }
+    .row2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .title h1 {
+            font-size: 50px;
+            margin:0;
+            padding: 5px;
+            font-weight: bold;
+            font-family: cursive;
+            /* // font-family: 'Courier New', Courier, monospace; */
+            letter-spacing: 4px;
+        }
+    }
+}

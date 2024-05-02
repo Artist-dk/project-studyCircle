@@ -4,10 +4,11 @@
     padding: 70px 0;
     h1 {
       margin: 0;
+      font-size: 52px;
     }
-    h4 {
-      // color: red;
-      margin-bottom: 50px;
+    h2 {
+      /* // color: red; */
+      margin: 20px auto 50px auto;
     }
     .linkBox {
       ul {
@@ -16,23 +17,12 @@
           margin: 10px 5px;
           padding: 10px 20px;
           display: inline-block;
-        }
-      }
-    }
-    .btnBox {
-      margin-bottom: 50px;
-      ul {
-        list-style-type: none;
-        li {
-          margin: 10px;
-          display: inline;
-          button {
-            padding: 0;
-            height: 40px;
-            width: 40px;
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
+          a {
+            color: black;
+            background: white;
+            padding: 10px 20px;
+            display: block;
+            border-radius: 5px;
           }
         }
       }

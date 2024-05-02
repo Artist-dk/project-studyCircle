@@ -1,26 +1,14 @@
-import React from 'react'
+import React from 'react';
+import "./libraryStyle.css";
 
 export default function Library() {
   return (
-    <>
-      <div className="body home">
+    <div className="body home">
             <div className="h-box-1 welcome">
                 <div className="mid">
                     <p>Education is the most powerful weapon which you can use to change the world.</p>
                     <h1><span className="grad"><span>R</span>ESOURCE </span> REPOSITORY<br /></h1>
-                    <p className="glass fit-center box-3">Welcome to Study Circle- your one-stop destination for all your academic needs! With our comprehensive evaluation system, you can easily track your progress and identify areas that need improvement. We also provide a vast collection of study materials that cater to all levels of education, ensuring that you have access to the latest and most relevant information. At Study Town, we understand that education is the key to unlocking your potential, and we are committed to helping you achieve your academic goals. Join us today and take the first step towards a brighter future!</p>
-                    <div className="btnarea">
-                        <div className="btn-wrapper">
-                            <div className="btn">
-                                <button>LOGIN</button>
-                            </div>
-                        </div>
-                        <div className="btn-wrapper">
-                            <div className="btn">
-                                <button>CREATE ACC</button>
-                            </div>
-                        </div>
-                    </div>
+                    <p className="glass fit-center box-3">1000 Books</p>
                 </div>
             </div>
             <div className="box">
@@ -31,9 +19,53 @@ export default function Library() {
             </div>
             <div className="box-2">
                 <div className="mid">
-                    <h1>OUR GOAL</h1>
-                    <p>At Study Town, our goal is to empower students to take control of their academic journey. We believe that every student has the potential to succeed, and we are committed to providing the tools and resources needed to achieve that success. Our platform offers a comprehensive evaluation system that allows students to track their progress, identify areas for improvement, and measure their growth over time. Additionally, our extensive collection of study materials covers a wide range of subjects and levels of education, ensuring that every student has access to the information they need to excel. With Study Town, you can be confident that you have everything you need to reach your academic goals.</p>
-                    <p>Our target at Study Circleis to make education accessible to all. We understand that every student has unique needs and learning styles, and we strive to cater to those needs by providing personalized evaluation and study material. Our aim is to create a platform that empowers students to take control of their learning, no matter their age, background, or skill level. We believe that education is a powerful tool that can transform lives, and we are committed to providing a platform that enables students to reach their full potential. Join us at Study Circleand discover the power of education!</p>
+                    <h1>Registered Books: </h1>
+                    <div className="lib-card-grid">
+                        <div className='mid'>
+                            <div className="lib-card1">
+                                <div className="bg"></div>
+                                <div className="container">
+                                    <h1>3k</h1>
+                                    <div className="content">
+                                        <h2>Digital Library</h2>
+                                        <table>
+                                            <tr>
+                                                <td>Registered Books</td>
+                                                <td>20000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Access Rate</td>
+                                                <td>20000</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <button>Go to Library</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='mid'>
+                            <div className="lib-card1">
+                                <div className="bg"></div>
+                                <div className="container">
+                                    <h1>3k</h1>
+                                    <div className="content">
+                                        <h2>Physical Library</h2>
+                                        <table>
+                                            <tr>
+                                                <td>Registered Books</td>
+                                                <td>20000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Access Rate</td>
+                                                <td>20000</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <button>Go to Library</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className="box bgSvg2">
@@ -44,8 +76,27 @@ export default function Library() {
             </div>
             <div className="box-1">
                 <div className="mid">
-                    <h1>LIBRARY</h1>
-                    <p>The library at Study Circleis a comprehensive collection of study materials that cover a wide range of subjects and levels of education. Our library features a vast array of resources, including textbooks, practice exams, study guides, and video tutorials. We understand that every student has different learning needs, and that's why our library offers multiple formats to cater to different learning styles. Whether you prefer visual aids or hands-on activities, our library has everything you need to succeed. Our study material is regularly updated to ensure that students have access to the latest and most relevant information. With Study Town's library, you can be confident that you have all the resources you need to excel academically.</p>
+                    <h1>Categories</h1>
+                    <p>Here's a list of common book categories:</p>
+                    <ul className="categories-list">
+                        <li>Fiction</li>
+                        <li>Non-fiction</li>
+                        <li>Mystery</li>
+                        <li>Thriller</li>
+                        <li>Science Fiction</li>
+                        <li>Fantasy</li>
+                        <li>Biography</li>
+                        <li>Autobiography</li>
+                        <li>Self-help</li>
+                        <li>Historical Fiction</li>
+                        <li>Horror</li>
+                        <li>Children's Books</li>
+                        <li>Young Adult</li>
+                        <li>Travel</li>
+                        <li>Cooking</li>
+                        <li>Art & Photography</li>
+                        <li>Business & Finance</li>
+                    </ul>
                 </div>
             </div>
             <div className="box bgSvg1">
@@ -56,8 +107,56 @@ export default function Library() {
             </div>
             <div className="box-2">
                 <div className="mid">
-                    <h1>CONTESTS</h1>
-                    <p>At Study Town, we believe that healthy competition is a great motivator for learning. That's why we regularly organize contests that encourage students to showcase their knowledge and skills. Our contests are designed to be both fun and educational, and we offer a range of topics and levels of difficulty to cater to all students. By participating in our contests, students have the opportunity to test their knowledge, learn from their peers, and earn recognition for their hard work. We believe that contests are an excellent way to engage students and promote a love of learning, and we are committed to creating a platform where students can challenge themselves and reach their full potential. Join us at Study Circleand take part in our exciting contests today!</p>
+                    <h1>Top Physical Libraries</h1>
+                    <p>Below list shows top engaged physical libraries registered on StudyCircle.</p>
+                    
+                    <table className='books-table'>
+                      <thead>
+                        <tr>
+                          <th>Title</th>
+                          <th>Author</th>
+                          <th>Category</th>
+                          <th>Opportunities</th>
+                          <th>Status</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      <tr>
+                            <td>Project Phoenix</td>
+                            <td>John Doe</td>
+                            <td>Technology</td>
+                            <td>High</td>
+                            <td>In Progress</td>
+                            <td><a href="#">Edit</a> | <a href="#">Delete</a></td>
+                        </tr>
+                        <tr>
+                            <td>Marketing Campaign X</td>
+                            <td>Jane Smith</td>
+                            <td>Marketing</td>
+                            <td>Medium</td>
+                            <td>Approved</td>
+                            <td><a href="#">View Details</a></td>
+                        </tr>
+                        <tr>
+                            <td>Website Redesign</td>
+                            <td>Alice Jones</td>
+                            <td>Design</td>
+                            <td>High</td>
+                            <td>Planning</td>
+                            <td><a href="#">Assign Team</a></td>
+                        </tr>
+                        <tr>
+                            <td>Content Strategy</td>
+                            <td>David Lee</td>
+                            <td>Marketing</td>
+                            <td>Medium</td>
+                            <td>Drafting</td>
+                            <td><a href="#">Review</a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+
                 </div>
             </div>
             <div className="box bgSvg2">
@@ -68,8 +167,54 @@ export default function Library() {
             </div>
             <div className="box-1">
                 <div className="mid">
-                    <h1>PRACTICE</h1>
-                    <p>The Practice Platform at Study Circleis a valuable resource that allows students to hone their skills and knowledge in a safe, supportive environment. Our platform offers a wide range of practice exercises and quizzes that cover a variety of subjects and levels of education. Whether you're preparing for an exam or simply looking to reinforce your understanding of a particular topic, our Practice Platform is the perfect tool to help you achieve your goals. Our platform is designed to be user-friendly and interactive, providing instant feedback and explanations to help you learn as you go. With Study Town's Practice Platform, you can build confidence in your abilities and achieve success in your academic pursuits. Join us today and start practicing!</p>
+                    <h1>Most accessed digital books</h1>
+                    
+                    <table className='books-table'>
+                      <thead>
+                        <tr>
+                          <th>Title</th>
+                          <th>Author</th>
+                          <th>Category</th>
+                          <th>Opportunities</th>
+                          <th>Status</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      <tr>
+                            <td>Project Phoenix</td>
+                            <td>John Doe</td>
+                            <td>Technology</td>
+                            <td>High</td>
+                            <td>In Progress</td>
+                            <td><a href="#">Edit</a> | <a href="#">Delete</a></td>
+                        </tr>
+                        <tr>
+                            <td>Marketing Campaign X</td>
+                            <td>Jane Smith</td>
+                            <td>Marketing</td>
+                            <td>Medium</td>
+                            <td>Approved</td>
+                            <td><a href="#">View Details</a></td>
+                        </tr>
+                        <tr>
+                            <td>Website Redesign</td>
+                            <td>Alice Jones</td>
+                            <td>Design</td>
+                            <td>High</td>
+                            <td>Planning</td>
+                            <td><a href="#">Assign Team</a></td>
+                        </tr>
+                        <tr>
+                            <td>Content Strategy</td>
+                            <td>David Lee</td>
+                            <td>Marketing</td>
+                            <td>Medium</td>
+                            <td>Drafting</td>
+                            <td><a href="#">Review</a></td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
             <div className="box bgSvg1">
@@ -80,8 +225,54 @@ export default function Library() {
             </div>
             <div className="box-2">
                 <div className="mid">
-                    <h1>ROLE OF TEACHERS</h1>
-                    <p>At Study Town, the role of teachers is to provide students with regular updates and to assist them in their learning journey. Teachers on Study Circleare responsible for verifying and checking students' responses to queries and providing feedback and guidance to help them improve their understanding of the material. They are also available to answer any questions that students may have and to provide additional support as needed. By creating a collaborative environment between teachers and students, Study Circleaims to enhance the learning experience and help students reach their academic goals.</p>
+                    <h1>Most accessed physical books</h1>
+
+                    <table className='books-table'>
+                      <thead>
+                        <tr>
+                          <th>Title</th>
+                          <th>Author</th>
+                          <th>Category</th>
+                          <th>Opportunities</th>
+                          <th>Status</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      <tr>
+                            <td>Project Phoenix</td>
+                            <td>John Doe</td>
+                            <td>Technology</td>
+                            <td>High</td>
+                            <td>In Progress</td>
+                            <td><a href="#">Edit</a> | <a href="#">Delete</a></td>
+                        </tr>
+                        <tr>
+                            <td>Marketing Campaign X</td>
+                            <td>Jane Smith</td>
+                            <td>Marketing</td>
+                            <td>Medium</td>
+                            <td>Approved</td>
+                            <td><a href="#">View Details</a></td>
+                        </tr>
+                        <tr>
+                            <td>Website Redesign</td>
+                            <td>Alice Jones</td>
+                            <td>Design</td>
+                            <td>High</td>
+                            <td>Planning</td>
+                            <td><a href="#">Assign Team</a></td>
+                        </tr>
+                        <tr>
+                            <td>Content Strategy</td>
+                            <td>David Lee</td>
+                            <td>Marketing</td>
+                            <td>Medium</td>
+                            <td>Drafting</td>
+                            <td><a href="#">Review</a></td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
             <div className="box bgSvg2">
@@ -92,15 +283,7 @@ export default function Library() {
             </div>
         <div className="box-1">
             <div className="mid">
-                <h1>Instruction</h1>
-                <ul>
-                    <li>dashboard</li>
-                    <li>dashboardStudent</li>
-                    <li>College will apply for StudyCircle Registration by filling required details.</li>
-                    <li>College through College Login will verify the student details and after StudyCircle verification ID will be generated and Student will get enrolled in the StudyCircle.</li>
-                    <li>User Name is ID and Password can be generated on clicking Forgot Password.</li>
-                    <li>For any queries regarding your account issue please contact us.</li>
-                </ul>
+                <h1>Upload new book</h1>
                 <p></p>
             </div>
         </div>
@@ -111,6 +294,5 @@ export default function Library() {
                 </svg>
             </div>
     </div>
-    </>
   )
 }
