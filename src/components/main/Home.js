@@ -10,9 +10,8 @@ function trackScroll() {
 
     const scrollPosition = window.scrollY || window.pageYOffset;
 
-    // Do something with the scroll position
-    console.log("Current Scroll Position:", scrollPosition);
-}// Function to get total scroll length of the document
+    // console.log("Current Scroll Position:", scrollPosition);
+}
 function getTotalScrollLength() {
     // Total height of the document
     const totalHeight = Math.max(
@@ -35,7 +34,7 @@ const academicProgressData = [20, 40, 60, 80, 100];
 
 // Get and log the total scroll length
 const totalScrollLength = getTotalScrollLength();
-console.log("Total Scroll Length:", totalScrollLength);
+// console.log("Total Scroll Length:", totalScrollLength);
 
 // Event listener for scroll event
 window.addEventListener("scroll", trackScroll);

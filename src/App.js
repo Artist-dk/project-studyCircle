@@ -8,12 +8,12 @@ import './style/themeDark.scss';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 export default function App(){
-  useEffect(() => {
-    fetch('http://localhost:8081/users')
-    .then(res => res.json())
-    .then(data => console.log(data))
-    .catch(err => console.log(err))
-  })
+  // useEffect(() => {
+  //   fetch('http://localhost:8081/users')
+  //   .then(res => res.json())
+  //   .then(data => console.log(data))
+  //   .catch(err => console.log(err))
+  // })
   const [page, setPage] = useState(<Main />);
   return (
     <BrowserRouter>

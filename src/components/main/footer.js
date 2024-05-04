@@ -9,7 +9,7 @@ export default function Footer() {
         <h2>Supportive Academic Environment</h2>
         <p>A comprehensive educational platform for students and educators.</p>
         <nav className="linkBox">
-      <ul class="links">
+      <ul className="links">
         <li><a href="#">Home</a></li>
         <li><a href="#">Courses</a></li>
         <li><a href="#">Tutorials</a></li>
@@ -17,7 +17,7 @@ export default function Footer() {
         <li><a href="#">Contact Us</a></li>
       </ul>
         </nav>
-  <div class="footer-bottom">
+  <div className="footer-bottom">
     <p>&copy; 2024 Study Circle. All rights reserved. | Designed by Digambar Kumbhar</p>
   </div>
       </div>

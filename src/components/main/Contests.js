@@ -7,21 +7,8 @@ export default function Contests() {
       <div className="body home">
             <div className="h-box-1 welcome">
                 <div className="mid">
-                    <p>Education is the most powerful weapon which you can use to change the world.</p>
+                    {/* <p>Education is the most powerful weapon which you can use to change the world.</p> */}
                     <h1><span className="grad"><span>W</span>ISDOM </span> WARZONE<br /></h1>
-                    <p className="glass fit-center box-3">Welcome to Study Circle- your one-stop destination for all your academic needs! With our comprehensive evaluation system, you can easily track your progress and identify areas that need improvement. We also provide a vast collection of study materials that cater to all levels of education, ensuring that you have access to the latest and most relevant information. At Study Town, we understand that education is the key to unlocking your potential, and we are committed to helping you achieve your academic goals. Join us today and take the first step towards a brighter future!</p>
-                    <div className="btnarea">
-                        <div className="btn-wrapper">
-                            <div className="btn">
-                                <button>LOGIN</button>
-                            </div>
-                        </div>
-                        <div className="btn-wrapper">
-                            <div className="btn">
-                                <button>CREATE ACC</button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
             <div className="box">

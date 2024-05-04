@@ -6,9 +6,9 @@ export default function Library() {
     <div className="body home">
             <div className="h-box-1 welcome">
                 <div className="mid">
-                    <p>Education is the most powerful weapon which you can use to change the world.</p>
+                    {/* <p>Education is the most powerful weapon which you can use to change the world.</p> */}
                     <h1><span className="grad"><span>R</span>ESOURCE </span> REPOSITORY<br /></h1>
-                    <p className="glass fit-center box-3">1000 Books</p>
+                    {/* <p className="glass fit-center box-3">1000 Books</p> */}
                 </div>
             </div>
             <div className="box">
@@ -282,11 +282,55 @@ export default function Library() {
                 </svg>
             </div>
         <div className="box-1">
-            <div className="mid">
-                <h1>Upload new book</h1>
-                <p></p>
+            <div className="mid">    
+                <h2>Add New Book</h2>
+                    <form action="add_book.php" method="post">
+                        <label for="title">Title:</label><br />
+                        <input type="text" id="title" name="title" required /><br />
+
+                        <label for="author">Author:</label><br />
+                        <input type="text" id="author" name="author" required /><br />
+
+                        <label for="publisher">Publisher:</label><br />
+                        <input type="text" id="publisher" name="publisher" /><br />
+
+                        <label for="publication_date">Publication Date:</label><br />
+                        <input type="date" id="publication_date" name="publication_date" /><br />
+
+                        <label for="genre">Genre:</label><br />
+                        <input type="text" id="genre" name="genre"/><br />
+
+                        <label for="description">Description:</label><br />
+                        <textarea id="description" name="description"></textarea><br />
+
+                        <label for="language">Language:</label><br />
+                        <input type="text" id="language" name="language"/><br />
+
+                        <label for="number_of_pages">Number of Pages:</label><br />
+                        <input type="number" id="number_of_pages" name="number_of_pages" /><br />
+
+                        <label for="price">Price:</label><br />
+                        <input type="number" id="price" name="price" step="0.01" /><br />
+
+                        <label for="edition">Edition:</label><br />
+                        <input type="text" id="edition" name="edition" /><br />
+
+                        <label for="cover_image_url">Cover Image URL:</label><br />
+                        <input type="text" id="cover_image_url" name="cover_image_url" /><br />
+
+                        <label for="book_type">Book Type:</label><br />
+                        <select id="book_type" name="book_type">
+                            <option value="physical">Physical</option>
+                            <option value="ebook">Ebook</option>
+                        </select><br />
+
+                        <label for="book_file">Book File:</label><br/>
+                        <input type="file" id="book_file" name="book_file" accept=".pdf,.doc,.docx,.txt" /><br/>
+        
+                        <input type="submit" value="Add Book" />
+                    </form>
+                </div>
             </div>
-        </div>
             <div className="box bgSvg1">
                 <svg viewBox="0 0 100 100" preserveAspectRatio="none">
                     <path className="path-3" d="M0,100  L0,0 100,100z"></path>

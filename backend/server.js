@@ -4,37 +4,40 @@ const cors = require('cors')
 
 const app = express()
 app.use(cors())
+app.use(express.json())
+app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'scchatapp'
-}) 
+    host: 'localhost',
+    user: 'root',
+    password: 'Root@123',
+    database: 'studycircle'
+});
+db.connect((err) => {
+  if (err) throw err;
+  console.log('Connected to MySQL database');
+});
 
-app.get('/',(re,res)=> {
-  return res.json("From Backend side");
+app.get('/',(req,res)=> {
+  console.log(req.query)
+  return res.json({ user: 'artist' })
 })
 
-app.get('/users', (req, res)=> {
-  db.query("USE scchatapp")
-  const sql = "SELECT * FROM messages";
-  db.query(sql, (err,data)=> {
-    if(err) return res.json(err);
-    return res.json(data);
-  })
-})
-app.get('/get', (req, res)=> {
-  let sql = "USE scchatapp"
-  sql =  `SELECT * FROM messages WHERE sender = 1 AND receiver = 2`;
-  db.query(sql, ()=> {
-    if(err) return res.json(err)
-    return res.json(data)
-  })
-})
+app.post('/submit', (req, res) => {
+  let { firstname, lastname, emailid, phoneno, message } = req.body;
 
+  const sql = 'INSERT INTO contactus (firstname, lastname, phoneno, emailid, message) VALUES (?, ?, ?, ?, ?)';
 
+  db.query(sql, [firstname, lastname, phoneno, emailid, message], (err, result) => {
+      if (err) {
+          console.error('Error saving contact:', err);
+          res.status(500).json({ error: 'Error saving contact' });
+      } else console.log('Contact saved successfully')
+  });
+  res.json({ message: 'JSON data received successfully' });
+});
 
+// ----------------
 app.listen(8081, () => {
   console.log("listening")
 })

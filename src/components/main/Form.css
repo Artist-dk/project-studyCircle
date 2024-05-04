@@ -83,13 +83,12 @@
                 }
                 .error-msg {
                     transform: translateY( -44px );
-                    transform: translate( 0px, - calc(var(--width)) );
                     align-self: flex-end;
                     transition: .5s;
                 }
                 textarea:valid ~ i,
                 textarea:focus ~ i {
-                    height: var(--height);
+                    height:calc( var(--height));
                 }
                 textarea:valid ~ .textarea-label, 
                 textarea:focus ~ .textarea-label {
@@ -106,7 +105,7 @@
                 }
                 textarea:valid ~ .error-msg, 
                 textarea:focus ~ .error-msg {
-                    transform: translate( -2px, - calc(var(--height) + 32px) );
+                    transform: translate( -2px, -79px );
                 }
                 p {
                     display: flex;
@@ -115,8 +114,8 @@
             }
         }
         .inputBox {
-            position: relative;
             height: 45px;
+            position: relative;
             width: var(--width);
             margin: 0 auto;
             margin-top: 50px;
