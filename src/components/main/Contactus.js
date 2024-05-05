@@ -17,7 +17,6 @@ export default function Contactus() {
   const setForm = function(){
     console.log("----------setForm")
     if(formRef.current.dataset.validation) {
-      // formRef.current.addEventListener("submit",saveFormData);
       for(var j=0;j<formRef.current.elements.length;j++) {
         new FormValidation(formRef.current.elements[j])
       }
@@ -40,10 +39,7 @@ export default function Contactus() {
     }, {});
     // dt = JSON.stringify(dt);
     console.log(dt)
-    // setContactUsData(dt);
     console.log("----------sendFormData")
-    // console.log(contactUsData)
-    // Make a POST request to submit form data
     axios.post('http://localhost:8081/send-email', dt)
       .then(response => {
         console.log('Form submitted successfully:', response.data);

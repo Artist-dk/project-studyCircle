@@ -130,8 +130,14 @@
       .input {
         min-width: 300px;
         width: 100%;
-        margin: 10px 0;
-        label {
+        /* height: 52px; */
+        margin-top: 30px;
+        margin-bottom: 20px;
+        box-sizing: border-box;
+        .input-label {
+          height: 0;
+          transform: translate(0,0px);
+          position: absolute;
           padding: 5px;
           display: block;
           color: #aab;
@@ -145,11 +151,12 @@
           width: 100%;
           font-size: 16px;
           outline: none;
+          color-scheme: dark;
         }
         input[type=submit] {
           background: #ff2c2c;
           width: fit-content;
-          padding: 20px 30px ;
+          /* padding: 20px 30px ; */
         }
         input[type=submit] > div {
           background: #ff2c2c;
@@ -175,6 +182,7 @@
         select {
           width: 100%;
           padding: 15px;
+          text-indent: 5px;
         }
         option {
           padding: 5px;
@@ -184,7 +192,26 @@
         textarea {
           resize: vertical;
         }
+        .input-label {
+          height: 0;
+          transform: translate(0,-25px);
+          position: absolute;
+        }
+        .error-msg {
+          color: #f00;
+          float: right;
+          height: 0;
+          margin: 0;
+          padding: 0;
+          transform: translateY(-80px);
+        }
+        .err {
+          color: #f55;
+        }
       }
     }
   }
+}
+::-webkit-calendar-picker-indicator {
+  color: white;
 }

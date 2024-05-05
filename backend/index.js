@@ -3,6 +3,10 @@ const mysql = require('mysql')
 const cors = require('cors')
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
+const multer = require('multer');
+const fs = require('fs');
+const path = require('path');
+
 
 const app = express()
 
@@ -21,7 +25,6 @@ db.connect((err) => {
   if (err) throw err;
   console.log('Connected to MySQL database');
 });
-
 app.get('/',(req,res)=> {
   console.log(req.query)
   return res.json({ user: 'artist' })
@@ -40,6 +43,47 @@ app.post('/submit', (req, res) => {
   });
   res.json({ message: 'JSON data received successfully' });
 });
+
+
+// ------------- add new book
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+      cb(null, 'library-ebooks/');
+  },
+  filename: function (req, file, cb) {
+      cb(null, file.originalname);
+  }
+});
+const upload1 = multer({ storage: storage });
+app.post('/library-add-new-book', upload1.single('file'), (req, res) => {
+  try {
+      // Insert the file information into the database
+      const filename = req.file.originalname;
+      const url = req.protocol + '://' + req.get('host') + '/uploads/' + req.file.filename;
+
+      db.query('INSERT INTO files (filename, url) VALUES (?, ?)', [filename, url], (error, results, fields) => {
+          if (error) {
+              console.error(error);
+              res.status(500).send('Error uploading file');
+              return;
+          }
+
+          res.send('File uploaded successfully!');
+      });
+  } catch (err) {
+      console.error(err);
+      res.status(500).send('Error uploading file');
+  }
+});
+
+// Serve uploaded files
+app.use('/library-ebooks', express.static(path.join(__dirname, 'library-ebooks')));
+
+
+
+
+
 
 // ----------------
 app.post('/send-email', (req, res) => {

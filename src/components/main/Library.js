@@ -1,9 +1,72 @@
-import React from 'react';
-import "./libraryStyle.css";
+import React, { useEffect, useRef, useState } from 'react';
 import { withRouter, Link,  } from 'react-router-dom';
+
+import axios from 'axios';
+import FormValidation from './FormValidation';
+
+import "./libraryStyle.css";
+
 const Library = () => {
-  const goToStudent = () => {
-  };
+    const [contactUsData, setContactUsData] = useState({
+        firstname: '',
+        lastname: '',
+        phoneno: '',
+        emailid: '',
+        message: ''
+    });
+    const formRef = useRef({});
+    const fileInputRef = useRef(null);
+  
+    const setForm = function(){
+        console.log("----------setForm")
+        if(formRef.current.dataset.validation) {
+            for(var j=0;j<formRef.current.elements.length;j++) {
+            new FormValidation(formRef.current.elements[j])
+            }
+        }
+  
+        formRef.current.elements["title"].value = 'The Great Gatsby';
+        formRef.current.elements["author"].value = 'F. Scott Fitzgerald';
+        formRef.current.elements["pages"].value = '180';
+        formRef.current.elements["language"].value = 'English';
+        formRef.current.elements["publication_date"].value = '1925-04-10';
+        formRef.current.elements["publisher"].value = 'Charles Scribner\'s Sons';
+        formRef.current.elements["genre"].value = 'Fiction';
+        formRef.current.elements["edition"].value = 'First';
+        formRef.current.elements["price"].value = '10.99';
+        formRef.current.elements["description"].value = 'A novel by F. Scott Fitzgerald.';
+        formRef.current.elements["cover_image_url"].value = 'https://example.com/great-gatsby-cover.jpg';
+    };
+    
+  
+    const sendFormData = (e) => {
+        console.log("----------saveFormData")
+        console.log(e.target)
+        e.preventDefault();
+        var dt = new FormData(e.target)
+        dt.append('file', fileInputRef.current.files[0]);
+        console.log(fileInputRef.current.files[0])
+        dt = Array.from(dt.keys()).reduce((r, k) => {
+            r[k] = dt.get(k);
+            return r;
+        }, {});
+        console.log(dt)
+        // dt = JSON.stringify(dt);
+        console.log(dt)
+        console.log("----------sendFormData")
+        axios.post('http://localhost:8081/library-add-new-book', dt, {headers: {'Content-Type': 'multipart/form-data'}} )
+            .then(response => {
+                console.log('Form submitted successfully:', response.data);
+            })
+            .catch(error => {
+                console.error('Error submitting form:', error);
+            });
+    };  
+  
+    useEffect(() => {
+      console.log("Calling to setForm() ")
+      setForm();
+    },[]);
   return (
     <div className="body home">
             <div className="h-box-1 welcome">
@@ -291,79 +354,104 @@ const Library = () => {
                 <div className="mid">    
                     {/* <h2>Add New Book</h2> */}
                     <div className="lib-form-container">
-                        <form action="add_book.php" method="post">
+                        <form ref={formRef} onSubmit={sendFormData} data-validation="1" data-formtype="2">
                             <h1><span>Add</span> New Book</h1>
                             <div className="row">
                                 <div className="input">
-                                    <label htmlFor="title">Title:</label>
-                                    <input type="text" id="title" name="title" required />
+                                    <label htmlFor="title" className="input-label">Title</label>
+                                    <input type="text" id="title" name="title" data-a="0" data-msg="Please enter a valid Title" data-name="Title" required />
+                                    <p className="error-msg">Required</p>
+                                    <i className="input-bg"></i>
                                 </div>
                                 <div className="input">
-                                    <label htmlFor="author">Author:</label>
-                                    <input type="text" id="author" name="author" required />
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="input">
-                                    <label htmlFor="publisher">Publisher:</label>
-                                    <input type="text" id="publisher" name="publisher" />
-                                </div>
-
-                                <div className="input">
-                                    <label htmlFor="publication_date">Publication Date:</label>
-                                    <input type="date" id="publication_date" name="publication_date" />
-                                </div>
-                            </div>
-
-                            <div className="row">
-                                <div className="input">
-                                    <label htmlFor="genre">Genre:</label>
-                                    <input type="text" id="genre" name="genre"/>
+                                    <label htmlFor="author" className="input-label">Author</label>
+                                    <input type="text" id="author" name="author" data-a="0" data-msg="Please enter a valid Author's Name" data-name="Author" required />
+                                    <p className="error-msg">Required</p>
+                                    <i className="input-bg"></i>
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="input">
-                                    <label htmlFor="description">Description:</label>
-                                    <textarea id="description" name="description"></textarea>
+                                    <label className="input-label" htmlFor="pages">Pages</label>
+                                    <input type="number" id="Pages" name="pages"  data-a="1" data-msg="Please enter a valid Number" data-name="Pages" required />
+                                    <p className="error-msg">Required</p>
+                                </div>
+                                <div className="input">
+                                    <label className="input-label" htmlFor="language">Language</label>
+                                    <input type="text" id="language" name="language" data-a="0" data-msg="Please enter a valid Language" data-name="Language" required />
+                                    <p className="error-msg">Required</p>
+                                    <i className="input-bg"></i>
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="input">
-                                    <label htmlFor="language">Language:</label>
-                                    <input type="text" id="language" name="language"/>
-                                </div>
-                                <div className="input">
-                                    <label htmlFor="edition">Edition:</label>
-                                    <input type="text" id="edition" name="edition" />
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="input">
-                                    <label htmlFor="number_of_pages">Number of Pages:</label>
-                                    <input type="number" id="number_of_pages" name="number_of_pages" />
-                                </div>
-                                <div className="input">
-                                    <label htmlFor="price">Price:</label>
-                                    <input type="number" id="price" name="price" step="0.01" />
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="input">
-                                    <label htmlFor="cover_image_url">Cover Image URL:</label>
-                                    <input type="text" id="cover_image_url" name="cover_image_url" />
-                                </div>
-                                <div className="input">
-                                    <label htmlFor="book_type">Book Type:</label>
-                                    <select id="book_type" name="book_type">
-                                        <option value="physical">Physical</option>
-                                        <option value="ebook">Ebook</option>
+                                    <label className="input-label" htmlFor="book_type">Book Type</label>
+                                    <select id="book_type" name="book_type"  data-a="1" data-msg="Please enter a valid Book Type" data-name="Book Type" >
+                                        <option value="physical" >Physical</option>
+                                        <option value="ebook" selected>Ebook</option>
                                     </select>
+                                    <p className="error-msg"></p>
+                                    <i className="input-bg"></i>
+                                </div>
+
+                                <div className="input">
+                                    <label htmlFor="publication_date" className="input-label">Publication Date</label>
+                                    <input type="date" id="publication_date" name="publication_date" data-a="0" data-msg="Please enter a valid Publication Date" data-name="Publication Date"  />
+                                    <p className="error-msg"></p>
+                                    <i className="input-bg"></i>
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="input">
-                                    <label htmlFor="book_file">Book File:</label><br/>
-                                    <input type="file" id="book_file" name="book_file" accept=".pdf,.doc,.docx,.txt" /><br/>
+                                    <label htmlFor="publisher" className="input-label">Publisher</label>
+                                    <input type="text" id="publisher" name="publisher"  data-a="0" data-msg="Please enter a valid Publisher" data-name="Publisher" />
+                                    <p className="error-msg"></p>
+                                    <i className="input-bg"></i>
+                                </div>
+                                <div className="input">
+                                    <label htmlFor="genre" className="input-label">Genre</label>
+                                    <input type="text" id="genre" name="genre" data-a="0" data-msg="Please enter a valid Genre" data-name="Genre" />
+                                    <p className="error-msg"></p>
+                                    <i className="input-bg"></i>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="input">
+                                    <label className="input-label" htmlFor="edition">Edition</label>
+                                    <input type="text" id="edition" name="edition"  data-a="0" data-msg="Please enter a valid Edition" data-name="Edition" />
+                                    <p className="error-msg"></p>
+                                    <i className="input-bg"></i>
+                                </div>
+                                <div className="input">
+                                    <label className="input-label" htmlFor="price">Price</label>
+                                    <input type="number" id="price" name="price" step="0.01" data-a="1" data-msg="Please enter a valid Price" data-name="Price" />
+                                    <p className="error-msg"></p>
+                                    <i className="input-bg"></i>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="input">
+                                    <label htmlFor="description" className="input-label">Description</label>
+                                    <textarea id="description" name="description" data-a="4" data-msg="Please enter a valid Description" data-name="Description" ></textarea>
+                                    <p className="error-msg"></p>
+                                    <i className="input-bg"></i>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="input">
+                                    <label className="input-label" htmlFor="cover_image_url">Cover Image URL</label>
+                                    <input type="text" id="cover_image_url" name="cover_image_url" data-a="6" data-msg="Please enter a valid URL" data-name="Cover Image URL" data-url="1"/>
+                                    <p className="error-msg"></p>
+                                    <i className="input-bg"></i>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="input">
+                                    <label className="input-label" htmlFor="book_file">Book File</label>
+                                    <input type="file" id="file" name="file" accept=".pdf,.doc,.docx,.txt" data-a="1" data-msg="Please select a valid Book File" data-name="Book File" 
+                                    ref={fileInputRef} />
+                                    <p className="error-msg"></p>
+                                    <i className="input-bg"></i>
                                 </div>
                             </div>
                             <div className="row">
@@ -377,8 +465,6 @@ const Library = () => {
             </div>
             <div className="box-1">
                 <Link to="/student">Student</Link>
-                <button onClick={goToStudent}>go to student</button>
-      <Link to="/student" onClick={goToStudent}>Student</Link>
             </div>
             <div className="box bgSvg1">
                 <svg viewBox="0 0 100 100" preserveAspectRatio="none">
