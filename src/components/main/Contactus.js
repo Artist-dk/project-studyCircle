@@ -1,69 +1,70 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
+
 import FormValidation from './FormValidation';
 
 export default function Contactus() {
-    const [formData, setFormData] = useState({
-      firstname: '',
-      lastname: '',
-      phoneno: '',
-      emailid: '',
-      message: ''
-    });
+  const [contactUsData, setContactUsData] = useState({
+    firstname: '',
+    lastname: '',
+    phoneno: '',
+    emailid: '',
+    message: ''
+  });
+  const formRef = useRef({});
 
-    const formRef = useRef("");
-    let contactForm = new FormValidation(formRef);
-  
-
-    useEffect(() => {
-
-      const handleSubmit = async (event) => {
-        // validateFormData();
-        event.preventDefault();
-        try {
-          await axios.post('your_server_url', formData);
-          // Optionally, you can handle success response here
-          console.log('Form submitted successfully');
-          // Clear form fields
-          setFormData({
-            firstname: '',
-            lastname: '',
-            phoneno: '',
-            emailid: '',
-            message: ''
-          });
-        } catch (error) {
-          // Handle error
-          console.error('Error submitting form:', error);
-        }
-      };
-  
-      if (formRef.current) {
-        formRef.current.addEventListener('submit', handleSubmit);
+  const setForm = function(){
+    console.log("----------setForm")
+    if(formRef.current.dataset.validation) {
+      // formRef.current.addEventListener("submit",saveFormData);
+      for(var j=0;j<formRef.current.elements.length;j++) {
+        new FormValidation(formRef.current.elements[j])
       }
-  
-      return () => {
-        if (formRef.current) {
-          formRef.current.removeEventListener('submit', handleSubmit);
-        }
-      };
-    }, [formData]);
-  
-    const handleChange = (event) => {
-      const { name, value } = event.target;
-      setFormData((prevData) => ({
-        ...prevData,
-        [name]: value
-      }));
-    };
+    }
+    formRef.current.elements["firstname"].value = 'varsha';
+    formRef.current.elements["lastname"].value = 'zagade';
+    formRef.current.elements["phoneno"].value = '8459811806';
+    formRef.current.elements["emailid"].value = 'zagadev01@gmail.com';
+    formRef.current.elements["message"].value = 'Pass@1234';
+  };
+
+  const sendFormData = (e) => {
+    console.log("----------saveFormData")
+    console.log(e.target)
+    e.preventDefault();
+    var dt = new FormData(e.target)
+    dt = Array.from(dt.keys()).reduce((r, k) => {
+      r[k] = dt.get(k);
+      return r;
+    }, {});
+    // dt = JSON.stringify(dt);
+    console.log(dt)
+    // setContactUsData(dt);
+    console.log("----------sendFormData")
+    // console.log(contactUsData)
+    // Make a POST request to submit form data
+    axios.post('http://localhost:8081/send-email', dt)
+      .then(response => {
+        console.log('Form submitted successfully:', response.data);
+      })
+      .catch(error => {
+        console.error('Error submitting form:', error);
+      });
+  };
+
+  useEffect(() => {
+    console.log("Calling to setForm() ")
+    setForm();
+  },[]);
   return (
-  <>
+    <>
     <div className="box">
       <div className="mid">
           <div className="glass list box-3 form-cont fit-center">
               <div className="form-cont">
                   <h1>CONTACT US</h1>
-                  <form ref={formRef} data-validation="1">
+                  <form ref={formRef}  onSubmit={(e)=>sendFormData(e)} data-validation="1">
                       <div className="msg">
                           Log in your account
                       </div>
@@ -95,7 +96,7 @@ export default function Contactus() {
                       </div>
                       <div className="inputBox">
                           <div>
-                              <input type="text" name="emialid" autoComplete="off" required data-a="2" data-msg="Please enter a valid Email ID" data-name="Email Id" />
+                              <input type="text" name="emailid" autoComplete="off" required data-a="2" data-msg="Please enter a valid Email ID" data-name="Email Id" />
                               <span className="input-label">Phone No.</span>
                               <i className="input-bg"></i>
                               <p className="error-msg">Required</p>
@@ -103,7 +104,7 @@ export default function Contactus() {
                       </div>
                       <div className="textareaBox">
                           <div>
-                              <textarea name="contactmsg" data-a="5" data-msg="Please enter a valid Message" data-name="Message" required></textarea>
+                              <textarea name="message" data-a="5" data-msg="Please enter a valid Message" data-name="Message" required></textarea>
                               <span className="textarea-label">Message</span>
                               <i className="textarea-bg"></i>
                               <p className="error-msg">Required</p>
@@ -111,7 +112,7 @@ export default function Contactus() {
                       </div>
                       <div className="inputBox">
                           <div>
-                              <input type="submit" />
+                              <input type="submit"/>
                           </div>
                       </div>
                   </form>

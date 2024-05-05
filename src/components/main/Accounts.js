@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, {  useState } from 'react'
 import CollegeReg from './forms/CollegeReg';
 import StudentLogin from './forms/StudentLogin';
 import HodLogin from './forms/HodLogin';
@@ -8,13 +8,11 @@ import TeacherLogin from './forms/TeacherLogin';
 
 import './Form.css'
 
+
 export default function Accounts() {
   const [page, setPage] = useState(<StudentLogin />);
   function set(a) {
     setPage(a);
-    // setTimeout(() => {
-      
-    // }, 1000);
   }
     return (
       <>

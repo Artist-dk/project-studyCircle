@@ -1,7 +1,9 @@
 import React from 'react';
 import "./libraryStyle.css";
-
-export default function Library() {
+import { withRouter, Link,  } from 'react-router-dom';
+const Library = () => {
+  const goToStudent = () => {
+  };
   return (
     <div className="body home">
             <div className="h-box-1 welcome">
@@ -29,6 +31,7 @@ export default function Library() {
                                     <div className="content">
                                         <h2>Digital Library</h2>
                                         <table>
+                                            <tbody>
                                             <tr>
                                                 <td>Registered Books</td>
                                                 <td>20000</td>
@@ -37,6 +40,7 @@ export default function Library() {
                                                 <td>Access Rate</td>
                                                 <td>20000</td>
                                             </tr>
+                                            </tbody>
                                         </table>
                                     </div>
                                     <button>Go to Library</button>
@@ -51,6 +55,7 @@ export default function Library() {
                                     <div className="content">
                                         <h2>Physical Library</h2>
                                         <table>
+                                            <tbody>
                                             <tr>
                                                 <td>Registered Books</td>
                                                 <td>20000</td>
@@ -59,6 +64,7 @@ export default function Library() {
                                                 <td>Access Rate</td>
                                                 <td>20000</td>
                                             </tr>
+                                            </tbody>
                                         </table>
                                     </div>
                                     <button>Go to Library</button>
@@ -281,55 +287,98 @@ export default function Library() {
                     <path className="path-2" d="M100,0  L15,0  90,100z"></path>
                 </svg>
             </div>
-        <div className="box-1">
-            <div className="mid">    
-                <h2>Add New Book</h2>
-                    <form action="add_book.php" method="post">
-                        <label for="title">Title:</label><br />
-                        <input type="text" id="title" name="title" required /><br />
+            <div className="box-1">
+                <div className="mid">    
+                    {/* <h2>Add New Book</h2> */}
+                    <div className="lib-form-container">
+                        <form action="add_book.php" method="post">
+                            <h1><span>Add</span> New Book</h1>
+                            <div className="row">
+                                <div className="input">
+                                    <label htmlFor="title">Title:</label>
+                                    <input type="text" id="title" name="title" required />
+                                </div>
+                                <div className="input">
+                                    <label htmlFor="author">Author:</label>
+                                    <input type="text" id="author" name="author" required />
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="input">
+                                    <label htmlFor="publisher">Publisher:</label>
+                                    <input type="text" id="publisher" name="publisher" />
+                                </div>
 
-                        <label for="author">Author:</label><br />
-                        <input type="text" id="author" name="author" required /><br />
+                                <div className="input">
+                                    <label htmlFor="publication_date">Publication Date:</label>
+                                    <input type="date" id="publication_date" name="publication_date" />
+                                </div>
+                            </div>
 
-                        <label for="publisher">Publisher:</label><br />
-                        <input type="text" id="publisher" name="publisher" /><br />
-
-                        <label for="publication_date">Publication Date:</label><br />
-                        <input type="date" id="publication_date" name="publication_date" /><br />
-
-                        <label for="genre">Genre:</label><br />
-                        <input type="text" id="genre" name="genre"/><br />
-
-                        <label for="description">Description:</label><br />
-                        <textarea id="description" name="description"></textarea><br />
-
-                        <label for="language">Language:</label><br />
-                        <input type="text" id="language" name="language"/><br />
-
-                        <label for="number_of_pages">Number of Pages:</label><br />
-                        <input type="number" id="number_of_pages" name="number_of_pages" /><br />
-
-                        <label for="price">Price:</label><br />
-                        <input type="number" id="price" name="price" step="0.01" /><br />
-
-                        <label for="edition">Edition:</label><br />
-                        <input type="text" id="edition" name="edition" /><br />
-
-                        <label for="cover_image_url">Cover Image URL:</label><br />
-                        <input type="text" id="cover_image_url" name="cover_image_url" /><br />
-
-                        <label for="book_type">Book Type:</label><br />
-                        <select id="book_type" name="book_type">
-                            <option value="physical">Physical</option>
-                            <option value="ebook">Ebook</option>
-                        </select><br />
-
-                        <label for="book_file">Book File:</label><br/>
-                        <input type="file" id="book_file" name="book_file" accept=".pdf,.doc,.docx,.txt" /><br/>
-        
-                        <input type="submit" value="Add Book" />
-                    </form>
+                            <div className="row">
+                                <div className="input">
+                                    <label htmlFor="genre">Genre:</label>
+                                    <input type="text" id="genre" name="genre"/>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="input">
+                                    <label htmlFor="description">Description:</label>
+                                    <textarea id="description" name="description"></textarea>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="input">
+                                    <label htmlFor="language">Language:</label>
+                                    <input type="text" id="language" name="language"/>
+                                </div>
+                                <div className="input">
+                                    <label htmlFor="edition">Edition:</label>
+                                    <input type="text" id="edition" name="edition" />
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="input">
+                                    <label htmlFor="number_of_pages">Number of Pages:</label>
+                                    <input type="number" id="number_of_pages" name="number_of_pages" />
+                                </div>
+                                <div className="input">
+                                    <label htmlFor="price">Price:</label>
+                                    <input type="number" id="price" name="price" step="0.01" />
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="input">
+                                    <label htmlFor="cover_image_url">Cover Image URL:</label>
+                                    <input type="text" id="cover_image_url" name="cover_image_url" />
+                                </div>
+                                <div className="input">
+                                    <label htmlFor="book_type">Book Type:</label>
+                                    <select id="book_type" name="book_type">
+                                        <option value="physical">Physical</option>
+                                        <option value="ebook">Ebook</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="input">
+                                    <label htmlFor="book_file">Book File:</label><br/>
+                                    <input type="file" id="book_file" name="book_file" accept=".pdf,.doc,.docx,.txt" /><br/>
+                                </div>
+                            </div>
+                            <div className="row">
+                                <div className="input input-submit">
+                                    <input type="submit" value="Add Book" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
+            </div>
+            <div className="box-1">
+                <Link to="/student">Student</Link>
+                <button onClick={goToStudent}>go to student</button>
+      <Link to="/student" onClick={goToStudent}>Student</Link>
             </div>
             <div className="box bgSvg1">
                 <svg viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -340,3 +389,5 @@ export default function Library() {
     </div>
   )
 }
+
+export default Library;

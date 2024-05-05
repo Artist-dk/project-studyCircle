@@ -224,14 +224,16 @@ window.addEventListener("scroll", trackScroll);
                                     <div className="content">
                                         <h2>Digital Library</h2>
                                         <table>
-                                            <tr>
-                                                <td>Registered Books</td>
-                                                <td>20000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Access Rate</td>
-                                                <td>20000</td>
-                                            </tr>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Registered Books</td>
+                                                    <td>20000</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Access Rate</td>
+                                                    <td>20000</td>
+                                                </tr>
+                                            </tbody>
                                         </table>
                                     </div>
                                     <button>Go to Library</button>

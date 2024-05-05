@@ -5,7 +5,7 @@ import Teacher from './components/Teacher';
 
 import './style/style.css';
 import './style/themeDark.scss';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route,Link } from 'react-router-dom';
 
 export default function App(){
   // useEffect(() => {
@@ -18,37 +18,11 @@ export default function App(){
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Main />}>
+        <Route path="/" element={<Main />}/>
           <Route index element={<Main />} />
-          <Route path="blogs" element={<Student />} />
-          <Route path="contact" element={<Teacher />} />
-          {/* <Route path="*" element={<NoPage />} /> */}
-        </Route>
+          <Route path="/student" element={<Student />} />
+          <Route path="/teacher" element={<Teacher />} />
       </Routes>
     </BrowserRouter>
-    // <>  
-    //         {page} 
-    // <button onClick={
-    //   ()=>{
-    //     setPage(<Main />);
-    //     sessionStorage.setItem("sclayout", "home");
-    //     // console.log(sessionStorage.getItem("sclayout"));
-    //   }
-    //   }>Main</button>
-    //   <button onClick={
-    //     ()=>{
-    //       setPage(<Student />);
-    //       sessionStorage.setItem("sclayout", "home");
-    //       // console.log(sessionStorage.getItem("sclayout"));
-    //     }
-    //     }>Signin</button>
-    //   <button onClick={()=>{
-    //     setPage(<Teacher />);
-    //     sessionStorage.setItem("sclayout", "student");
-    //     // console.log(sessionStorage.getItem("sclayout"));
-    //   }}>Signup</button>
-
-
-    // </>
   ) 
 }
