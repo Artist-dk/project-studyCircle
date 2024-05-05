@@ -17,9 +17,8 @@ class Book {
         this.file_url = file_url;
     }
 
-    // Static method to save a new book to the database
     static create(bookData, callback) {
-        const sql = `INSERT INTO books (title, author, pages, language, book_type, publication_date, publisher, genre, edition, price, description, cover_image_url, file_url) 
+        const sql = `INSERT INTO ebooks (title, author, pages, language, book_type, publication_date, publisher, genre, edition, price, description, cover_image_url, file_url) 
                      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
         
         const values = [
@@ -46,6 +45,35 @@ class Book {
                 console.log('Book saved successfully');
                 return callback(null, result);
             }
+        });
+    }
+    static async getAllBooks() {
+        const sql = 'SELECT * FROM ebooks';
+        return new Promise((resolve, reject) => {
+            db.query(sql, (error, results) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    const books = results.map(result => {
+                        return new Book(
+                            result.title,
+                            result.author,
+                            result.pages,
+                            result.language,
+                            result.book_type,
+                            result.publication_date,
+                            result.publisher,
+                            result.genre,
+                            result.edition,
+                            result.price,
+                            result.description,
+                            result.cover_image_url,
+                            result.file_url
+                        );
+                    });
+                    resolve(books);
+                }
+            });
         });
     }
 }

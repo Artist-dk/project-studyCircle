@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const contactRoute = require('./routes/contact');
 const libraryRoute = require('./routes/library');
 const emailRoute = require('./routes/email');
-const testRoute = require('./routes/test')
+const testRoute = require('./routes/test');
 
 const app = express();
 
