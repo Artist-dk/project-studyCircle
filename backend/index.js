@@ -59,10 +59,26 @@ const upload1 = multer({ storage: storage });
 app.post('/library-add-new-book', upload1.single('file'), (req, res) => {
   try {
       // Insert the file information into the database
+      console.log(req.body)
+      console.log(req.body.title)
       const filename = req.file.originalname;
       const url = req.protocol + '://' + req.get('host') + '/uploads/' + req.file.filename;
 
-      db.query('INSERT INTO files (filename, url) VALUES (?, ?)', [filename, url], (error, results, fields) => {
+      db.query(`INSERT INTO ebooks (title, author, pages, language, book_type, publication_date, publisher, genre, edition, price, description, cover_image_url, book_url) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`, [
+        req.body.title, 
+        req.body.author, 
+        req.body.pages, 
+        req.body.language, 
+        req.body.book_type, 
+        req.body.publication_date, 
+        req.body.publisher, 
+        req.body.genre, 
+        req.body.edition, 
+        req.body.price, 
+        req.body.description, 
+        req.body.cover_image_url,
+        url
+      ], (error, results, fields) => {
           if (error) {
               console.error(error);
               res.status(500).send('Error uploading file');
