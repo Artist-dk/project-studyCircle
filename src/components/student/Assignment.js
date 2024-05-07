@@ -19,6 +19,7 @@ export default function Assignment() {
                 </div>
                 <div className="middle">
                     <input type="text" placeholder="Title" />
+                    <textarea name="description" id=""></textarea>
                 </div>
                 <div className="bottom">
                     <button>Send Query</button>

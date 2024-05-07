@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Discussion from './student/Discussion'
 import Assignment from './student/Assignment';
 import Progress from './student/Progress';
+import './Student.css';
 
 
 function open(e) {

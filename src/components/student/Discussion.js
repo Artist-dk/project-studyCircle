@@ -1,4 +1,5 @@
 import React from 'react'
+import "./Discussion.css"
 
 export default function Discussion() {
   return (

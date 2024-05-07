@@ -649,33 +649,6 @@ form p {
 
 
 
-/* // card-1 */
-    
-.todo-nav {
-    width:fit-content;
-    border-radius: 15px;
-    /* margin: 10px; */
-    align-self: center;
-    position: sticky;
-    top: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    span {
-        margin: 5px;
-        display: inline-block;
-        padding: 10px 20px;
-        border-radius: 10px;
-        cursor: pointer;
-        flex-shrink: 2;
-    }
-    span:hover {
-    }
-    .active {
-    }
-}
-    
 .nav {
     width:fit-content;
     border-radius: 15px;
@@ -703,6 +676,13 @@ form p {
     .active {
     }
 }
+
+
+
+
+
+
+
 .card-1 {
     border-radius: 5px;
     padding: 10px 20px;
@@ -718,16 +698,16 @@ form p {
             margin-bottom: 5px;
         }
         .date {
-            /* color: #ffffffaa; */
+            color: #ffffffaa;
         }
         .time {
-            /* color: white; */
+            color: #888;
         }
         .title {
             justify-self: center;
             flex-grow: 2;
             padding: 5px;
-            /* color: white */
+            color: #999;
         }
         .status {
             /* color: white; */
@@ -753,11 +733,12 @@ form p {
         }
     }
     textarea {
-        resize: none;
+        resize: vertical;
+        border-radius: 7px;
         width: 100%;
         box-sizing: border-box;
         outline: none;
-        border: none;
+        border: solid 1px #444;
         padding: 10px 20px;
         margin: 0;
         margin-bottom: -5px;
@@ -808,10 +789,3 @@ form p {
         }
     }
 }
-
-
-
-
-
-
-
