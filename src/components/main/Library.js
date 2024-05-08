@@ -54,7 +54,7 @@ const Library = () => {
         // dt = JSON.stringify(dt);
         console.log(dt)
         console.log("----------sendFormData")
-        axios.post('http://localhost:8081/add-new-book', dt, {headers: {'Content-Type': 'multipart/form-data'}} )
+        axios.post('http://localhost:8081/library/add-new-book', dt, {headers: {'Content-Type': 'multipart/form-data'}} )
             .then(response => {
                 console.log('Form submitted successfully:', response.data);
             })
