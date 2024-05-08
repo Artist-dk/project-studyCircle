@@ -4,6 +4,7 @@ import Footer from './footer'
 import './homeStyle.css'
 import Slider from './home/Slider'
 import AcademicProgressGraph from './AcademicProgressGraph';
+import { Link } from 'react-router-dom';
 
 export default function Home() {
 function trackScroll() {
@@ -49,16 +50,13 @@ window.addEventListener("scroll", trackScroll);
                 materials that cater to all levels of education, ensuring that you have access to the latest and most relevant information. At Study Town, we understand that education is the key to unlocking your potential, and we are committed to helping
                 you achieve your academic goals. Join us today and take the first step towards a brighter future!</p>
             <div className="btnarea">
-                <div className="btn-wrapper">
-                    <div className="btn">
-                        <button>LOGIN</button>
+                <Link state="login" to="/accounts">
+                    <div className="btn-wrapper">
+                        <div className="btn">
+                            <button>LOGIN</button>
+                        </div>
                     </div>
-                </div>
-                <div className="btn-wrapper">
-                    <div className="btn">
-                        <button>CREATE ACC</button>
-                    </div>
-                </div>
+                </Link>
             </div>
         </div>
     </div>

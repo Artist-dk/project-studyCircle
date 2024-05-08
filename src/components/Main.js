@@ -3,7 +3,7 @@ import { Route,Routes, Link } from 'react-router-dom';
 import './header.css'
 
 import Home from './main/Home';
-import Accounts from './main/Accounts';
+import Accounts from './Accounts';
 import Contactus from './main/Contactus';
 import Tutorial from './main/Tutorial';
 import Practice from './main/Practice';

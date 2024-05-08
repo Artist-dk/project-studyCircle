@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export default function STuserLogin() {
+export default function User() {
   return (
     <div className="mid">
         <div className="glass list box-3 fit-center form-cont">

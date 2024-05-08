@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export default function CollegeReg() {
+export default function College() {
     return (
       <div className="mid">
           <div className="glass list box-3 fit-center form-cont">
@@ -12,6 +12,29 @@ export default function CollegeReg() {
                       </div>
                       <div className="i-cont">
                       </div>
+                      
+        <input type="text" id="username" name="username" required /><br /><br />
+
+        <input type="email" id="email" name="email" required /><br /><br />
+
+        <input type="password" id="password" name="password" required /><br /><br />
+
+        <select id="userType" name="userType" required>
+            <option value="Student">Student</option>
+            <option value="Teacher">Teacher</option>
+            <option value="University">University</option>
+        </select><br /><br />
+
+        <input type="text" id="fullName" name="fullName" />
+
+        <input type="text" id="profilePicture" name="profilePicture" />
+
+        <textarea id="bio" name="bio" rows="4" cols="50"></textarea>
+
+        <input type="number" id="universityID" name="universityID" />
+
+        <input type="number" id="collegeID" name="collegeID" />
+
                       <div className="inputBox">
                           <div>
                               <input name="firstName" type="text" autoComplete="off" required data-a="0" data-msg="Please enter a valid name" data-name="First Name" />

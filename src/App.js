@@ -4,7 +4,7 @@ import Student from './components/Student';
 import Teacher from './components/Teacher';
 import PLibrary from './components/library/PLibrary';
 import ELibrary from './components/library/ELibrary';
-import Accounts from './components/main/Accounts';
+import Accounts from './components/Accounts';
 
 import './style/style.css';
 import './style/themeDark.scss';

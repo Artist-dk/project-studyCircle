@@ -45,6 +45,8 @@ $b4: #333;
 $b5: #444;
 $b6: #555;
 
+$glassBorder: #433a;
+
 
 .thA { 
     * {
@@ -286,7 +288,7 @@ $b6: #555;
         color: $f1;
         background: $bglass;
         box-shadow: 0 0 20px $shadow;
-        border: solid 1px $prime;
+        border: solid 1px $glassBorder;
     }
     .mid {
         background: $transp;

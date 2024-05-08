@@ -653,12 +653,12 @@ form p {
     width:fit-content;
     border-radius: 15px;
     align-self: center;
-    top: 10px;
+    top: 30px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    margin: 0 auto;
+    margin: 20px auto;
     position: sticky;
     z-index: 10;
     backdrop-filter: blur(15px);
