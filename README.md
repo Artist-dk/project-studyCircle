@@ -36,7 +36,7 @@ Study Circle is an innovative educational platform designed to revolutionize the
 - `npm install express mysql cors`
 - `npm i -g nodemon`
 - `nnodemon start`
-- 'npm install cors'
+- `npm install cors`
 
 4. Set up the database and configuration: 
 
