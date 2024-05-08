@@ -6,7 +6,7 @@ const upload = require('../config/multerConfig');
 
 router.get('/fetchUsers', messageController.fetchUsers);
 router.get('/fetchMessages', messageController.fetchMessages);
-router.get('/sendMessage', upload.single('file'), messageController.fetchMessages);
+router.post('/saveMessage', upload.single('file'), messageController.saveMessage);
 router.get('/getRecipientId', upload.single('file'), messageController.fetchMessages);
 router.get('/recipientDetails', upload.single('file'), messageController.fetchMessages);
 

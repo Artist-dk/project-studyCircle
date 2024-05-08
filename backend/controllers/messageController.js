@@ -1,5 +1,62 @@
 const db = require('../config/dbConfig');
 
+// messageController.js
+const MessageModel = require('../models/message');
+
+const MessageController = {
+  saveMessage: (req, res) => {
+    const { SenderID, RecipientID, MessageType, MessageContent, MediaSource, SentAt } = req.body;
+
+    const messageData = {
+      SenderID,
+      RecipientID,
+      MessageType,
+      MessageContent,
+      MediaSource,
+      SentAt
+    };
+
+    MessageModel.save(messageData, (err, messageId) => {
+      if (err) {
+        return res.status(500).json({ error: 'Internal server error' });
+      }
+      res.status(201).json({ message: 'Message saved successfully', messageId });
+    });
+  },
+  // getRecipientId
+  getReceiverId: (req, res) => {
+    const receiverId = req.params.receiverId;
+
+    MessageModel.getMessagesByReceiverId(receiverId, (err, messages) => {
+      if (err) {
+        return res.status(500).json({ error: 'Internal server error' });
+      }
+      res.status(200).json(messages);
+    });
+  },
+
+  fetchUsers: (req, res) => {
+    MessageModel.fetchUsers((err, message) => {
+      if (err) {
+        return res.status(500).json({ error: 'Internal server error' });
+      }
+      res.status(200).json(message);
+    });
+  },
+
+  
+  // fetchMessages
+  fetchMessages: (req, res) => {
+    MessageModel.fetchMessages((err, message) => {
+      if (err) {
+        return res.status(500).json({ error: 'Internal server error' });
+      }
+      res.status(200).json(message);
+    });
+  },
+};
+
+module.exports = MessageController;
 
 // Add a New Book
 exports.fetchUsers = (req, res) => {

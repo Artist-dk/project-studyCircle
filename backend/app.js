@@ -5,48 +5,48 @@ const libraryRoute = require('./routes/library');
 const emailRoute = require('./routes/email');
 const testRoute = require('./routes/test');
 const messageRoute = require('./routes/message')
+const accountRoute = require('./routes/account')
 const session = require('express-session');
-// const cors = require("cors");
+const cors = require("cors");
+const MySQLStore = require('express-mysql-session')(session);
+
+const db = require('./config/dbConfig')
 
 const app = express();
 
-
-// Middleware for managing sessions
+const sessionStore = new MySQLStore({}, db);
 app.use(session({
-    secret: 'your_secret_key',
+    secret: 'your_secret_key', // Change this to a random string
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: false,
+    store: sessionStore,
+    cookie: {
+      secure: false, // Set to true if using HTTPS
+      maxAge: 1000 * 60 * 60 * 24 // Session expiration time (1 day)
+    }
 }));
-
 
 app.set('view engine', 'ejs');
 
-// Serve static files
 app.use(express.static('public'));
 
-// app.use(cors());
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Middleware to set the 'Access-Control-Allow-Origin' header
 app.use((req, res, next) => {
-    res.setHeader('Access-Control-Allow-Origin','*'); // or specify specific origins instead of '*'
+    res.setHeader('Access-Control-Allow-Origin','*');
     next();
 });
 
+app.use('/account', accountRoute);
 app.use('/contact', contactRoute);
 app.use('/library', libraryRoute);
 app.use('/email', emailRoute);
 app.use('/',testRoute);
 app.use('/message', messageRoute)
 
-// app.get('/',(req,res)=> {
-//     console.log(req.query)
-//     return res.json({ user: 'artist' })
-//   })
-  
 
-// const PORT = process.env.PORT || 8081;
 const PORT = 8081;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
