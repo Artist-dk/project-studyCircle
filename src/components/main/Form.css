@@ -10,7 +10,7 @@
 
 .form-cont{    
     grid-template-columns:  auto;
-    margin: 20px auto;
+    margin: 50px auto !important;
     width: fit-content;
     box-sizing: border-box;
     z-index: 10;

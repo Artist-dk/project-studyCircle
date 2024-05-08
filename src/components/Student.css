@@ -7,8 +7,7 @@
 .dashboard {
     display: flex;
     /* height: calc(100vh - 145px); */
-    .body {
-    }
+
     .main {
       /* margin: 0 20px; */
         box-sizing: border-box;
@@ -196,9 +195,6 @@
       cursor: pointer;
       flex-shrink: 2;
   }
-  span:hover {
-  }
-  .active {
-  }
+
 }
   

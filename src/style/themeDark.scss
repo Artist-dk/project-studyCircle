@@ -747,11 +747,10 @@ $b6: #555;
     }
 }
 .nav {
-    border: solid 2px $b1;
-    background-color: $b1;
+    border: solid 2px $b4;
     color: white;
     span {
-        background-color: $b2;
+        background-color: $b4;
         // border-right: 2px $f1 solid;
     }
     span:hover {

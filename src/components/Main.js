@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Route,Routes } from 'react-router-dom';
+import { Route,Routes, Link } from 'react-router-dom';
 import './header.css'
 
 import Home from './main/Home';
@@ -44,7 +44,9 @@ export default function Main() {
               <span onClick={() => setCurrentPage('Contact Us')}>CONTACT US</span>
             </div>
             <div className="col2">
-              <span onClick={() => setCurrentPage('Login')}>LOGIN</span>
+              <Link to="/accounts">
+                <span>Login</span>
+              </Link>
             </div>
           </div>
           <div className="row2">
@@ -66,7 +68,9 @@ export default function Main() {
             <path className="path-2" d="M0,0  L100,30 100,0z"></path>
           </svg>
         </div>
-        <div className="body home">{renderPage()}</div>
+        <div className="body home">
+          {renderPage()}
+        </div>
       </>
     );
   }

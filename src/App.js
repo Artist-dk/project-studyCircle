@@ -2,6 +2,9 @@ import React, {useState, useEffect} from 'react';
 import Main from './components/Main';
 import Student from './components/Student';
 import Teacher from './components/Teacher';
+import PLibrary from './components/library/PLibrary';
+import ELibrary from './components/library/ELibrary';
+import Accounts from './components/main/Accounts';
 
 import './style/style.css';
 import './style/themeDark.scss';
@@ -22,6 +25,9 @@ export default function App(){
           <Route index element={<Main />} />
           <Route path="/student" element={<Student />} />
           <Route path="/teacher" element={<Teacher />} />
+          <Route path="/accounts" element={<Accounts />} />
+          <Route path="/e-library" element={<ELibrary />} />
+          <Route path="/p-library" element={<PLibrary />} />
       </Routes>
     </BrowserRouter>
   ) 

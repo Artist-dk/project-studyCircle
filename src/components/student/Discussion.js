@@ -7,13 +7,18 @@ export default function Discussion() {
     <div className="chat-main">
         <div className="chat-head">
             <div className="grid-1">
-                <div className="img-cont">
-                    <img src="s.jpg" alt="" />
+                <div className="contact-head">
+                <div className="contact-head-main">
+                    <div className="img-cont">
+                        <img src="https://i.pinimg.com/564x/5d/ad/83/5dad83eac77969d6583e067e3a82f0b3.jpg" alt="" />
+                    </div>
+                    <div className="details-cont">
+                        <div className="name">Sundar pichai</div>
+                        <div className="status">online</div>
+                    </div>
                 </div>
-                <div className="details-cont">
-                    <div className="name">Sundar pichai</div>
-                    <div className="status">online</div>
                 </div>
+                <div className="grow"></div>
                 <div className="btn-cont">
                     <button>
                         <svg stroke="currentColor" fill="none" strokeWidth="3" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" className="h-6 w-6" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>

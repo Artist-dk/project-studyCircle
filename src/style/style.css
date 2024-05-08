@@ -405,16 +405,16 @@ form p {
     // border-radius: 10px;; */
 
 }
-::-webkit-scrollbar-corner {
-}
+/* ::-webkit-scrollbar-corner {
+} */
 ::-webkit-scrollbar-thumb {
     border-radius: 10px;
 }
-::-webkit-scrollbar-track-piece {
+/* ::-webkit-scrollbar-track-piece {
 
 }
 ::-webkit-scrollbar-thumb:hover {
-}
+} */
 .hidden {
     display: none;
 }
@@ -529,8 +529,8 @@ form p {
     transition: .5s;
     cursor: pointer;
 }
-::-webkit-scrollbar-thumb:hover {
-}
+/* ::-webkit-scrollbar-thumb:hover {
+} */
 .hidden {
     display: none;
 }
@@ -652,17 +652,16 @@ form p {
 .nav {
     width:fit-content;
     border-radius: 15px;
-    /* margin: 10px; */
     align-self: center;
-    /* // position: sticky; */
     top: 10px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     margin: 0 auto;
-    margin-top: 10px;
-    margin-bottom: 40px;
+    position: sticky;
+    z-index: 10;
+    backdrop-filter: blur(15px);
     span {
         margin: 5px;
         display: inline-block;
@@ -671,10 +670,10 @@ form p {
         cursor: pointer;
         flex-shrink: 2;
     }
-    span:hover {
+    /* span:hover {
     }
     .active {
-    }
+    } */
 }
 
 
@@ -767,8 +766,8 @@ form p {
         flex-wrap: wrap;
         min-height: 0;
         flex-shrink: 10;
-        .set{
-        }
+        /* .set{
+        } */
         .grow {
             flex-grow: 2;
         }
@@ -782,8 +781,8 @@ form p {
             margin: 7px;
             border: none;
         }
-        button:active, input:active {
-        }
+        /* button:active, input:active {
+        } */
         input[type="file"] {
             padding: 2px 10px;
         }
