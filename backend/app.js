@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const contactRoute = require('./routes/contact');
+const contactusRoute = require('./routes/contactus');
 const libraryRoute = require('./routes/library');
 const emailRoute = require('./routes/email');
 const testRoute = require('./routes/test');
@@ -40,7 +40,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/account', accountRoute);
-app.use('/contact', contactRoute);
+app.use('/contactus', contactusRoute);
 app.use('/library', libraryRoute);
 app.use('/email', emailRoute);
 app.use('/',testRoute);
