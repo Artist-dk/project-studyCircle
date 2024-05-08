@@ -56,6 +56,7 @@ export default function Main() {
           </div>
           <div className="row3">
             <span onClick={() => setCurrentPage('Home')}>HOME</span>
+            <span onClick={() => setCurrentPage('Bridge')}>BRIDGE</span>
             <span onClick={() => setCurrentPage('Tutorial')}>TUTORIAL</span>
             <span onClick={() => setCurrentPage('Practice')}>PRACTICE</span>
             <span onClick={() => setCurrentPage('Contests')}>CONTESTS</span>
