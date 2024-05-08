@@ -58,9 +58,9 @@ VALUES
     ('user8', 'user8@example.com', 'password8', 'Student', 'College Two', 'https://example.com/college2.jpg', 'Bio for College Two', NULL, NULL),
     ('user9', 'user9@example.com', 'password9', 'Student', 'User Nine', 'https://example.com/user9.jpg', 'Bio for User Nine', NULL, NULL),
     ('user10', 'user10@example.com', 'password10', 'Student', 'User Ten', 'https://example.com/user10.jpg', 'Bio for User Ten', NULL, NULL);
-
-
 select * from users;
+truncate table users;
+
 -- Create table for courses
 CREATE TABLE Courses (
     CourseID INT PRIMARY KEY AUTO_INCREMENT,
@@ -135,16 +135,35 @@ CREATE TABLE ConversationMembers (
 );
 
 -- Create table for messages
+drop table if exists Messages;
 CREATE TABLE Messages (
     MessageID INT PRIMARY KEY AUTO_INCREMENT,
-    ConversationID INT,
     SenderID INT,
-    Message TEXT,
+    RecipientID INT NOT NULL,
+    MessageType ENUM('text', 'image', 'document', 'video', 'audio', 'other') NOT NULL,
+    MessageContent TEXT,
+    MediaSource TEXT, -- Column to store the source of media files
     SentAt DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (ConversationID) REFERENCES Conversations(ConversationID),
-    FOREIGN KEY (SenderID) REFERENCES Users(UserID)
+    FOREIGN KEY (SenderID) REFERENCES Users(UserID),
+    FOREIGN KEY (RecipientID) REFERENCES Users(UserID)
 );
 
+
+
+INSERT INTO Messages (SenderID, RecipientID, MessageType, MessageContent, MediaSource, SentAt)
+VALUES 
+    (1, 2, 'text', 'Hello, how are you?', NULL, NOW()),
+    (2, 1, 'text', 'I am doing well, thank you!', NULL, NOW()),
+    (1, 3, 'image', 'Beautiful sunset', 'https://example.com/sunset.jpg', NOW()),
+    (3, 1, 'document', 'Annual Report 2023', 'https://example.com/annual_report_2023.pdf', NOW()),
+    (4, 2, 'video', 'Funny cat video', 'https://example.com/cat_video.mp4', NOW()),
+    (2, 4, 'audio', 'Podcast episode', 'https://example.com/podcast_episode.mp3', NOW()),
+    (1, 5, 'text', 'Have a great day!', NULL, NOW()),
+    (5, 1, 'text', 'Thanks, you too!', NULL, NOW()),
+    (2, 6, 'image', 'Cute puppy', 'https://example.com/puppy.jpg', NOW()),
+    (6, 2, 'other', 'Miscellaneous file', 'https://example.com/misc_file.txt', NOW());
+    
+select * from Messages;
 -- Create table for tutorials
 CREATE TABLE Tutorials (
     TutorialID INT PRIMARY KEY AUTO_INCREMENT,
@@ -210,13 +229,13 @@ drop table files;
 select * from files;
 
 
-CREATE TABLE ebooks (
+CREATE TABLE books (
     id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
     author VARCHAR(255) NOT NULL,
     pages INT NOT NULL,
     language VARCHAR(50) NOT NULL,
-    book_type VARCHAR(50),
+    book_type VARCHAR(50) NOT NULL,
     publication_date DATE,
     publisher VARCHAR(255),
     genre VARCHAR(100),
@@ -224,7 +243,7 @@ CREATE TABLE ebooks (
     price DECIMAL(10, 2),
     description TEXT,
     cover_image_url VARCHAR(255),
-    book_url VARCHAR(255)
+    file_url VARCHAR(255)
 );
 DROP TABLE books;
-select * from ebooks;
+select * from books;

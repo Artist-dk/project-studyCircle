@@ -16,7 +16,12 @@ const account = {
     })
   },
   createNew: (req, res) => {
-    res.send("createNew")
+    model.createNew(req.body, (err, result)=> {
+      if(err) {
+        return res.status(500).json({ error: 'Data already exists' });
+      }
+      res.status(200).json({ message: 'Account created successfully'});
+    })
   }
 }
 

@@ -11,6 +11,17 @@ class Account {
       if (user.Password !== password) { return callback(null, false); }
       callback(null, true, user);
     });
+  } 
+  
+  static createNew(userData, callback) {
+    const {UserName, Email, Password, UserType, FullName, ProfilePictureURL, Bio, UniversityID, CollegeID} = userData;
+    const sql = `INSERT INTO Users (UserName, Email, Password, UserType, FullName, ProfilePictureURL, Bio, UniversityID, CollegeID)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`
+    db.query(sql, [UserName, Email, Password, UserType, FullName, ProfilePictureURL, Bio, UniversityID, CollegeID], (err, results) => {
+      if (err) { return callback(err, null); }
+      console.log(results)
+      callback(null, true);
+    });
   }
 }
 
