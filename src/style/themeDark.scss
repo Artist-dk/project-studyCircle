@@ -582,17 +582,17 @@ $glassBorder: #433a;
         }
         .msg-body {
         }
-        .msg-cont-a {
+        .msg-cont-sent {
             .msg-body {
             }
         }
-        .msg-cont-b {
+        .msg-cont-sent {
             .msg-bg {
                 background: $b1;
                 box-shadow: 0 0 10px $b1;
             }
         }
-        .msg-cont-a{
+        .msg-cont-received{
             .msg-text {
                 color: $b1;
             }
@@ -605,7 +605,7 @@ $glassBorder: #433a;
                 }
             }
         }
-        .msg-cont-b {
+        .msg-cont-received {
         }
         .msg-time {
             span {

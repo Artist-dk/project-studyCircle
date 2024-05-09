@@ -2,7 +2,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const contactusRoute = require('./routes/contactus');
 const libraryRoute = require('./routes/library');
-const emailRoute = require('./routes/email');
 const testRoute = require('./routes/test');
 const messageRoute = require('./routes/message')
 const accountRoute = require('./routes/account')
@@ -26,7 +25,9 @@ app.use(session({
     }
 }));
 
-app.set('view engine', 'ejs');
+app.set('view engine', 'ejs'); // Set EJS as the view engine
+app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies (for form data)
+
 
 app.use(express.static('public'));
 
@@ -39,10 +40,33 @@ app.use((req, res, next) => {
     next();
 });
 
+
+const isLoggedIn = (req, res, next) => {
+    // Replace this with your actual authentication logic
+    // For demonstration purposes, always returning false
+    const isAuthenticated = false;
+    console.log("isAuthenticated")
+
+    if (isAuthenticated) {
+        next(); // User is authenticated, proceed to next middleware
+    } else {
+        res.redirect('/login'); // Redirect to login page
+    }
+};
+// Middleware to check authentication for protected routes
+app.use(['/protected-route1', '/protected-route2'], isLoggedIn);
+// Protected routes
+app.get('/protected-route1', (req, res) => {
+    res.send('Protected Route 1'); // Render your protected route content here
+});
+
+app.get('/protected-route2', (req, res) => {
+    res.send('Protected Route 2'); // Render your protected route content here
+});
+
 app.use('/account', accountRoute);
 app.use('/contactus', contactusRoute);
 app.use('/library', libraryRoute);
-app.use('/email', emailRoute);
 app.use('/',testRoute);
 app.use('/message', messageRoute)
 

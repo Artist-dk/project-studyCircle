@@ -1,7 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Cookies from 'js-cookie';
 
 
 export default function User() {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleLogin = () => {
+        // Perform authentication logic
+        // For simplicity, assume the user is authenticated upon entering any value for username and password
+        if (username && password) {
+            // Set a cookie to indicate that the user is logged in
+            Cookies.set('loggedIn', 'true', { expires: 1 }); // Expires in 1 day
+        }
+    };
   return (
     <div className="mid">
         <div className="glass list box-3 fit-center form-cont">

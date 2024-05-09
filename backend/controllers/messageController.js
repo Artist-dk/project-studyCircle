@@ -36,6 +36,7 @@ const MessageController = {
   },
 
   fetchUsers: (req, res) => {
+    conseole.log(req.body)
     MessageModel.fetchUsers((err, message) => {
       if (err) {
         return res.status(500).json({ error: 'Internal server error' });
@@ -47,7 +48,10 @@ const MessageController = {
   
   // fetchMessages
   fetchMessages: (req, res) => {
-    MessageModel.fetchMessages((err, message) => {
+    const { userId } = req.query;
+
+    console.log(userId)
+    MessageModel.fetchMessages(4, 2, (err, message) => {
       if (err) {
         return res.status(500).json({ error: 'Internal server error' });
       }

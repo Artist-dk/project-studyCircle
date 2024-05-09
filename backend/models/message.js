@@ -14,13 +14,14 @@ class MessageModel {
     });
   }
 
-  static fetchMessage(receiverId, callback) {
-    const sql = 'SELECT * FROM messages WHERE receiver_id = ?';
-    db.query(sql, [receiverId], (err, results) => {
+  static fetchMessages(sender,recipient,callback) {
+    // console.log(data);
+    const sql = 'SELECT * FROM messages where SenderID=? AND RecipientID=?';
+    db.query(sql,[sender, recipient], (err, result) => {
       if (err) {
         return callback(err, null);
       }
-      callback(null, results);
+      callback(null, result);
     });
   }
 
