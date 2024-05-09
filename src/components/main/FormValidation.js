@@ -41,8 +41,8 @@ export default class FormValidation {
             this.ec.classList.remove('err');
           }
         } else {
-          console.log("************** hacked")
-          console.log(this.el.value)
+          // console.log("************** hacked")
+          // console.log(this.el.value)
           this.ec.classList.add('err');
           if(/^((http|https):\/\/)?([a-zA-Z]+(\.[a-zA-Z]+)*)(\/([a-zA-Z0-9_\-\.~]+(\/[a-zA-Z0-9_\-\.~]+)*)?)?$/.test(this.el.value)) {
             this.ec.classList.remove('err');

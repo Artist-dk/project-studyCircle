@@ -3,7 +3,8 @@ import Discussion from './student/Discussion'
 import Assignment from './student/Assignment';
 import Progress from './student/Progress';
 import './Student.css';
-
+import axios from 'axios';
+import Cookies from 'js-cookie';
 
 function open(e) {
   e = e.currentTarget;
@@ -19,6 +20,29 @@ function open(e) {
 
 
 export default function Student() {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  
+  // useEffect(() => {
+  //     console.log("hacked")
+  //     console.log(username);
+  // }, [username]); 
+  
+  const handleLogin = (e) => {
+      e.preventDefault();
+      console.log(username, password)
+      axios.get("http://localhost:8081/account/login", {params: {username, password}})
+      .then(response => {
+          // console.log(response.data)
+          // sessionStorage.setItem('userData',JSON.stringify(response.data))
+          // console.log(sessionStorage.getItem('userData'))
+          Cookies.set('loggedIn', response.data.id, { expires: 1 }); // Expires in 1 day
+          console.log(Cookies.get("loggedIn"))
+      })
+      .catch(error => {
+          console.error("Invalid Login credentials: ", error);
+      })
+  };
   const [page, setPage] = useState(<Discussion />)
   return (
     <>

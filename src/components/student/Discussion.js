@@ -59,7 +59,6 @@ export default function Discussion() {
               console.error('Error fetching messages:', error);
             });
         }
-      
     };
   return (
     <div className="chatapp">

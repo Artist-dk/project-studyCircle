@@ -13,25 +13,23 @@ import { BrowserRouter, Routes, Route, Navigate, Redirect } from 'react-router-d
 import ChatApp from './components/ChatApp.jsx';
 
 export default function App(){
-  const [loggedIn, setLoggedIn] = useState(false);
-
-  useEffect(() => {
-      // Check if the user is logged in based on the presence of the 'loggedIn' cookie
-      console.log(Cookies.get('loggedIn'))
-      const isLoggedIn = Cookies.get('loggedIn') === 'true';
-      setLoggedIn(isLoggedIn);
-  }, []);
+  const loggedIn = () => {
+    if(Cookies.get('sid')) {
+      return true;
+    }
+    return false;
+  }
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={loggedIn ? <Main /> : <Navigate to="/accounts" />}/>
-        <Route index element={loggedIn ? <Main /> : <Navigate to="/accounts" />} />
-        <Route path="/student" element={loggedIn ? <Student /> : <Navigate to="/accounts" />} />
-        <Route path="/teacher" element={loggedIn?<Teacher />:<Navigate to="/accounts" />} />
+        <Route path="/" element={(loggedIn()) ? <Main /> : <Navigate to="/accounts" />}/>
+        <Route index element={(loggedIn()) ? <Main /> : <Navigate to="/accounts" />} />
+        <Route path="/student" element={(loggedIn()) ? <Student /> : <Navigate to="/accounts" />} />
+        <Route path="/teacher" element={(loggedIn())?<Teacher />:<Navigate to="/accounts" />} />
         <Route path="/accounts" element={<Accounts />} />
-        <Route path="/e-library" element={loggedIn?<ELibrary /> : <Navigate to="/accounts" />} />
-        <Route path="/p-library" element={loggedIn?<PLibrary /> : <Navigate to="/accounts" />} />
-        <Route path="/chatapp" element={loggedIn?<ChatApp /> : <Navigate to="/accounts" />} />
+        <Route path="/e-library" element={(loggedIn())?<ELibrary /> : <Navigate to="/accounts" />} />
+        <Route path="/p-library" element={(loggedIn())?<PLibrary /> : <Navigate to="/accounts" />} />
+        <Route path="/chatapp" element={(loggedIn())?<ChatApp /> : <Navigate to="/accounts" />} />
       </Routes>
     </BrowserRouter>
   ) 

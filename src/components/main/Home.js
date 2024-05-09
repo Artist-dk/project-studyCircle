@@ -53,7 +53,7 @@ window.addEventListener("scroll", trackScroll);
                 <Link state="login" to="/accounts">
                     <div className="btn-wrapper">
                         <div className="btn">
-                            <button>LOGIN</button>
+                            <button>GO TO OTHER SECTION</button>
                         </div>
                     </div>
                 </Link>

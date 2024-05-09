@@ -8,7 +8,7 @@ export default function About() {
             <h1>MEET THE TEAM</h1>
             <div className="flex-box">
                 <div className="card-2">
-                    <img src={img1} alt="digambar kumbhar" />
+                    <img src="https://i.pinimg.com/474x/3a/32/b4/3a32b40f485e130f8223030a68f90452.jpg" alt="digambar kumbhar" />
                     <div className="desc-cont">
                         <p>CEO</p>
                         <h2>DIGAMBAR KUMBHAR</h2>
@@ -17,7 +17,7 @@ export default function About() {
                     </div>
                 </div>
                 <div className="card-2">
-                    <img src={img1} alt='onkar jadhav'/>
+                    <img src="https://i.pinimg.com/474x/e8/0a/a4/e80aa4717625557be5a9e839f3f0bfaa.jpg" alt='onkar jadhav'/>
                     <div className="desc-cont">
                         <p>CEO</p>
                         <h2>ONKAR JADHAV</h2>

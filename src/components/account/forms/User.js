@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import { Navigate, useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import axios from 'axios';
 
@@ -6,6 +7,7 @@ import axios from 'axios';
 export default function User() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     // useEffect(() => {
     //     console.log("hacked")
@@ -20,8 +22,10 @@ export default function User() {
             // console.log(response.data)
             // sessionStorage.setItem('userData',JSON.stringify(response.data))
             // console.log(sessionStorage.getItem('userData'))
-            Cookies.set('loggedIn', response.data.id, { expires: 1 }); // Expires in 1 day
-            console.log(Cookies.get("loggedIn"))
+            Cookies.set('sid', response.data.id, { expires: 1 }); // Expires in 1 day
+            console.log(Cookies.get("sid"));
+            // navigate(-1); 
+            navigate("/");
         })
         .catch(error => {
             console.error("Invalid Login credentials: ", error);

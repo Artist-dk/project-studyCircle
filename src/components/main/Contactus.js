@@ -21,11 +21,11 @@ export default function Contactus() {
         new FormValidation(formRef.current.elements[j])
       }
     }
-    formRef.current.elements["firstname"].value = 'varsha';
-    formRef.current.elements["lastname"].value = 'zagade';
-    formRef.current.elements["phoneno"].value = '8459811806';
-    formRef.current.elements["emailid"].value = 'zagadev01@gmail.com';
-    formRef.current.elements["message"].value = 'Pass@1234';
+    // formRef.current.elements["firstname"].value = 'varsha';
+    // formRef.current.elements["lastname"].value = 'zagade';
+    // formRef.current.elements["phoneno"].value = '8459811806';
+    // formRef.current.elements["emailid"].value = 'zagadev01@gmail.com';
+    // formRef.current.elements["message"].value = 'Pass@1234';
   };
 
   const sendFormData = (e) => {
@@ -38,11 +38,9 @@ export default function Contactus() {
       return r;
     }, {});
     // dt = JSON.stringify(dt);
-    console.log(dt)
-    console.log("----------sendFormData")
-    axios.post('http://localhost:8081/send-email', dt)
+    axios.post('http://localhost:8081/contactus/send', dt)
       .then(response => {
-        console.log('Form submitted successfully:', response.data);
+        // console.log('Form submitted successfully:', response.data);
       })
       .catch(error => {
         console.error('Error submitting form:', error);
@@ -69,7 +67,7 @@ export default function Contactus() {
                       <div className="inputBox">
                           <div>
                               <input name="firstname" type="text" autoComplete="off" required data-a="0" data-msg="Please enter a valid name" data-name="First Name" />
-                              <span className="input-label" >First Name</span>
+                              <label className="input-label" >First Name</label>
                               <i className="input-bg"></i>
                               <p className="error-msg">Required</p>
                           </div>
@@ -77,7 +75,7 @@ export default function Contactus() {
                       <div className="inputBox">
                           <div>
                               <input type="text" name="lastname" autoComplete="off" required data-a="0" data-msg="Please enter a valid name" data-name="Last Name" />
-                              <span className="input-label">Last Name</span>
+                              <label className="input-label">Last Name</label>
                               <i className="input-bg"></i>
                               <p className="error-msg">Required</p>
                           </div>
@@ -85,7 +83,7 @@ export default function Contactus() {
                       <div className="inputBox">
                           <div>
                               <input type="text" name="phoneno" autoComplete="off" required data-a="1" data-msg="Please enter a valid phone number" data-name="Phone No." />
-                              <span className="input-label">Phone No.</span>
+                              <label className="input-label">Phone No.</label>
                               <i className="input-bg"></i>
                               <p className="error-msg">Required</p>
                           </div>
@@ -93,7 +91,7 @@ export default function Contactus() {
                       <div className="inputBox">
                           <div>
                               <input type="text" name="emailid" autoComplete="off" required data-a="2" data-msg="Please enter a valid Email ID" data-name="Email Id" />
-                              <span className="input-label">Phone No.</span>
+                              <label className="input-label">Phone No.</label>
                               <i className="input-bg"></i>
                               <p className="error-msg">Required</p>
                           </div>
@@ -101,7 +99,7 @@ export default function Contactus() {
                       <div className="textareaBox">
                           <div>
                               <textarea name="message" data-a="5" data-msg="Please enter a valid Message" data-name="Message" required></textarea>
-                              <span className="textarea-label">Message</span>
+                              <label className="textarea-label">Message</label>
                               <i className="textarea-bg"></i>
                               <p className="error-msg">Required</p>
                           </div>

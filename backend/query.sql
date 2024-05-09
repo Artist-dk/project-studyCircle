@@ -32,34 +32,26 @@ CREATE TABLE Colleges (
 );
 
 -- Create tables for users
+DROP TABLE if exists users;
 CREATE TABLE Users (
     UserID INT PRIMARY KEY AUTO_INCREMENT,
+    FirstName VARCHAR(50) NOT NULL,
+    LastName VARCHAR(50) NOT NULL,
     UserName VARCHAR(50) NOT NULL,
     Email VARCHAR(100) UNIQUE NOT NULL,
     Password VARCHAR(100) NOT NULL,
-    UserType ENUM('Student', 'Teacher', 'University') NOT NULL,
-    FullName VARCHAR(100), -- Added for user profiles
-    ProfilePictureURL VARCHAR(255), -- Added for user profiles
-    Bio TEXT, -- Added for user profiles
-    UniversityID INT, -- Added for universities
-    CollegeID INT, -- Added for colleges
-    FOREIGN KEY (UniversityID) REFERENCES Universities(UniversityID), -- Added for universities
-    FOREIGN KEY (CollegeID) REFERENCES Colleges(CollegeID) -- Added for colleges
+    UserType ENUM('Student', 'Teacher', 'University', 'User') DEFAULT 'User' NOT NULL,
+    MobileNo VARCHAR(15), -- Assuming mobile numbers are stored as strings
+    ProfilePictureURL VARCHAR(255),
+    Description TEXT
 );
-INSERT INTO Users (UserName, Email, Password, UserType, FullName, ProfilePictureURL, Bio, UniversityID, CollegeID)
-VALUES 
-    ('user1', 'user1@example.com', 'password1', 'Student', 'User One', 'https://example.com/user1.jpg', 'Bio for User One', NULL, NULL),
-    ('user2', 'user2@example.com', 'password2', 'Student', 'User Two', 'https://example.com/user2.jpg', 'Bio for User Two', NULL, NULL),
-    ('user3', 'user3@example.com', 'password3', 'Teacher', 'Teacher One', 'https://example.com/teacher1.jpg', 'Bio for Teacher One', NULL, NULL),
-    ('user4', 'user4@example.com', 'password4', 'Teacher', 'Teacher Two', 'https://example.com/teacher2.jpg', 'Bio for Teacher Two', NULL, NULL),
-    ('user5', 'user5@example.com', 'password5', 'University', 'University One', 'https://example.com/university1.jpg', 'Bio for University One', NULL, NULL),
-    ('user6', 'user6@example.com', 'password6', 'University', 'University Two', 'https://example.com/university2.jpg', 'Bio for University Two', NULL, NULL),
-    ('user7', 'user7@example.com', 'password7', 'Student', 'College One', 'https://example.com/college1.jpg', 'Bio for College One', NULL, NULL),
-    ('user8', 'user8@example.com', 'password8', 'Student', 'College Two', 'https://example.com/college2.jpg', 'Bio for College Two', NULL, NULL),
-    ('user9', 'user9@example.com', 'password9', 'Student', 'User Nine', 'https://example.com/user9.jpg', 'Bio for User Nine', NULL, NULL),
-    ('user10', 'user10@example.com', 'password10', 'Student', 'User Ten', 'https://example.com/user10.jpg', 'Bio for User Ten', NULL, NULL);
-select * from users;
+INSERT INTO Users (FirstName, LastName, UserName, Email, Password, UserType, MobileNo, ProfilePictureURL, Description)
+VALUES
+('John', 'Doe', 'john_doe', 'john@example.com', 'password123', 'User', '1234567890', 'https://example.com/profile.jpg', 'Hello, I am John.');
+
+
 truncate table users;
+select * from users;
 
 -- Create table for courses
 CREATE TABLE Courses (
@@ -247,3 +239,6 @@ CREATE TABLE books (
 );
 DROP TABLE books;
 select * from books;
+
+show tables;
+select * from contactus;
