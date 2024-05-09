@@ -52,12 +52,6 @@ $glassBorder: #433a;
     * {
         color: $f1;
     }
-    button {
-        background: $b3;
-    }
-    button:hover {
-        background: $b2;
-    }
     button:active {
         background: $b3;
     }
@@ -543,9 +537,7 @@ $glassBorder: #433a;
 // chat app
 
 
-    button {
-        background: $b3;
-    }
+
     .chat-main-psudo {
     }    
     .chat-main {
@@ -573,7 +565,6 @@ $glassBorder: #433a;
         }
     }
     .chat-body {
-        background: $b4;
         .first-msg-sug {
             span {
             }

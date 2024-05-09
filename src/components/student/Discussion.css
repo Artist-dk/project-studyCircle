@@ -10,11 +10,16 @@
     display: grid;
     grid-template-columns: 300px auto;
     .chatapp {
-        box-shadow: 0 0 20px 0px black;
+        height: 100vh;
         display: grid;
         grid-template-columns: 300px auto;
-        .conatacts-container {
+        padding: 10px;
+        gap: 10px;
+        box-sizing: border-box;
+        .contacts-container {
             background: black;
+            border-radius: 13px;
+            box-shadow: 0 0 10px 0 black;
             .contact-li {
                 display: flex;
                 align-items: center;
@@ -50,48 +55,62 @@
             cursor: pointer;
         }
         .chat-main-psudo {
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            animation: sayHi 3s 1s infinite linear;
+            height: calc(100vh - 20px);
+            > div {
+                font-size: 24px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: #333;
+                height: 100%;
+                width: 100%;
+                border-radius: 13px;
+                box-shadow: 0 0 10px 0 black;
+                div {
+                    .sayhi {
+                        color: #282828;
+                        /* animation: sayHi 3s 1s infinite linear; */
+                        text-align: center;
+                        margin: 0;
+                        padding: 0;
+                    }
+                }
+            }
         }    
         .chat-main {
-            display: block;
-            height: calc(100vh);
+            background: #000;
+            border-radius: 13px;
+            display: grid;
+            grid-template-rows: 70px auto 60px;
             box-sizing: border-box;
             max-width: 1200px;
             margin: 0 auto;
             width: 100%;
             min-width: 500px;
-            padding: 10px;
+            overflow: hidden;
             .chat-head {
-                border-radius: 13px;
-                /* padding: 3px; */
-                /* background: #111; */
+                /* background-color: red; */
                 .grid-1 {
                     display: flex;
                     align-items: center;
+                    height: 70px;
+                    padding: 0 7px;
                     .contact-head {
                       /* margin: 5px; */
-                      margin-left: 50px;
                       .contact-head-main {
-                        background: #222;
                         border-radius: 13px;
                         display: flex;
                         align-items: center;
                         padding: 7px 13px;
-                        gap: 10px;
+                        gap: 20px;
                         .img-cont {
-                            height: 40px;
-                            width: 40px;
+                            height: 45px;
+                            width: 45px;
                             border-radius: 50%;
                             box-sizing: border-box;
-                            /* margin-right: 10px; */
-                            /* margin: 5px 10px; */
                             img {
-                                height: 40px;
-                                width: 40px;
+                                height: 45px;
+                                width: 45px;
                                 border-radius: 50%;
                                 box-sizing: border-box;
                             }
@@ -99,7 +118,7 @@
                         .details-cont{
                             flex-grow: 3;
                             .name{
-                                font-size: 20px;
+                                font-size: 18px;
                             }
                             .status{
                                 font-size: 12px;
@@ -112,14 +131,11 @@
                     }
                     .btn-cont {
                         button{
-                          height: 54px;
-                          width: 54px;
-                            /* height: 100%; */
+                            background: transparent;
                             box-sizing: border-box;
                             outline: none;
                             border-radius: 7px;
-                            /* width: fit-content; */
-                            padding: 5px;
+                            padding: 10px;
                             align-items: center;
                             justify-content: center;
                             margin: 5px;
@@ -128,18 +144,17 @@
                                 width: 35px !important;
                             }
                         }
+                        button:hover {
+                            background: #222;
+                        }
                     }
                 }
             }
         }
         .chat-body {
-            border-radius: 13px;
-            margin: 1px;
-            padding: 10px;
+            background: #333;
             overflow-y: auto;
-            height: calc(100vh - 140px);
             box-sizing: border-box;
-            /* box-shadow: inset 0 0 10px black; */
             .msg-time {
                 display: flex;
                 align-items: right;
@@ -216,16 +231,17 @@
         }
         .chat-footer {
             border-radius: 13px;
-            padding: 3px;
             box-sizing: border-box;
             .inputs {
                 display: flex;
+                height: 50px;
+                justify-content: center;
+                padding: 10px;
+                gap: 10px;
                 input, button {
                     height: 40px;
                     box-sizing: border-box;
                     outline: none;
-                    /* border: solid 2px black; */
-                    margin: 5px;
                     border-radius: 7px;
                 }
                 input {
@@ -249,12 +265,10 @@
 /*  */
 @keyframes sayHi {
     0% {
-        color:#222;
-        border-color: #333;
+        color:#333;
     }
     20% {
-        color: #ddd;
-        border-color: #ddd;
+        color: #222;
     }
 }
 

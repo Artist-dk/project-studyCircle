@@ -506,17 +506,6 @@ form p {
 
 
 /*  */
-@keyframes sayHi {
-    0% {
-        color:#222;
-        border-color: #333;
-    }
-    20% {
-        color: #ddd;
-        border-color: #ddd;
-    }
-}
-
 ::-webkit-scrollbar {
     width: 7px;
     transition: .5s;

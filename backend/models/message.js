@@ -5,8 +5,10 @@ const db = require('../config/dbConfig');
 
 class MessageModel {
   static saveMessage(messageData, callback) {
-    const sql = 'INSERT INTO Messages (SenderID, RecipientID, MessageType, MessageContent, MediaSource, SentAt) VALUES (?, ?, ?, ?, ?, ?)';
-    db.query(sql, [messageData.SenderID, messageData.RecipientID, messageData.MessageType, messageData.MessageContent, messageData.MediaSource, messageData.SentAt], (err, result) => {
+
+    const { SenderID, RecipientID, MessageType, MessageContent, MediaSource, SentAt } = req.body;
+    const sql = 'INSERT INTO Messages ( SenderID, RecipientID, MessageType, MessageContent, MediaSource, SentAt ) VALUES (?, ?, ?, ?, ?, ?)';
+    db.query(sql, [ SenderID, RecipientID, MessageType, MessageContent, MediaSource, SentAt ], (err, result) => {
       if (err) {
         return callback(err, null);
       }
@@ -36,7 +38,7 @@ class MessageModel {
   }
 
   static fetchUsers(callback) {
-    const sql = 'SELECT * FROM messages';
+    const sql = 'SELECT * FROM users';
     db.query(sql, (err, result) => {
       if (err) {
         return callback(err, null);
