@@ -14,10 +14,10 @@ class Account {
   } 
   
   static createNew(userData, callback) {
-    const {UserName, Email, Password, UserType, FullName, ProfilePictureURL, Bio, UniversityID, CollegeID} = userData;
-    const sql = `INSERT INTO Users (UserName, Email, Password, UserType, ProfilePictureURL, Bio, UniversityID, CollegeID)
+    const {FirstName, LastName, UserName, Email, Password, UserType, MobileNo, ProfilePictureURL, Description} = userData;
+    const sql = `INSERT INTO Users (FirstName, LastName, UserName, Email, Password, UserType, MobileNo, ProfilePictureURL, Description)
     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`
-    db.query(sql, [UserName, Email, Password, UserType, ProfilePictureURL, Bio, UniversityID, CollegeID], (err, results) => {
+    db.query(sql, [FirstName, LastName, UserName, Email, Password, UserType, MobileNo, ProfilePictureURL, Description], (err, results) => {
       if (err) { return callback(err, null); }
       console.log(results)
       callback(null, true);
