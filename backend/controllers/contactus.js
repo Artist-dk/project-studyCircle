@@ -1,5 +1,5 @@
-const model = require('../models/contactusModel');
-const emailService = require('../services/emailService');
+const model = require('../models/contactus');
+const emailService = require('../services/email');
 
 const ContactusController = {
   saveMessage: async (req, res) => {

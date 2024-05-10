@@ -52,6 +52,9 @@ $glassBorder: #433a;
     * {
         color: $f1;
     }
+    button, select, input[type=submit] {
+        background: #222;
+    };
     button:active {
         background: $b3;
     }

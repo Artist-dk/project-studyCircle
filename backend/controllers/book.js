@@ -1,11 +1,11 @@
-const Book = require('../models/bookModel');
+const model = require('../models/book');
 
 exports.addNewBook = (req, res) => {
     const { title, author, pages, language, book_type, publication_date, publisher, genre, edition, price, description, cover_image_url, file_url } = req.body;
 
     const newBook = new Book(title, author, pages, language, book_type, publication_date, publisher, genre, edition, price, description, cover_image_url, file_url);
 
-    Book.create(newBook, (error, result) => {
+    model.create(newBook, (error, result) => {
         if (error) {
             console.error('Error adding book to the library:', error);
             res.status(500).json({ error: 'Error adding book to the library' });

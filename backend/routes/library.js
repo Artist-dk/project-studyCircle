@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const libraryController = require('../controllers/libraryController');
+const controller = require('../controllers/library');
 const upload = require('../config/multerConfig');
 // const Book = require('../models/bookModel');
 
-router.post('/add-new-book', upload.single('file'), libraryController.addNewBook);
+router.post('/add-new-book', upload.single('file'), controller.addNewBook);
 
-router.get('/get-all-books', libraryController.fetchAllBooks
+router.get('/get-all-books', controller.fetchAllBooks
 //  async (req, res) => {
 //   try {
 //       const books = await Book.getAllBooks();

@@ -1,12 +1,12 @@
 const db = require('../config/dbConfig');
 
 // messageController.js
-const MessageModel = require('../models/message');
+const model = require('../models/message');
 
 const MessageController = {
   saveMessage: (req, res) => {
 
-    MessageModel.saveMessage(req.body, (err, messageId) => {
+    model.saveMessage(req.body, (err, messageId) => {
       if (err) {
         return res.status(500).json({ error: 'Internal server error' });
       }
@@ -17,7 +17,7 @@ const MessageController = {
   getReceiverId: (req, res) => {
     const receiverId = req.params.receiverId;
 
-    MessageModel.getMessagesByReceiverId(receiverId, (err, messages) => {
+    model.getMessagesByReceiverId(receiverId, (err, messages) => {
       if (err) {
         return res.status(500).json({ error: 'Internal server error' });
       }
@@ -26,7 +26,7 @@ const MessageController = {
   },
 
   fetchUsers: (req, res) => {
-    MessageModel.fetchUsers((err, message) => {
+    model.fetchUsers((err, message) => {
       if (err) {
         return res.status(500).json({ error: 'Internal server error' });
       }
@@ -41,7 +41,7 @@ const MessageController = {
     console.log(req.session.user.UserID)
 
     console.log(UserID)
-    MessageModel.fetchMessages(req.session.user.UserID, UserID, (err, message) => {
+    model.fetchMessages(req.session.user.UserID, UserID, (err, message) => {
       if (err) {
         return res.status(500).json({ error: 'Internal server error' });
       }

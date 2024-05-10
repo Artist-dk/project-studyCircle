@@ -5,6 +5,7 @@ const libraryRoute = require('./routes/library');
 const testRoute = require('./routes/test');
 const messageRoute = require('./routes/message')
 const accountRoute = require('./routes/account')
+const settingsRoute = require('./routes/settings')
 const session = require('express-session');
 const cors = require("cors");
 const MySQLStore = require('express-mysql-session')(session);
@@ -69,6 +70,7 @@ app.use('/contactus', contactusRoute);
 app.use('/library', libraryRoute);
 app.use('/',testRoute);
 app.use('/message', messageRoute)
+app.use('/settings',settingsRoute)
 
 
 const PORT = 8081;

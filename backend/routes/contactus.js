@@ -1,9 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const contactus = require('../controllers/contactusController');
+const controller = require('../controllers/contactus');
 
-router.post('/send', 
-  contactus.saveMessage
-);
+router.post('/send', controller.saveMessage);
 
 module.exports = router;
