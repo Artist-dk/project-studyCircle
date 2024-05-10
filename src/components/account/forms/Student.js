@@ -13,8 +13,16 @@ export default function StudentLogin() {
                     </div>
                     <div className="inputBox">
                         <div>
-                            <input type="text" name="username" autoComplete="off" required data-a="3" data-msg="Please enter a valid username" data-name="Username" />
-                            <span className="input-label">User ID</span>
+                            <input type="text" name="username" autoComplete="off" required data-a="3" data-msg="Please enter a valid username" data-name="User ID<" />
+                            <label className="input-label">User ID</label>
+                            <i className="input-bg"></i>
+                            <p className="error-msg">Required</p>
+                        </div>
+                    </div>
+                    <div className="inputBox">
+                        <div>
+                            <input type="text" name="username" autoComplete="off" required data-a="3" data-msg="Please enter a valid username" data-name="Roll ID" />
+                            <label className="input-label">Roll ID</label>
                             <i className="input-bg"></i>
                             <p className="error-msg">Required</p>
                         </div>
@@ -22,7 +30,7 @@ export default function StudentLogin() {
                     <div className="inputBox">
                         <div>
                             <input type="password" name="password" required data-a="4" data-msg="Please enter a valid password" data-name="Password" />
-                            <span className="input-label">Password</span>
+                            <label className="input-label">Password</label>
                             <i className="input-bg"></i>
                             <p className="error-msg">Required</p>
                         </div>

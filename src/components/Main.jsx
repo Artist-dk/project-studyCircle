@@ -10,6 +10,8 @@ import Practice from './main/Practice';
 import Contests from './main/Contests';
 import Library from './main/Library';
 import About from './main/About';
+import Settings from './main/Settings';
+
 
 export default function Main() {
     const [currentPage, setCurrentPage] = useState('Home');
@@ -28,8 +30,10 @@ export default function Main() {
           return <Practice />;
         case 'Contests':
           return <Contests />;
-        case 'Library':
-          return <Library />;
+          case 'Library':
+            return <Library />;
+          case 'Settings':
+             return <Settings />;
         default:
           return <Home />;
       }
@@ -39,15 +43,15 @@ export default function Main() {
       <>
         <header className="header">
           <div className="row1">
-            <div className="col1">
               <span onClick={() => setCurrentPage('About')}>ABOUT</span>
-              <span onClick={() => setCurrentPage('Contact Us')}>CONTACT US</span>
-            </div>
-            <div className="col2">
+              <span onClick={() => setCurrentPage('Contact Us')}>CONTACTUS</span>
+              <span onClick={() => setCurrentPage('Settings')}>
+                <svg stroke="currentColor" fill="none" stroke-width="3" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+              </span>
+              <span className="grow"></span>
               <Link to="/accounts">
                 <span>Login</span>
               </Link>
-            </div>
           </div>
           <div className="row2">
             <div className="title">

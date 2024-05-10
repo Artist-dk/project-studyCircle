@@ -47,7 +47,26 @@ CREATE TABLE Users (
 );
 INSERT INTO Users (FirstName, LastName, UserName, Email, Password, UserType, MobileNo, ProfilePictureURL, Description)
 VALUES
-('John', 'Doe', 'john_doe', 'john@example.com', 'password123', 'User', '1234567890', 'https://example.com/profile.jpg', 'Hello, I am John.');
+('John', 'Doe', 'john_doe', 'john@example.com', 'password123', 'User', '1234567890', 'https://example.com/profile.jpg', 'Hello, I am John.'),
+('Alice', 'Smith', 'alice_smith', 'alice@example.com', 'password456', 'User', '9876543210', 'https://example.com/alice_profile.jpg', 'Hi, I am Alice.'),
+('Bob', 'Johnson', 'bob_johnson', 'bob@example.com', 'password789', 'User', '1357924680', 'https://example.com/bob_profile.jpg', 'Hey, I am Bob.'),
+('Emily', 'Brown', 'emily_brown', 'emily@example.com', 'passwordabc', 'User', '2468135790', 'https://example.com/emily_profile.jpg', 'Hello, I am Emily.'),
+('David', 'Wilson', 'david_wilson', 'david@example.com', 'passworddef', 'User', '3692581470', 'https://example.com/david_profile.jpg', 'Hi, I am David.'),
+('Emma', 'Jones', 'emma_jones', 'emma@example.com', 'pass123word', 'User', '1592637480', 'https://example.com/emma_profile.jpg', 'Hey, I am Emma.'),
+('Michael', 'Davis', 'michael_davis', 'michael@example.com', 'pass456word', 'User', '3571592468', 'https://example.com/michael_profile.jpg', 'Hello, I am Michael.'),
+('Sarah', 'Martinez', 'sarah_martinez', 'sarah@example.com', 'pass789word', 'User', '8523691470', 'https://example.com/sarah_profile.jpg', 'Hi, I am Sarah.'),
+('James', 'Rodriguez', 'james_rodriguez', 'james@example.com', 'passabcword', 'User', '7539514862', 'https://example.com/james_profile.jpg', 'Hey, I am James.'),
+('Olivia', 'Garcia', 'olivia_garcia', 'olivia@example.com', 'passdefword', 'User', '9517536248', 'https://example.com/olivia_profile.jpg', 'Hello, I am Olivia.'),
+('William', 'Lopez', 'william_lopez', 'william@example.com', 'pass123456', 'User', '1472583690', 'https://example.com/william_profile.jpg', 'Hi, I am William.'),
+('Ava', 'Hernandez', 'ava_hernandez', 'ava@example.com', 'pass456789', 'User', '3698521470', 'https://example.com/ava_profile.jpg', 'Hey, I am Ava.'),
+('Alexander', 'Gonzalez', 'alexander_gonzalez', 'alexander@example.com', 'pass789abc', 'User', '2583691470', 'https://example.com/alexander_profile.jpg', 'Hello, I am Alexander.'),
+('Mia', 'Perez', 'mia_perez', 'mia@example.com', 'passabc123', 'User', '9876543210', 'https://example.com/mia_profile.jpg', 'Hi, I am Mia.'),
+('Ethan', 'Sanchez', 'ethan_sanchez', 'ethan@example.com', 'passdef456', 'User', '6541239870', 'https://example.com/ethan_profile.jpg', 'Hey, I am Ethan.'),
+('Charlotte', 'Rivera', 'charlotte_rivera', 'charlotte@example.com', 'pass123def', 'User', '1239876540', 'https://example.com/charlotte_profile.jpg', 'Hello, I am Charlotte.'),
+('Noah', 'Young', 'noah_young', 'noah@example.com', 'pass456abc', 'User', '7894561230', 'https://example.com/noah_profile.jpg', 'Hi, I am Noah.'),
+('Sophia', 'Hill', 'sophia_hill', 'sophia@example.com', 'pass789def', 'User', '3216549870', 'https://example.com/sophia_profile.jpg', 'Hey, I am Sophia.'),
+('Liam', 'Flores', 'liam_flores', 'liam@example.com', 'pass123abc', 'User', '7418529630', 'https://example.com/liam_profile.jpg', 'Hello, I am Liam.'),
+('Isabella', 'Nguyen', 'isabella_nguyen', 'isabella@example.com', 'pass456def', 'User', '9638527410', 'https://example.com/isabella_profile.jpg', 'Hi, I am Isabella.');
 
 
 truncate table users;

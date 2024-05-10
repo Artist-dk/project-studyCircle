@@ -29,7 +29,7 @@ h1  {
     align-items: center;
     p {
         text-align: center;
-        margin: 40px 0;
+        margin: 40px 20px;
         font-size: 24px;
         letter-spacing: 1px;
         word-spacing: 1px;
@@ -111,8 +111,8 @@ h1  {
 
 
 .home-card-grid {
-    display: grid;
-    grid-template-columns: auto auto;
+    display: flex;
+    flex-wrap: wrap;
     gap: 40px;
     margin: 0 auto;
   }
@@ -171,3 +171,61 @@ h1  {
     z-index: 4;
     height: 40px;
   }
+
+
+
+
+@media only screen and (max-width: 768px) {
+  p {
+      font-size:medium;
+      letter-spacing: .01em;
+      font-family: "Trirong", serif !important;
+  }
+  h1  {
+      margin-bottom: 30px;
+      font-size: 24px;
+  }
+  .h-box-1 {
+      padding-top: 100px;
+      p {
+          margin: 40px 20px;
+          font-size: 16px;
+          letter-spacing: normal;
+          word-spacing: 1px;
+          font-weight: lighter;
+          font-family: "Trirong", serif;
+          font-family: "Sofia", sans-serif;
+      }
+      h1 {
+        margin: 20px;
+          font-size: 24px;
+          font-family: "Audiowide", sans-serif;
+          .grad {
+              font-size: 32px;
+              font-family: "Audiowide", sans-serif;
+              span {
+                font-size: 35px;
+              }
+          }
+      }
+      .btnarea {
+          .btn-wrapper {
+              .btn {
+                 border-radius: 20px;
+                 overflow: hidden;
+                 transition: 1s;
+             }
+             .btn:hover button{
+                  animation: btn;
+                  animation-duration: 1s;
+                  animation-fill-mode: forwards;
+             }
+          }
+          button {
+              font-size: 12px;
+              letter-spacing: 0px;
+              padding: 20px 40px; 
+          }
+      }
+  }
+}

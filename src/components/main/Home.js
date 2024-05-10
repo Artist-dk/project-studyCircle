@@ -136,7 +136,7 @@ window.addEventListener("scroll", trackScroll);
                                 <div className="container">
                                     <h1>StudyCircle</h1>
                                     <div className="content">
-                                        <h2>Real-Time Feedback and Assessmentomprehensive Resource Library</h2>
+                                        <h2>Real-Time Feedback and Assessment comprehensive Resource Library</h2>
                                         <p>Receive immediate feedback on assignments, quizzes, and assessments.</p>
                                     </div>
                                 </div>
