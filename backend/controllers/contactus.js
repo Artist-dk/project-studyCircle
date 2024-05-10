@@ -1,7 +1,7 @@
 const model = require('../models/contactus');
 const emailService = require('../services/email');
 
-const ContactusController = {
+const Contactus = {
   saveMessage: async (req, res) => {
     const { firstname, lastname, phoneno, emailid, message } = req.body;
     console.log(firstname, lastname, phoneno, emailid, message);
@@ -34,4 +34,4 @@ const ContactusController = {
   }
 };
 
-module.exports = ContactusController;
+module.exports = Contactus;

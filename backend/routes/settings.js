@@ -1,10 +1,7 @@
-const express = require('express');
+const express = require('express')
 const router = express.Router();
-const controller = require('../controllers/settings');
+const controller =  require('../controllers/settings')
 
-router.get('/theme', controller.fetchUsers);
-// router.post('/saveMessage', upload.single('file'), settingsController.saveMessage);
-
-
+router.get('/theme',controller.theme);
 
 module.exports = router;

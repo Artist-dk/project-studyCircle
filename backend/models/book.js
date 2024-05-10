@@ -19,7 +19,7 @@ class Book {
 
     // Static method to save a new book to the database
     static create(bookData, callback) {
-        const sql = `INSERT INTO books (title, author, pages, language, book_type, publication_date, publisher, genre, edition, price, description, cover_image_url, file_url) 
+        const sql = `INSERT INTO Books (title, author, pages, language, bookType, publicationDate, publisher, genre, edition, price, description, coverImageURL, fileURL) 
                      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
         
         const values = [

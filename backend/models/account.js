@@ -3,7 +3,7 @@ const db = require('../config/dbConfig');
 class Account {
   static userAuthentication(userData, callback) {
     const {username, password } = userData;
-    const sql = 'select * from users where username= ?';
+    const sql = 'select * from users where userName= ?';
     db.query(sql, [username], (err, results) => {
       if (err) { return callback(err, null); }
       if (results.length === 0) { return callback(null, false); }
@@ -15,7 +15,7 @@ class Account {
   
   static createNew(userData, callback) {
     const {FirstName, LastName, UserName, Email, Password, UserType, MobileNo, ProfilePictureURL, Description} = userData;
-    const sql = `INSERT INTO Users (FirstName, LastName, UserName, Email, Password, UserType, MobileNo, ProfilePictureURL, Description)
+    const sql = `INSERT INTO Users (firstName, lastName, userName, phoneNo, email, password, userType, profilePictureURL, description)
     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`
     db.query(sql, [FirstName, LastName, UserName, Email, Password, UserType, MobileNo, ProfilePictureURL, Description], (err, results) => {
       if (err) { return callback(err, null); }

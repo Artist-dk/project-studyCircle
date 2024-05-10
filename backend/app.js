@@ -70,7 +70,7 @@ app.use('/contactus', contactusRoute);
 app.use('/library', libraryRoute);
 app.use('/',testRoute);
 app.use('/message', messageRoute)
-app.use('/settings',settingsRoute)
+app.use('/settings', settingsRoute)
 
 
 const PORT = 8081;

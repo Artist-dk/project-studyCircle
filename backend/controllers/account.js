@@ -1,7 +1,7 @@
 
 const model = require('../models/account');
 
-const account = {
+const Account = {
   login: (req, res) => {
     model.userAuthentication(req.query, (err, isValid, user)=> {
       if(err) {
@@ -48,4 +48,4 @@ const account = {
   }
 }
 
-module.exports  = account;
+module.exports  = Account;

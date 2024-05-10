@@ -1,7 +1,6 @@
 const db = require('../config/dbConfig');
 
 
-// Add a New Book
 exports.addNewBook = (req, res) => {
     console.log("adding new book in database")
     const { title, author, pages, language, book_type, publication_date, publisher, genre, edition, price, description, cover_image_url } = req.body;

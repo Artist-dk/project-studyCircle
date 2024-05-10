@@ -7,7 +7,7 @@ class MessageModel {
   static saveMessage(messageData, callback) {
 
     const { SenderID, RecipientID, MessageType, MessageContent, MediaSource, SentAt } = req.body;
-    const sql = 'INSERT INTO Messages ( SenderID, RecipientID, MessageType, MessageContent, MediaSource, SentAt ) VALUES (?, ?, ?, ?, ?, ?)';
+    const sql = 'INSERT INTO messages (senderId, recipientId, messageType, messageContent, mediaSource) VALUES (?, ?, ?, ?, ?, ?)';
     db.query(sql, [ SenderID, RecipientID, MessageType, MessageContent, MediaSource, SentAt ], (err, result) => {
       if (err) {
         return callback(err, null);
@@ -18,7 +18,7 @@ class MessageModel {
 
   static fetchMessages(sender,recipient,callback) {
     // console.log(data);
-    const sql = 'SELECT * FROM messages where SenderID=? AND RecipientID=?';
+    const sql = 'SELECT * FROM messages where senderId=? AND recipientId=?';
     db.query(sql,[sender, recipient], (err, result) => {
       if (err) {
         return callback(err, null);
