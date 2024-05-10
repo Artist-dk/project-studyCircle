@@ -12,20 +12,20 @@ export default function HomeLsidebar() {
     formData.forEach((value, key) => {
       formDataObject[key] = value;
     });
+    const jsonData = JSON.stringify(formDataObject);
+    console.log(jsonData);
 
-    fetch('/save-settings', {
+    fetch('http://localhost:8081/settings/theme', {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ theme: themeData }),
+      body: jsonData,
     })
     .then((response) => response.text())
     .then((data) => console.log(data))
     .catch((error) => console.error('Error:', error));
     
-    const jsonData = JSON.stringify(formDataObject);
-    console.log(jsonData);
   }
   return (
     <div >

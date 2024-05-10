@@ -41,5 +41,10 @@
   },
   "devDependencies": {
     "react-router-dom": "^6.23.0"
-  }
+  },
+  "description": "Study Circle is an innovative educational platform designed to revolutionize the learning experience. It provides a collaborative virtual environment for students, teachers, and other stakeholders to engage in personalized, interactive, and inclusive education.",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

@@ -10,8 +10,7 @@ const Account = {
       if(!isValid) {
         return res.status(401).json({ error: 'Invalid username or password', value: false});
       }
-      // console.log((req.session.id === '8eFjkDQDztuKaeL1imtl0xsq7h8siEhN')?"hacked":"art")
-      req.session.user = user; // console.log(req.session.user.UserName)
+      req.session.user = user;
       res.status(200).json({
         message: 'Login successful',
         id: req.session.id
