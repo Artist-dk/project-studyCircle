@@ -22,10 +22,13 @@ export default function HomeLsidebar() {
       },
       body: jsonData,
     })
-    .then((response) => response.text())
+    .then((response) => {
+      const cookies = response.headers.get('Set-Cookie');
+      console.log('Cookies:', cookies);
+      return response.text();
+    })
     .then((data) => console.log(data))
     .catch((error) => console.error('Error:', error));
-    
   }
   return (
     <div >
