@@ -4,8 +4,7 @@ const mysql = require('mysql');
 const db = require('../config/dbConfig');
 
 class MessageModel {
-  static saveMessage(messageData, callback) {
-
+  static saveMessage(data, callback) {
     const { SenderID, RecipientID, MessageType, MessageContent, MediaSource, SentAt } = req.body;
     const sql = 'INSERT INTO messages (senderId, recipientId, messageType, messageContent, mediaSource) VALUES (?, ?, ?, ?, ?, ?)';
     db.query(sql, [ SenderID, RecipientID, MessageType, MessageContent, MediaSource, SentAt ], (err, result) => {

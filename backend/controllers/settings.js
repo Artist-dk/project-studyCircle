@@ -4,15 +4,15 @@ const db = require('../config/dbConfig');
 const model = require('../models/settings');
 
 const Settings = {
-  theme: (req, res) => {
-    console.log(req)
-    model.theme(req.body, (err, messageId) => {
-      if (err) {
-        return res.status(500).json({ error: 'Internal server error' });
+  theme: (req, res) => {  
+    const { theme } = req.body;
+    const userId = 1;
+    model.theme(theme,userId, (err, result) => {
+      if(err) {
+        return res.status(500).json({error:err})
       }
-      res.status(201).json({ message: 'Message saved successfully', messageId });
-    });
-    res.send("Hacked")
+      res.status(201).json({message:result})
+    })
   },
 };
 

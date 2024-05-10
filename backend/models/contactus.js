@@ -8,8 +8,6 @@ class Conatactus {
     VALUES (?, ?, ?, ?, ?)`
     db.query(sql, [ firstname, lastname, phoneno, emailid, message ], (err, results) => {
       if (err) { return callback(err, null); }
-      console.log(results)
-      console.log(err)
       callback(null, results);
     });
   } 
