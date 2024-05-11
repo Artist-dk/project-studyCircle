@@ -5,6 +5,7 @@ import Teacher from './components/Teacher';
 import PLibrary from './components/library/PLibrary';
 import ELibrary from './components/library/ELibrary';
 import Accounts from './components/Accounts';
+import Logout from './components/Logout';
 import Cookies from 'js-cookie';
 
 import './style/style.css';
@@ -14,7 +15,7 @@ import ChatApp from './components/ChatApp.jsx';
 
 export default function App(){
   const loggedIn = () => {
-    if(Cookies.get('sid')) {
+    if(Cookies.get('jwtoken')) {
       return true;
     }
     return false;
@@ -30,6 +31,7 @@ export default function App(){
         <Route path="/e-library" element={(loggedIn())?<ELibrary /> : <Navigate to="/accounts" />} />
         <Route path="/p-library" element={(loggedIn())?<PLibrary /> : <Navigate to="/accounts" />} />
         <Route path="/chatapp" element={(loggedIn())?<ChatApp /> : <Navigate to="/accounts" />} />
+        <Route path="/logout" element={<Logout />} />
       </Routes>
     </BrowserRouter>
   ) 

@@ -1,9 +1,20 @@
 
 const model = require('../models/account');
-const cookieParser = require('cookie-parser');
+
+
+// Define the generateToken function
+function generateToken(length = 32) {
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let token = '';
+  for (let i = 0; i < length; i++) {
+      token += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+  return token;
+}
 
 const Account = {
   login: (req, res) => {
+    console.log(req.query)
     model.userAuthentication(req.query, (err, isValid, user)=> {
       if(err) {
         return res.status(500).json({ error: 'Internal server error' });
@@ -11,16 +22,41 @@ const Account = {
       if(!isValid) {
         return res.status(401).json({ error: 'Invalid username or password', value: false});
       }
+      // const token = generateToken();
+      // res.cookie('token', token, {
+      //     expires: new Date(Date.now() + 60 * 60 * 24 * 1000), // Expires in 24 hours
+      //     httpOnly: false
+      // });
+  
+      // res.status(200).json({
+      //   message: 'Login successful',
+      //   sid: req.session.id,
+      //   user: user // Send user information in the response
+      // });
 
-      const cookieOptions = {
-        httpOnly: false, // Cookie cannot be accessed through client-side JavaScript
-        maxAge: 3600 * 1000, // Cookie expires in 1 hour (adjust as needed)
-        secure: false, // Cookie is only sent over HTTPS connections
-        // sameSite: 'strict' // Cookie will only be sent in a first-party context
-      };
 
-      res.cookie('user', JSON.stringify(user), cookieOptions);
-      console.log(req.session.id)
+      res.status(200).cookie('token', "Hacked the box", {
+        expires: new Date(Date.now() + 60 * 60 * 24 * 1000), // Expires in 24 hours
+        httpOnly: false
+      })
+      res.send("Hacked")
+    })
+  },  
+  login1: (req, res) => {
+    console.log(req.body)
+    model.userAuthentication(req.body, (err, isValid, user)=> {
+      if(err) {
+        return res.status(500).json({ error: 'Internal server error' });
+      }
+      if(!isValid) {
+        return res.status(401).json({ error: 'Invalid username or password', value: false});
+      }
+      const token = generateToken();
+      res.cookie('token', token, {
+          expires: new Date(Date.now() + 60 * 60 * 24 * 1000), // Expires in 24 hours
+          httpOnly: false
+      });
+  
       res.status(200).json({
         message: 'Login successful',
         sid: req.session.id,

@@ -7,7 +7,7 @@ export default function Teacher() {
   return (
     <>
       teacher
-                <Link to="/teacher/student">Student</Link>
+      <Link to="/teacher/student">Student</Link>
       {/* <Link to="/teacher/student">Student</Link> */}
       <Routes>
         <Route path="/" element={<Main />}/>

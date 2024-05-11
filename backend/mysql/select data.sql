@@ -8,3 +8,6 @@ SELECT * FROM messages;
 SELECT * FROM books;
 
 SELECT * FROM settings;
+
+SELECT * FROM sessions;
+
