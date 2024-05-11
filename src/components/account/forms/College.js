@@ -1,7 +1,31 @@
+import axios from 'axios';
 import React from 'react';
 
 
 export default function CollegeReg() {
+    const handleAuthentication = async function() {
+        console.log("user authetication")
+
+        try {
+            axios.get('http://localhost:8081/authenticate',
+                {
+                    headers: {
+                        Accept: "*/*",
+                        "Content-Type": "application/json"
+                    },
+                    withCredentials: true
+                }
+            )
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        } catch (error) {
+            console.log(error)
+        }
+    }
     return (
       <div className="mid">
           <div className="glass list box-3 fit-center form-cont">
@@ -34,6 +58,7 @@ export default function CollegeReg() {
                           </div>
                       </div>
                   </form>
+                  <button onClick={handleAuthentication}>handleAuthentication</button>
           </div>
       </div>
     )

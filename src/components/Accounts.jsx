@@ -18,8 +18,8 @@ export default function Accounts() {
   }
 
   const checkLogin = () => {
-    // console.log(Cookies.get('sid'))
-    if(Cookies.get('jwtoken')) {
+    // console.log(Cookies.get('spy'))
+    if(Cookies.get('spy')) {
       return true
     }
     return false

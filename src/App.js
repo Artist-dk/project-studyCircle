@@ -15,7 +15,7 @@ import ChatApp from './components/ChatApp.jsx';
 
 export default function App(){
   const loggedIn = () => {
-    if(Cookies.get('jwtoken')) {
+    if(Cookies.get('spy')) {
       return true;
     }
     return false;

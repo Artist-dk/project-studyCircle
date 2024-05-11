@@ -2,7 +2,10 @@ const express = require('express')
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  res.status(200).clearCookie("jwtoken").send("Loged out");
+  if(req.session && req.session.id) {
+    req.session.destroy();
+  }
+  res.status(200).clearCookie("spy").send("Loged out");
 })
 
 module.exports = router;

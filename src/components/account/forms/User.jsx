@@ -9,9 +9,6 @@ export default function User() {
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
-    useEffect(() => {
-        console.log(username)
-    }, [username]);
     const handleLogin = async () => {
         console.log("login")
         // e.preventDefault();

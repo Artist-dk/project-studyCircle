@@ -236,7 +236,7 @@
   backdrop-filter: blur(15px);
   position: sticky;
   top: 0;
-  background: linear-gradient(45deg,  #888a,#aaaa) ;
+  background: linear-gradient(45deg, #ccca, #fffa);
   z-index: 10;
   span{
     display: inline-block;

@@ -9,10 +9,11 @@ const accountRoute = require('./routes/account')
 const loginRoute = require('./routes/login')
 const logoutRoute = require('./routes/logout')
 const settingsRoute = require('./routes/settings')
+const Authenticate = require('./middleware/authenticate')
 
 const session = require('express-session');
 const cors = require("cors");
-const db = require('./config/dbConfig')
+const db = require('./config/dbConfig');
 const MySQLStore = require('express-mysql-session')(session);
 
 const app = express();
@@ -47,13 +48,24 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/',testRoute);
 
-app.use('/account', accountRoute);
+app.get('/session', (req, res)=> {
+  console.log(req.session)
+  console.log(req.session.id)
+  req.session.visited = true;
+  res.cookie("sid", req.session.id, {maxAge: 1000})
+  res.status(201).send("Hello")
+})
+
 app.use('/contactus', contactusRoute);
 app.use('/library', libraryRoute);
 app.use('/message', messageRoute)
 app.use('/settings', settingsRoute)
+app.use('/account', accountRoute);
 app.use('/login', loginRoute);
 app.use('/logout', logoutRoute);
+app.get('/authenticate',Authenticate,(req, res)=> {
+  res.status(200).send("authentication succeessfull");
+});
 
 const PORT = 8081;
 app.listen(PORT, () => {
