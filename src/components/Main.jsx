@@ -11,36 +11,12 @@ import Contests from './main/Contests';
 import Library from './main/Library';
 import About from './main/About';
 import Settings from './main/Settings';
+import axios from 'axios';
 
 
 export default function Main() {
   const navigate = useNavigate();
 
-  const callAboutPage = async () => {
-    try {
-      const res = await fetch("http://localhost:8081/authenticate", {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json"
-        },
-        credentials: true
-      })
-      const data = await res.json();
-      console.log(data);
-
-      if(!res.status === 200){
-        const error = new Error(res.error);
-        throw error;
-      }
-    } catch (err) {
-      console.log(err)
-      navigate('/accounts')
-    }
-  }
-  useEffect(() => {
-    callAboutPage();
-  },[]) 
     const [currentPage, setCurrentPage] = useState('Home');
   
     const renderPage = () => {

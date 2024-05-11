@@ -63,7 +63,7 @@ app.use('/settings', settingsRoute)
 app.use('/account', accountRoute);
 app.use('/login', loginRoute);
 app.use('/logout', logoutRoute);
-app.get('/authenticate',Authenticate,(req, res)=> {
+app.get('/authenticate', Authenticate.frontEnd,(req, res)=> {
   res.status(200).send("authentication succeessfull");
 });
 

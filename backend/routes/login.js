@@ -17,7 +17,7 @@ router.post('/',(req, res) => {
         }
         req.session.visited = true;
         req.session.user = result[0]
-        res.status(201).cookie("spy", req.session.id, {maxAge: 1000 * 60 }).send(req.session.id);
+        res.status(201).cookie("spy", req.session.id, {maxAge: 1000 * 60 * 10 }).send(req.session.id);
       })
     } catch(err) {
       res.status(400).send("Server error");

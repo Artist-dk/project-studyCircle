@@ -1,11 +1,4 @@
 
-
-
-
-
-
-
-
 let tp;
 const fn = ['post','main'];
 window.onload = function() {
