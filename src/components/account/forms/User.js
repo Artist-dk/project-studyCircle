@@ -22,7 +22,7 @@ export default function User() {
             // console.log(response.data)
             // sessionStorage.setItem('userData',JSON.stringify(response.data))
             // console.log(sessionStorage.getItem('userData'))
-            Cookies.set('sid', response.data.id, { expires: 1 }); // Expires in 1 day
+            // Cookies.set('sid', response.data.id, { expires: 1 }); // Expires in 1 day
             console.log(Cookies.get("sid"));
             // navigate(-1); 
             navigate("/");

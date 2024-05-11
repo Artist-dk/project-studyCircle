@@ -24,7 +24,7 @@ class Account {
     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`
     db.query(sql, [FirstName, LastName, UserName, Email, Password, UserType, MobileNo, ProfilePictureURL, Description], (err, results) => {
       if (err) { return callback(err, null); }
-      console.log(results)
+      // console.log(results)
       callback(null, true);
     });
   }

@@ -27,7 +27,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const sessionStore = new MySQLStore({}, db);
-console.log(sessionStore)
+// console.log(sessionStore)
 app.use(session({
   key: "userId",
   secret: 'studycircle',
@@ -41,10 +41,10 @@ app.use(session({
   }
 }));
 
+app.use('/',testRoute);
 app.use('/account', accountRoute);
 app.use('/contactus', contactusRoute);
 app.use('/library', libraryRoute);
-app.use('/',testRoute);
 app.use('/message', messageRoute)
 app.use('/settings', settingsRoute)
 

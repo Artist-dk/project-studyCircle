@@ -10,6 +10,7 @@ const Account = {
       if(!isValid) {
         return res.status(401).json({ error: 'Invalid username or password', value: false});
       }
+      res.set("Set-Cookie", `session=${req.session.id}`);
       req.session.user = user;
       res.status(200).json({
         message: 'Login successful',

@@ -1,8 +1,4 @@
 
-
-
-
-
 -- Create table for universities
 CREATE TABLE Universities (
     UniversityID INT PRIMARY KEY AUTO_INCREMENT,
