@@ -15,12 +15,9 @@ router.post('/',(req, res) => {
         if(req.body.password !== result[0].password) {
           return res.status(200).send("Invalid credentials")
         }
-        
         req.session.visited = true;
         req.session.user = result[0]
         res.status(201).cookie("spy", req.session.id, {maxAge: 1000 * 60 }).send(req.session.id);
-        console.log(req.session.id);
-
       })
     } catch(err) {
       res.status(400).send("Server error");
