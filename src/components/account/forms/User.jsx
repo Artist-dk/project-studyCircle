@@ -18,8 +18,8 @@ export default function User() {
         try {
             axios.post('http://localhost:8081/login', 
                 {
-                    username: 'artist',
-                    password: 'pass123'
+                    username: username,
+                    password: password
                 }, 
                 {
                     headers: {

@@ -6,6 +6,8 @@ const libraryRoute = require('./routes/library');
 const testRoute = require('./routes/test');
 const messageRoute = require('./routes/message')
 const accountRoute = require('./routes/account')
+const loginRoute = require('./routes/login')
+const logoutRoute = require('./routes/logout')
 const settingsRoute = require('./routes/settings')
 
 const session = require('express-session');
@@ -34,7 +36,6 @@ app.use( cors({
   // origin: '*',
   origin: 'http://localhost:3000',
   credentials:true
-  // credentials:"include"
 }));
 
 app.use((req, res, next) => {
@@ -51,22 +52,8 @@ app.use('/contactus', contactusRoute);
 app.use('/library', libraryRoute);
 app.use('/message', messageRoute)
 app.use('/settings', settingsRoute)
-
-app.get('/logout',  (req, res) => {
-  console.log("logout")
-  res.status(200).clearCookie('jwtoken').send("logged out")
-})
-
-app.post('/login', (req, res)=> {
-  console.log(req.body)
-  res.status(200).cookie('jwtoken', "hacked by artist dk", {
-    expires: new Date(Date.now() + 60 * 60 * 24 * 1000), // Expires in 24 hours
-    httpOnly: false
-  })
-  res.send("logged in")
-  console.log("hacked")
-})
-
+app.use('/login', loginRoute);
+app.use('/logout', logoutRoute);
 
 const PORT = 8081;
 app.listen(PORT, () => {
