@@ -7,6 +7,8 @@ import axios from 'axios';
 export default function User() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const [response, setResponse] = useState(null);
+
     const navigate = useNavigate();
 
     // useEffect(() => {
@@ -19,12 +21,20 @@ export default function User() {
         console.log(username, password)
         axios.get("http://localhost:8081/account/login", {params: {username, password}})
         .then(response => {
-            // console.log(response.data)
-            // sessionStorage.setItem('userData',JSON.stringify(response.data))
-            // console.log(sessionStorage.getItem('userData'))
-            // Cookies.set('sid', response.data.id, { expires: 1 }); // Expires in 1 day
-            console.log(Cookies.get("sid"));
-            // navigate(-1); 
+            setResponse(response.data.user);
+
+            // Check if the response contains a user cookie
+            const userCookie = response.headers['set-cookie'];
+            console.log( response.headers['set-cookie'])
+            if (userCookie) {
+              // Extract the user cookie from the response headers
+              const cookieParts = userCookie[0].split(';')[0].split('=');
+              const cookieName = cookieParts[0];
+              const cookieValue = cookieParts[1];
+              
+              // Set the received cookie
+              document.cookie = `${cookieName}=${cookieValue};`;
+            }
             navigate("/");
         })
         .catch(error => {

@@ -1,5 +1,6 @@
 
 const model = require('../models/account');
+const cookieParser = require('cookie-parser');
 
 const Account = {
   login: (req, res) => {
@@ -10,13 +11,33 @@ const Account = {
       if(!isValid) {
         return res.status(401).json({ error: 'Invalid username or password', value: false});
       }
-      res.set("Set-Cookie", `session=${req.session.id}`);
-      req.session.user = user;
+
+      const cookieOptions = {
+        httpOnly: false, // Cookie cannot be accessed through client-side JavaScript
+        maxAge: 3600 * 1000, // Cookie expires in 1 hour (adjust as needed)
+        secure: false, // Cookie is only sent over HTTPS connections
+        // sameSite: 'strict' // Cookie will only be sent in a first-party context
+      };
+
+      res.cookie('user', JSON.stringify(user), cookieOptions);
+      console.log(req.session.id)
       res.status(200).json({
         message: 'Login successful',
-        id: req.session.id
+        sid: req.session.id,
+        user: user // Send user information in the response
       });
     })
+  },  
+  logout: (req, res) => {
+    res.clearCookie('user', cookieOptions);
+    req.session.destroy((err) => {
+      if (err) {
+        console.error('Error destroying session:', err);
+        res.sendStatus(500); // Internal server error
+      } else {
+        res.send('User logged out successfully');
+      }
+    });
   },
   checklogin: (req, res) => {
     if(req.session.id === req.query.id){
@@ -28,16 +49,7 @@ const Account = {
       return res.status(401).json({ error: 'Not logged in', value: false});
     }
   },
-  logout: (req, res) => {
-    req.session.destroy((err) => {
-      if (err) {
-        console.error('Error destroying session:', err);
-        res.sendStatus(500); // Internal server error
-      } else {
-        res.send('User logged out successfully');
-      }
-    });
-  },
+
   createNew: (req, res) => {
     model.createNew(req.body, (err, result)=> {
       if(err) {
