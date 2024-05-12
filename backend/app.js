@@ -6,7 +6,6 @@ const libraryRoute = require('./routes/library');
 const testRoute = require('./routes/test');
 const messageRoute = require('./routes/message')
 const accountController = require('./controllers/account')
-const logoutRoute = require('./routes/logout')
 const settingsRoute = require('./routes/settings')
 const Authenticate = require('./middleware/authenticate')
 const upload = require('./config/multerConfig');

@@ -1,19 +1,50 @@
+const { query } = require('express');
 const db = require('../config/dbConfig');
 const model = require('../models/message');
 
 const Message = {
-  saveMessage: (req, res) => {
-    model.saveMessage(req.body, (err, messageId) => {
+  fetchUsers: (req, res) => {
+    const sql = 'SELECT * FROM users';
+    db.query(sql, (err, result) => {
       if (err) {
         return res.status(500).json({ error: 'Internal server error' });
       }
-      res.status(201).json({ message: 'Message saved successfully', messageId });
+      res.status(200).json(result);
     });
+  },
+  
+  fetchUser: async (req, res) => {
+    try {
+      const userId = req.body.userId
+      const sql = 'SELECT * FROM users WHERE id = ?';
+      
+      await db.query(sql,[userId], (e,r) => {
+        if(e) {
+          res.status(400).json({ error: 'Internal server error' }); // Generic error for client
+        }
+        res.status(200).send(r)
+      });
+      // res.status(200).json(rows[0]); // Send only the first row (assuming single user per ID)
+    } catch (err) {
+      console.error('Error fetching user:', err);
+      res.status(500).json({ error: 'Internal server error' }); // Generic error for client
+    }
+  },
+  
+  saveMessage: (req, res) => {
+    const { SenderID, RecipientID, MessageType, MessageContent, MediaSource, SentAt } = req.body;
+    console.log(req.body)
+    const sql = 'INSERT INTO messages (senderId, recipientId, messageType, messageContent, mediaSource) VALUES (?, ?, ?, ?, ?, ?)';
+    db.query(sql, [ SenderID, RecipientID, MessageType, MessageContent, MediaSource, SentAt ], (err, result) => {
+      if (err) {
+        return res.status(500).json({ error: 'Internal server error' });
+      }
+    });
+    res.status(201).json({ message: 'Message saved successfully', messageId });
   },
 
   getReceiverId: (req, res) => {
     const receiverId = req.params.receiverId;
-
     model.getMessagesByReceiverId(receiverId, (err, messages) => {
       if (err) {
         return res.status(500).json({ error: 'Internal server error' });
@@ -22,29 +53,21 @@ const Message = {
     });
   },
 
-  fetchUsers: (req, res) => {
-    model.fetchUsers((err, message) => {
-      if (err) {
-        return res.status(500).json({ error: 'Internal server error' });
-      }
-      res.status(200).json(message);
-    });
-  },
-
   fetchMessages: (req, res) => {
-    const { UserID } = req.query;
-    console.log(req.session.user.UserID)
+    const UserID  = 1 ;
+    // console.log(req.session.user.UserID)
+    
 
     console.log(UserID)
-    model.fetchMessages(req.session.user.UserID, UserID, (err, message) => {
+    const sql = 'SELECT * FROM messages where senderId=? AND recipientId=?';
+    db.query(sql,[sender, recipient], (err, result) => {
       if (err) {
         return res.status(500).json({ error: 'Internal server error' });
       }
       res.status(200).json(message);
     });
-  },
-};
-
+  }
+}
 module.exports = Message;
 
 // // Add a New Book

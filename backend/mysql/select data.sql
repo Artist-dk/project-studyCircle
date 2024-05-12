@@ -7,7 +7,7 @@ SELECT * FROM settings;
 SELECT * FROM sessions;
 
 
-DROP DATABASE studycircle;
+-- DROP DATABASE studycircle;
 
 DROP TABLE contactUs;
 DROP TABLE users;
@@ -15,3 +15,13 @@ DROP TABLE messages;
 DROP TABLE books;
 DROP TABLE settings;
 DROP TABLE sessions;
+
+-- DROP DATABASE studycircle;
+
+-- DROP TABLE contactUs;
+-- DROP TABLE users;
+-- DROP TABLE messages;
+-- DROP TABLE books;
+-- DROP TABLE settings;
+-- DROP TABLE sessions;
+
