@@ -9,6 +9,7 @@ const Message = {
       if (err) {
         return res.status(500).json({ error: 'Internal server error' });
       }
+      console.log(result)
       res.status(200).json(result);
     });
   },
@@ -32,15 +33,43 @@ const Message = {
   },
   
   saveMessage: (req, res) => {
-    const { SenderID, RecipientID, MessageType, MessageContent, MediaSource, SentAt } = req.body;
-    console.log(req.body)
-    const sql = 'INSERT INTO messages (senderId, recipientId, messageType, messageContent, mediaSource) VALUES (?, ?, ?, ?, ?, ?)';
-    db.query(sql, [ SenderID, RecipientID, MessageType, MessageContent, MediaSource, SentAt ], (err, result) => {
-      if (err) {
-        return res.status(500).json({ error: 'Internal server error' });
+    const { recipientId, messageContent, messageType } = req.body;
+    const senderId = req.session.user.id
+
+    console.log( senderId, recipientId, messageContent, messageType )
+
+    const sql = "INSERT INTO messages (senderId, recipientId, messageType, messageContent, mediaSource) VALUES (?, ?, ?, ?, NULL)";
+    db.query(sql, [senderId, recipientId, messageType, messageContent], (err, results) => {
+      if (err) { 
+        if(err.code == 'ER_DUP_ENTRY') {
+          return res.send("duplicate entry")
+        }
+        console.log("message saved")
+        return res.status(200).send("message saved")
       }
     });
-    res.status(201).json({ message: 'Message saved successfully', messageId });
+
+  },
+  fetchMessages: (req, res) => {
+    // const { recipientId, messageContent, messageType } = req.body;
+    // const senderId = req.session.user.id
+
+    // console.log( senderId, recipientId, messageContent, messageType )
+
+    const senderId = 1;
+    const recipientId = 2;
+
+    const sql = "SELECT * FROM messages WHERE senderId = ? && recipientId = ?";
+    db.query(sql, [senderId, recipientId], (err, results) => {
+      if (err) { 
+        if(err.code == 'ER_DUP_ENTRY') {
+          return res.send("duplicate entry")
+        }
+        console.log(results)
+        return res.status(200).send(results)
+      }
+    });
+
   },
 
   getReceiverId: (req, res) => {
@@ -50,21 +79,6 @@ const Message = {
         return res.status(500).json({ error: 'Internal server error' });
       }
       res.status(200).json(messages);
-    });
-  },
-
-  fetchMessages: (req, res) => {
-    const UserID  = 1 ;
-    // console.log(req.session.user.UserID)
-    
-
-    console.log(UserID)
-    const sql = 'SELECT * FROM messages where senderId=? AND recipientId=?';
-    db.query(sql,[sender, recipient], (err, result) => {
-      if (err) {
-        return res.status(500).json({ error: 'Internal server error' });
-      }
-      res.status(200).json(message);
     });
   }
 }

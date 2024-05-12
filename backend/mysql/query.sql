@@ -1,7 +1,6 @@
 
 CREATE DATABASE studyCircle;
 USE studyCircle;
-
 CREATE TABLE IF NOT EXISTS contactUs (
     id INT AUTO_INCREMENT PRIMARY KEY,
     firstName VARCHAR(50) NOT NULL,
@@ -27,7 +26,7 @@ CREATE TABLE users (
 
 CREATE TABLE messages (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    senderId INT,
+    senderId INT NOT NULL,
     recipientId INT NOT NULL,
     messageType ENUM('text', 'image', 'document', 'video', 'audio', 'other') DEFAULT 'text',
     messageContent TEXT,

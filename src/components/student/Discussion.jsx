@@ -6,57 +6,108 @@ export default function Discussion() {
     const [chatMessages, setChatMessages] = useState([]);
     const [usersData, setUsersData] = useState([]);
     const [userData, setUserData] = useState([]);
-    const [message, setMessage] = useState({
-        image: null,
-        text: "",
-        video: null,
-        imo: null
-    });
+    const [message, setMessage] = useState();
+
+    const fetchMessages = (e) => {
+        console.log(message)
+        e.preventDefault();
+        try {
+            axios.get('http://localhost:8081/message/saveMessage', 
+            JSON.stringify({ 
+                recipientId: userData[0].id,
+            }), 
+            {
+                headers: {
+                    Accept: "*/*",
+                    "Content-Type": "application/json"
+                },
+                withCredentials: true
+            })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        } catch (error) {
+            console.log(error)
+        }   
+    }
+
+    const handleSendMessage = (e) => {
+        console.log(message)
+        e.preventDefault();
+        try {
+            axios.post('http://localhost:8081/message/saveMessage', 
+            JSON.stringify({ 
+                recipientId: userData[0].id,
+                messageContent: message,
+                messageType: 'text',
+                file: {}
+            }), 
+            {
+                headers: {
+                    Accept: "*/*",
+                    "Content-Type": "application/json"
+                },
+                withCredentials: true
+            })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        } catch (error) {
+            console.log(error)
+        }   
+    }
     
+    const fetchUsers = () => {
+        try {
+            axios.post('http://localhost:8081/message/fetchUsers', 
+            JSON.stringify({ }), 
+            {
+                headers: {
+                    Accept: "*/*",
+                    "Content-Type": "application/json"
+                },
+                withCredentials: true
+            })
+            .then(function (response) {
+                setUsersData(response.data)
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        } catch (error) {
+            console.log(error)
+        } 
+    }
+    const fetchUser = (e) => {
+        try {
+            axios.post('http://localhost:8081/message/fetchUser', 
+            JSON.stringify({ userId: e }), {
+                headers: {
+                    Accept: "*/*",
+                    "Content-Type": "application/json"
+                },
+                withCredentials: true
+            })
+            .then(function (response) {
+                setUserData(response.data)
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        } catch (error) {
+            console.log(error)
+        } 
+    }
     const handleClick = (e) => {
         const userId = parseInt(e.currentTarget.dataset.a);
         const user = usersData.find((user) => user.id === userId);
         fetchUser(userId)
-    }
-    // const fetchUser = (user) => {
-    //   axios
-    //     .get(
-    //       "http://localhost:8081/message/fetchMessage" /*, { params: { userId: user.id } } */,
-    //     )
-    //     .then((response) => {
-    //         setChatMessages(response.data);
-    //         console.log(response.data);
-    //         console.log("data sent");
-    //     })
-    //     .catch((error) => {
-    //         console.error("Error fetching messages:", error);
-    //     });
-    // }
-    const fetchUser = (userId) => {
-        const myHeaders = new Headers();
-        myHeaders.append('Content-Type', 'application/json');
-        myHeaders.append('X-My-Custom-Header', 'my-custom-value');
-        
-        const requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            body: JSON.stringify({ userId: userId }),
-        };
-
-        fetch("http://localhost:8081/message/fetchUser", requestOptions)
-        .then(response => response.json())
-        .then(data =>{
-            setUserData(data)
-        })
-        .catch(error => console.error("Error fetching users:", error));
-    }
-    const fetchUsers = () => {
-        fetch("http://localhost:8081/message/fetchUsers")
-        .then(response => response.json())
-        .then(data =>{
-            setUsersData(data)
-        })
-        .catch(error => console.error("Error fetching users:", error));
     }
     useEffect((e)=> {
         fetchUsers();
@@ -67,7 +118,7 @@ export default function Discussion() {
     },[]);
     
     
-    const handleSendMessage = (e) => {
+    const handleSendMessagse = (e) => {
         e.preventDefault();
         if (userData.length>0) {
             axios
@@ -195,7 +246,7 @@ export default function Discussion() {
                                     name="messageTextBody"
                                     id="_msg"
                                     autoComplete="off"
-                                    onChange={setMessage}
+                                    onChange={(e)=> {setMessage(e.target.value)}}
                                 />
                                 <button id="_sendMsg">
                                     <svg

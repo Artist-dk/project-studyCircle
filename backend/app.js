@@ -5,10 +5,12 @@ const contactusRoute = require('./routes/contactus');
 const libraryRoute = require('./routes/library');
 const testRoute = require('./routes/test');
 const messageRoute = require('./routes/message')
-const accountController = require('./controllers/account')
 const settingsRoute = require('./routes/settings')
 const Authenticate = require('./middleware/authenticate')
 const upload = require('./config/multerConfig');
+
+const accountController = require('./controllers/account')
+const messageController = require('./controllers/message')
 
 const session = require('express-session');
 const cors = require("cors");
@@ -39,6 +41,7 @@ app.use( cors({
 }));
 
 app.use((req, res, next) => {
+  console.log(req.session.id)
   next();
 });
 
@@ -54,10 +57,15 @@ app.get('/session', (req, res)=> {
   res.cookie("sid", req.session.id, {maxAge: 1000})
   res.status(201).send("Hello")
 })
+app.get('/ses', (req, res)=> {
+  res.status(201).send(req.session.id)
+})
 
 app.use('/contactus', contactusRoute);
 app.use('/library', libraryRoute);
+
 app.use('/message', messageRoute)
+
 app.use('/settings', settingsRoute)
 app.use('/account/createnew', accountController.createNew);
 app.use('/login', accountController.login);
