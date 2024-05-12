@@ -1,6 +1,5 @@
 
-const model = require('../models/account');
-
+const db = require('../config/dbConfig');
 
 // Define the generateToken function
 function generateToken(length = 32) {
@@ -14,86 +13,78 @@ function generateToken(length = 32) {
 
 const Account = {
   login: (req, res) => {
-    console.log(req.query)
-    model.userAuthentication(req.query, (err, isValid, user)=> {
-      if(err) {
-        return res.status(500).json({ error: 'Internal server error' });
+    if(req.body.username) {
+      try {
+        db.query(`SELECT * FROM users WHERE username = ?`, [req.body.username], (error, result) => {
+          if(error) {
+            return res.status(400).send("Server error")
+          }
+          if(!result[0]) {
+            return res.status(200).send("data not found")
+          }
+          if(req.body.password !== result[0].password) {
+            return res.status(200).send("Invalid credentials")
+          }
+          req.session.visited = true;
+          req.session.user = result[0]
+          res.status(201).cookie("spy", req.session.id, {maxAge: 1000 * 60 * 10 }).send(req.session.id);
+        })
+      } catch(err) {
+        res.status(400).send("Server error");
       }
-      if(!isValid) {
-        return res.status(401).json({ error: 'Invalid username or password', value: false});
-      }
-      // const token = generateToken();
-      // res.cookie('token', token, {
-      //     expires: new Date(Date.now() + 60 * 60 * 24 * 1000), // Expires in 24 hours
-      //     httpOnly: false
-      // });
-  
-      // res.status(200).json({
-      //   message: 'Login successful',
-      //   sid: req.session.id,
-      //   user: user // Send user information in the response
-      // });
-
-
-      res.status(200).cookie('token', "Hacked the box", {
-        expires: new Date(Date.now() + 60 * 60 * 24 * 1000), // Expires in 24 hours
-        httpOnly: false
-      })
-      res.send("Hacked")
-    })
-  },  
-  login1: (req, res) => {
-    console.log(req.body)
-    model.userAuthentication(req.body, (err, isValid, user)=> {
-      if(err) {
-        return res.status(500).json({ error: 'Internal server error' });
-      }
-      if(!isValid) {
-        return res.status(401).json({ error: 'Invalid username or password', value: false});
-      }
-      const token = generateToken();
-      res.cookie('token', token, {
-          expires: new Date(Date.now() + 60 * 60 * 24 * 1000), // Expires in 24 hours
-          httpOnly: false
-      });
-  
-      res.status(200).json({
-        message: 'Login successful',
-        sid: req.session.id,
-        user: user // Send user information in the response
-      });
-    })
-  },  
-  logout: (req, res) => {
-    res.clearCookie('user', cookieOptions);
-    req.session.destroy((err) => {
-      if (err) {
-        console.error('Error destroying session:', err);
-        res.sendStatus(500); // Internal server error
-      } else {
-        res.send('User logged out successfully');
-      }
-    });
-  },
-  checklogin: (req, res) => {
-    if(req.session.id === req.query.id){
-      return res.status(200).json({
-        message: "logged in",
-        value: true
-      });
     } else {
-      return res.status(401).json({ error: 'Not logged in', value: false});
+      res.send("Invalid credentials").status("200");
     }
   },
 
+  logout: (req, res) => {
+    if(req.session && req.session.id) {
+      req.session.destroy();
+    }
+    res.status(200).clearCookie("spy").send("Loged out");
+  },
+
   createNew: (req, res) => {
-    model.createNew(req.body, (err, result)=> {
-      if(err) {
-        return res.status(500).json({ error: 'Data already exists' });
+    const firstName = req.body.firstName;
+    const lastName = req.body.lastName;
+    const userName = req.body.userName;
+    const phoneNo = req.body.phoneNo;
+    const email = req.body.email;
+    const password = req.body.password;
+    const description = req.body.description;
+    const confirmPassword = req.body.confirmPassword;
+
+    if(!firstName) return res.send("first name is required")
+    if(!lastName) return res.send("lastName name is required")
+    if(!userName) return res.send("userName name is required")
+    // if(!phoneNo) return res.send("phoneNo name is required")
+    if(!email) return res.send("email name is required")
+    if(!password) return res.send("password name is required")
+    if(!description) return res.send("description name is required")
+    
+    if (password !== confirmPassword) {
+      return res.send("Password and confirm password don't match")
+    }
+    
+    // const {firstName, lastName, userName, phoneNo, email, password, description} = req.body;
+    // console.log(firstName, lastName, userName, phoneNo, email, password, description)
+
+    const sql = `INSERT INTO users (firstName, lastName, userName, phoneNo, email, password, description)
+    VALUES (?, ?, ?, ?, ?, ?, ?)`
+
+    db.query(sql, [firstName, lastName, userName, phoneNo, email, password, description], (err, results) => {
+      if (err) { 
+        if(err.code == 'ER_DUP_ENTRY') {
+          return res.send("duplicate entry")
+        }
+        return res.send("Database error")
       }
-      res.status(200).json({ message: 'Account created successfully'});
-    })
+      res.send("Account created successfully")
+    });
   }
 }
+
+
+
 
 module.exports  = Account;

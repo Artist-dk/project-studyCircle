@@ -1,5 +1,4 @@
 
-DROP DATABASE studyCircle;
 CREATE DATABASE studyCircle;
 USE studyCircle;
 
@@ -22,7 +21,7 @@ CREATE TABLE users (
     email VARCHAR(100) UNIQUE NOT NULL,
     password VARCHAR(100) NOT NULL,
     userType ENUM('Student', 'Teacher', 'University', 'User') DEFAULT 'User',
-    profilePictureURL VARCHAR(255),
+    profilePictureURL VARCHAR(255) DEFAULT 'https://i.pinimg.com/originals/5d/ad/83/5dad83eac77969d6583e067e3a82f0b3.jpg',
     description TEXT
 );
 

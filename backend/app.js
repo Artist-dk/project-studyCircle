@@ -5,11 +5,11 @@ const contactusRoute = require('./routes/contactus');
 const libraryRoute = require('./routes/library');
 const testRoute = require('./routes/test');
 const messageRoute = require('./routes/message')
-const accountRoute = require('./routes/account')
-const loginRoute = require('./routes/login')
+const accountController = require('./controllers/account')
 const logoutRoute = require('./routes/logout')
 const settingsRoute = require('./routes/settings')
 const Authenticate = require('./middleware/authenticate')
+const upload = require('./config/multerConfig');
 
 const session = require('express-session');
 const cors = require("cors");
@@ -60,14 +60,17 @@ app.use('/contactus', contactusRoute);
 app.use('/library', libraryRoute);
 app.use('/message', messageRoute)
 app.use('/settings', settingsRoute)
-app.use('/account', accountRoute);
-app.use('/login', loginRoute);
-app.use('/logout', logoutRoute);
-app.get('/authenticate', Authenticate.frontEnd,(req, res)=> {
+app.use('/account/createnew', accountController.createNew);
+app.use('/login', accountController.login);
+app.use('/logout', accountController.logout);
+app.get('/authenticate', Authenticate.frontEnd, (req, res)=> {
   res.status(200).send("authentication succeessfull");
 });
 
+// router.post('/saveMessage', upload.single('file'), messageController.saveMessage);
+
+
 const PORT = 8081;
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });
