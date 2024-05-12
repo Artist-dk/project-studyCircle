@@ -29,13 +29,13 @@ const Library = () => {
         formRef.current.elements["author"].value = 'F. Scott Fitzgerald';
         formRef.current.elements["pages"].value = '180';
         formRef.current.elements["language"].value = 'English';
-        formRef.current.elements["publication_date"].value = '1925-04-10';
+        formRef.current.elements["publicationDate"].value = '1925-04-10';
         formRef.current.elements["publisher"].value = 'Charles Scribner\'s Sons';
         formRef.current.elements["genre"].value = 'Fiction';
         formRef.current.elements["edition"].value = 'First';
         formRef.current.elements["price"].value = '10.99';
         formRef.current.elements["description"].value = 'A novel by F. Scott Fitzgerald.';
-        formRef.current.elements["cover_image_url"].value = 'https://example.com/great-gatsby-cover.jpg';
+        formRef.current.elements["coverImageURL"].value = 'https://example.com/great-gatsby-cover.jpg';
     };
     
   
@@ -385,8 +385,8 @@ const Library = () => {
                             </div>
                             <div className="row">
                                 <div className="input">
-                                    <label className="input-label" htmlFor="book_type">Book Type</label>
-                                    <select id="book_type" name="book_type"  data-a="1" data-msg="Please enter a valid Book Type" data-name="Book Type" >
+                                    <label className="input-label" htmlFor="bookType">Book Type</label>
+                                    <select id="book_type" name="bookType"  data-a="1" data-msg="Please enter a valid Book Type" data-name="Book Type" >
                                         <option value="physical" >Physical</option>
                                         <option value="ebook" selected>Ebook</option>
                                     </select>
@@ -395,8 +395,8 @@ const Library = () => {
                                 </div>
 
                                 <div className="input">
-                                    <label htmlFor="publication_date" className="input-label">Publication Date</label>
-                                    <input type="date" id="publication_date" name="publication_date" data-a="0" data-msg="Please enter a valid Publication Date" data-name="Publication Date"  />
+                                    <label htmlFor="publicationDate" className="input-label">Publication Date</label>
+                                    <input type="date" id="publicationDate" name="publicationDate" data-a="0" data-msg="Please enter a valid Publication Date" data-name="Publication Date"  />
                                     <p className="error-msg"></p>
                                     <i className="input-bg"></i>
                                 </div>
@@ -439,16 +439,16 @@ const Library = () => {
                             </div>
                             <div className="row">
                                 <div className="input">
-                                    <label className="input-label" htmlFor="cover_image_url">Cover Image URL</label>
-                                    <input type="text" id="cover_image_url" name="cover_image_url" data-a="6" data-msg="Please enter a valid URL" data-name="Cover Image URL" data-url="1"/>
+                                    <label className="input-label" htmlFor="coverImageURL">Cover Image URL</label>
+                                    <input type="text" id="coverImageURL" name="coverImageURL" data-a="6" data-msg="Please enter a valid URL" data-name="Cover Image URL" data-url="1"/>
                                     <p className="error-msg"></p>
                                     <i className="input-bg"></i>
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="input">
-                                    <label className="input-label" htmlFor="book_file">Book File</label>
-                                    <input type="file" id="file" name="file" accept=".pdf,.doc,.docx,.txt" data-a="1" data-msg="Please select a valid Book File" data-name="Book File" 
+                                    <label className="input-label" htmlFor="file">Book File</label>
+                                    <input type="file" id="fileURL" name="file" accept=".pdf,.doc,.docx,.txt" data-a="1" data-msg="Please select a valid Book File" data-name="Book File" 
                                     ref={fileInputRef} />
                                     <p className="error-msg"></p>
                                     <i className="input-bg"></i>

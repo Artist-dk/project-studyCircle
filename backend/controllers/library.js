@@ -3,18 +3,21 @@ const db = require('../config/dbConfig');
 
 exports.addNewBook = (req, res) => {
     console.log("adding new book in database")
-    const { title, author, pages, language, book_type, publication_date, publisher, genre, edition, price, description, cover_image_url } = req.body;
+    const { title, author, pages, language, bookType, publicationDate, publisher, genre, edition, price, description, coverImageURL } = req.body;
 
     const filename = req.file.originalname;
     const fileUrl = req.file.path; 
 
-    const sql = `INSERT INTO books (title, author, pages, language, book_type, publication_date, publisher, genre, edition, price, description, cover_image_url, file_url) 
+    const sql = `INSERT INTO books (title, author, pages, language, bookType, publicationDate, publisher, genre, edition, price, description, coverImageURL, fileURL) 
                  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
     
-    const values = [title, author, pages, language, book_type, publication_date, publisher, genre, edition, price, description, cover_image_url, fileUrl];
+    const values = [title, author, pages, language, bookType, publicationDate, publisher, genre, edition, price, description, coverImageURL, fileUrl];
 
-    console.log(values)
-
+    if(!title) return res.send("Title is required")
+    if(!author) return res.send("author is required")
+    if(!pages) return res.send("pages is required")
+    if(!language) return res.send("language is required")
+        
     db.query(sql, values, (error, result) => {
         if (error) {
             console.error('Error adding book to the library:', error);
