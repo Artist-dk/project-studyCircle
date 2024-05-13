@@ -6,25 +6,27 @@ export default function Discussion() {
     const [chatMessages, setChatMessages] = useState([]);
     const [usersData, setUsersData] = useState([]);
     const [userData, setUserData] = useState([]);
-    const [message, setMessage] = useState();
+    const [message, setMessage] = useState([]);
 
-    const fetchMessages = (e) => {
+    const fetchMessages = () => {
         console.log(message)
-        e.preventDefault();
         try {
-            axios.get('http://localhost:8081/message/saveMessage', 
-            JSON.stringify({ 
-                recipientId: userData[0].id,
-            }), 
-            {
+            axios.get('http://localhost:8081/message/fetchMessages',  {
+                params: { // Send data as query parameters for GET requests
+                  recipientId: userData[0].id
+                },
                 headers: {
-                    Accept: "*/*",
-                    "Content-Type": "application/json"
+                  Accept: '*/*',
+                  'Content-Type': 'application/json' // Might be unnecessary for GET, but harmless
                 },
                 withCredentials: true
             })
             .then(function (response) {
-                console.log(response);
+                console.log("hack")
+                // setChatMessages([])
+                setChatMessages(response.data)
+                console.log(response.data)
+                console.log(chatMessages);
             })
             .catch(function (error) {
                 console.log(error);
@@ -96,6 +98,7 @@ export default function Discussion() {
             })
             .then(function (response) {
                 setUserData(response.data)
+                fetchMessages();
             })
             .catch(function (error) {
                 console.log(error);
@@ -118,7 +121,7 @@ export default function Discussion() {
     },[]);
     
     
-    const handleSendMessagse = (e) => {
+    const handleSendMessagses = (e) => {
         e.preventDefault();
         if (userData.length>0) {
             axios
@@ -201,14 +204,14 @@ export default function Discussion() {
                         </div>
                     </div>
                     <div className="chat-body">
-                        {chatMessages.map((message, index) => (
-                            <div className={`msg-cont-${message.type}`} key={index}>
+                        {chatMessages.map((msg, index) => (
+                            <div className={`msg-cont-${(msg.recipientId === parseInt(userData[0].id) )?('received'):('sent')}`} key={index}>
                                 <div className="msg-body">
                                     <div className="msg-bg">
-                                        <div className="msg-text">{message.text}</div>
+                                        <div className="msg-text">{msg.messageContent}</div>
                                     </div>
                                     <div className="msg-time">
-                                        <span>{message.time}</span>
+                                        <span>{msg.sentAt}</span>
                                     </div>
                                 </div>
                             </div>

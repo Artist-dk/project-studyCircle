@@ -6,6 +6,12 @@ SELECT * FROM books;
 SELECT * FROM settings;
 SELECT * FROM sessions;
 
+truncate messages;
+
+SELECT * FROM users WHERE id != 1;
+
+
+use studycircle;
 
 -- DROP DATABASE studycircle;
 

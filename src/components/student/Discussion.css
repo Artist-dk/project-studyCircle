@@ -208,6 +208,7 @@
                     min-width: 100px;
                 }
                 .msg-bg {
+                    background: 08f;
                     border-radius: 10px 10px 0 10px;
                     width:fit-content;
                     max-width: 400px;
