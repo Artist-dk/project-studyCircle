@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import "./Discussion.css";
-import axios from 'axios'; // Import Axios
+import axios from 'axios';
 
 export default function Discussion() {
     const [chatMessages, setChatMessages] = useState([]);
@@ -8,25 +8,33 @@ export default function Discussion() {
     const [userData, setUserData] = useState([]);
     const [message, setMessage] = useState([]);
 
+    const userSidebar = useRef();
+
+    const toggleUsers = () => {
+        if( userSidebar.current.classList.value.match("zero-contacts-container" )) {
+            userSidebar.current.classList.value = userSidebar.current.classList.value.trim().replaceAll(" zero-contacts-container", '')
+        } else {
+            userSidebar.current.classList.value = userSidebar.current.classList.value + " zero-contacts-container"
+        }
+        console.log("hacked")
+        console.log(userSidebar.current.classList.value )
+    }
+
     const fetchMessages = () => {
         console.log(message)
         try {
             axios.get('http://localhost:8081/message/fetchMessages',  {
-                params: { // Send data as query parameters for GET requests
+                params: {
                   recipientId: userData[0].id
                 },
                 headers: {
                   Accept: '*/*',
-                  'Content-Type': 'application/json' // Might be unnecessary for GET, but harmless
+                  'Content-Type': 'application/json'
                 },
                 withCredentials: true
             })
             .then(function (response) {
-                console.log("hack")
-                // setChatMessages([])
                 setChatMessages(response.data)
-                console.log(response.data)
-                console.log(chatMessages);
             })
             .catch(function (error) {
                 console.log(error);
@@ -35,6 +43,10 @@ export default function Discussion() {
             console.log(error)
         }   
     }
+
+    useEffect(()=>{
+        fetchMessages()
+    },[userData])
 
     const handleSendMessage = (e) => {
         console.log(message)
@@ -98,7 +110,6 @@ export default function Discussion() {
             })
             .then(function (response) {
                 setUserData(response.data)
-                fetchMessages();
             })
             .catch(function (error) {
                 console.log(error);
@@ -143,7 +154,7 @@ export default function Discussion() {
     
     return (
         <div className="chatapp">
-            <div className="contacts-container">
+            <div className="contacts-container" ref={userSidebar}>
                 {usersData.map((user) => (
                     <div
                         data-a={user.id}
@@ -151,12 +162,9 @@ export default function Discussion() {
                         key={user.id}
                         onClick={(e) => handleClick(e)}
                     >
+                        
                         <div className="img-container">
                             <img src={user.profilePictureURL} alt="" />
-                            {/* <img
-                                src="https://i.pinimg.com/originals/5d/ad/83/5dad83eac77969d6583e067e3a82f0b3.jpg"
-                                alt=""
-                            /> */}
                         </div>
                         <div className="details-container">
                             <h2>{user.firstName +" "+ user.lastName}</h2>
@@ -169,7 +177,7 @@ export default function Discussion() {
                 <div className="chat-main">
                     <div className="chat-head">
                         <div className="grid-1">
-                            <div class="contacts-icon"><span></span><span></span><span></span></div>
+                            <div class="contacts-icon" onClick={toggleUsers}><span></span><span></span><span></span></div>
                             <div className="contact-head">
                                 <div className="contact-head-main">
                                     <div className="img-cont">

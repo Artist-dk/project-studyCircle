@@ -20,8 +20,7 @@
         justify-content: center;
     }    
     .lsidebar {
-        min-width: 40px;
-        max-width: 50px;
+        width: 50px;
         height: 100vh;
         display: block;
         transition: 1s;
@@ -86,8 +85,7 @@
     width: 0;
 }
 .lsidebar-show {
-    min-width: 60px !important;
-    max-width: 400px !important;
+    width: 300px !important;
 }
 
 .icon {
