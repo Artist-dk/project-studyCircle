@@ -1,9 +1,8 @@
 
 import React, { useEffect } from 'react'
-import Footer from './footer'
-import './homeStyle.css'
+import Footer from './Footer'
 import Slider from './home/Slider'
-import AcademicProgressGraph from './AcademicProgressGraph';
+import AcademicProgressGraph from '../student/AcademicProgressGraph';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 

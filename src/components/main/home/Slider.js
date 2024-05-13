@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './Slider.css'; // Import your CSS file for styling
 
 const Slider = ({ images }) => {
   const [img, setimg] = useState(images[0])

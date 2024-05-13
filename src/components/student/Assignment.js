@@ -33,7 +33,7 @@ export default function Assignment() {
                     <span className="date">24 March 2023</span>
                     <span className="time">01:12 AM</span>
                     <span className="title">ASSIGNMENT 02</span>
-                    <span className="pending">Deadline Passed</span>
+                    <span className="expired">Deadline Passed</span>
                 </div>
                 <div className="middle">
                     <input type="text" placeholder="Title" value="This is title" readonly />
