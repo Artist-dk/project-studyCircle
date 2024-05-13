@@ -169,6 +169,7 @@ export default function Discussion() {
                 <div className="chat-main">
                     <div className="chat-head">
                         <div className="grid-1">
+                            <div class="contacts-icon"><span></span><span></span><span></span></div>
                             <div className="contact-head">
                                 <div className="contact-head-main">
                                     <div className="img-cont">

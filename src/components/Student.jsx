@@ -6,27 +6,23 @@ import './Student.css';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
-function open(e) {
-  e = e.currentTarget;
-  var lsb = document.querySelector(".lsidebar")
-    if(e.classList.value.match("active-icon")) {
-        e.classList.remove('active-icon')
-        lsb.classList.remove('lsidebar-show')
-    } else {
-        e.classList.toggle('active-icon')
-        lsb.classList.toggle('lsidebar-show')
-    }
-}
 
 
 export default function Student() {
+  
+  function open(e) {
+    e = e.currentTarget;
+    var lsb = document.querySelector(".lsidebar")
+      if(e.classList.value.match("active-icon")) {
+          e.classList.remove('active-icon')
+          lsb.classList.remove('lsidebar-show')
+      } else {
+          e.classList.toggle('active-icon')
+          lsb.classList.toggle('lsidebar-show')
+      }
+  }
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  
-  // useEffect(() => {
-  //     console.log("hacked")
-  //     console.log(username);
-  // }, [username]); 
   
   const handleLogin = (e) => {
       e.preventDefault();
@@ -51,12 +47,15 @@ export default function Student() {
             <div className="lsb-head">
               <div className="lsb-title">
                   <div>
-                      <svg viewBox="0 0 100 100" preserveAspectRatio="none">
-                          <path stroke="red" strokeWidth="39" d="M0 40 0 0 40 0 " fill="transparent"/>
-                          <path stroke="red" strokeWidth="39" d="M60 0 100 0 100 40 " fill="transparent" />
-                          <path stroke="red" strokeWidth="39" d="M0 60 0 100 40 100" fill="transparent" />
-                          <path stroke="red" strokeWidth="39" d="M60 100 100 100 100 60 " fill="transparent" />
-                      </svg>
+                    {/* <svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="100" cy="100" r="90" fill="#FF0000"></circle>
+                      <circle cx="100" cy="100" r="70" fill="#FFFFFF"></circle>
+                      <circle cx="100" cy="100" r="60" fill="#ff0000"></circle>
+                      <circle cx="100" cy="100" r="40" fill="#FFFFff"></circle>
+                      <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial" font-size="32" fill="#000000">
+                        StudyCircle
+                      </text>
+                    </svg> */}
                   </div>
                   <div>StudyCircle</div>
               </div>

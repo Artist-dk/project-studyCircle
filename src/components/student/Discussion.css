@@ -89,12 +89,77 @@
             min-width: 500px;
             overflow: hidden;
             .chat-head {
+
                 /* background-color: red; */
                 .grid-1 {
                     display: flex;
                     align-items: center;
                     height: 70px;
-                    padding: 0 7px;
+                    gap: 10px;
+                    .contacts-icon {
+                        /* position: absolute; */
+                        background: #333;
+                        height: 40px;
+                        width: 40px;
+                        border-radius: 0px 7px 7px 0;
+                        padding-right: 2px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        flex-direction: column;
+                        box-sizing: border-box;
+                        cursor: pointer;
+                        transition: 1s;
+                        overflow: hidden;
+                        /* transform: translateX(50px); */
+                        z-index: 10;
+                        span{
+                            background: white;
+                            /* position: absolute; */
+                            display: block;
+                            height: 4px;
+                            width: 30px;
+                            margin: 0;
+                            padding: 0;
+                            border-radius: 10px;
+                            transition: .5s;
+                        } 
+                        span:nth-child(1) {
+                            width: 20px;
+                            transform: translateY(-4px);
+                            transform: translate(-5px, -4px);
+                        }
+                        span:nth-child(2) {
+                            width: 30px;
+                            transform: translateY(0px);
+                        }
+                        span:nth-child(3) {
+                            transform: translateY(4px);
+                            width: 30px;
+                        }
+                    }
+                    .active-icon {
+                        transform: translate(0px);
+                        width: 40px !important;
+                        span:nth-child(1) {
+                            width: 30px;
+                            transform: translateY(0px) rotate(45deg);
+                            left:initial;
+                        }
+                        span:nth-child(2) {
+                            width: 30px;
+                            transform: translateX(100px);
+                            left:initial;
+                        }
+                        span:nth-child(3) {
+                            transform: translateY(0px) rotate(675deg);
+                            width: 30px;
+                            left:initial;
+                        }
+                    }
+                    .zero {
+                        height: 0;
+                    }
                     .contact-head {
                       /* margin: 5px; */
                       .contact-head-main {
@@ -102,7 +167,7 @@
                         display: flex;
                         align-items: center;
                         padding: 7px 13px;
-                        gap: 20px;
+                        gap: 10px;
                         .img-cont {
                             height: 45px;
                             width: 45px;
