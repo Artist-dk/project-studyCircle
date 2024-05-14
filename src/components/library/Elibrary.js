@@ -1,47 +1,47 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function ELibrary() {
-    const [books, setBooks] = useState([]);
+    const [ebooks, setEbooks] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:8081/library/get-all-books', {
-          // mode: 'no-cors',
-          // // method: "get",
-          // headers: {
-          //     "Content-Type": "application/json"
-          // },
-          // body: JSON.stringify(ob)
-        })
+        fetchBooks()
+    }, []);
+    function print() {
+        console.log("Print")
+        console.log(ebooks.result)
+    }
+    useEffect(function(){
+        print()
+    },[ebooks])
+
+    function fetchBooks() {    
+        axios.get('http://localhost:8081/library/get-all-books',  {headers: {'Content-Type': 'multipart/form-data'}} )
             .then(response => {
-                if (!response.ok) {
-                    throw new Error('Failed to fetch books');
-                }
-                return response.json();
-            })
-            .then(data => {
-              setBooks(data.books);
-              console.log(books)
+                console.log('Form submitted successfully:', response.data);
+                setEbooks(response.data)
             })
             .catch(error => {
-                console.error('Error fetching books:', error);
-            });
-    }, []);
-
-    return (
-        <div>
-            <h1>Library Books</h1>
-            {books.map(book => (
-                <div key={book.id} className="book-container">
-                    <img className="book-image" src={book.cover_image_url} alt={book.title} />
+                console.error('Error submitting form:', error);
+            });  
+    }
+    return (<div>
+        <h1>Library Books</h1>
+        {ebooks.result && (
+            ebooks.result.map(el => (
+                <div key={el.id} className="book-container">
+                    <img className="book-image" src={el.coverImageURL} alt={el.title} />
                     <div className="book-details">
-                        <h2 className="book-title">{book.title}</h2>
-                        <p>Author: {book.author}</p>
-                        <p className="book-description">{book.description}</p>
-                        <a href={book.book_url}>Read Book</a>
+                        <h2 className="book-title">{el.title}</h2>
+                        <p>Author: {el.author}</p>
+                        <p className="book-description">{el.description}</p>
+                        <a href={el.fileURL}>Read Book</a>
                     </div>
                 </div>
-            ))}
-        </div>
+            ))
+        )}
+    </div>
+    
     );
 }
 

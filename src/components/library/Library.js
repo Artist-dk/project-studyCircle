@@ -104,7 +104,9 @@ const Library = () => {
                                             </tbody>
                                         </table>
                                     </div>
-                                    <button>Go to Library</button>
+                                    <Link to='/library/e'>
+                                        <button>Go to Library</button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -128,7 +130,9 @@ const Library = () => {
                                             </tbody>
                                         </table>
                                     </div>
-                                    <button>Go to Library</button>
+                                    <Link to='/library/p'>
+                                        <button>Go to Library</button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

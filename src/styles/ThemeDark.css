@@ -32,10 +32,14 @@
       color: var(--f1);
   }
   button, select, input[type=submit] {
-      background: #222;
+      background: #333;
+      color: #fff;
+      border-color: #fff;
   }
-  button:active {
-      background: var(--b3);
+  button:hover {
+      background: #fff;
+      color: #000;
+      border-color: #fff;
   }
   .welcome {
       p {

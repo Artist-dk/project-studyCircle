@@ -38,16 +38,13 @@ exports.fetchAllBooks = (req, res) => {
         if (error) {
             console.error('Error fetching books from the library:', error);
             res.status(500).json({ error: 'Error fetching books from the library' });
+        }
+        if (result.length > 0) {
+            console.log('Books fetched from the library successfully');
+            res.status(200).json({result});
         } else {
-            if (result.length > 0) {
-                console.log('Books fetched from the library successfully');
-                res.header('Access-Control-Allow-Origin', true); // Example custom header
-
-                res.status(200).json({ books: result });
-            } else {
-                console.log('Book not found');
-                res.status(404).json({ error: 'Book not found' });
-            }
+            console.log('Book not found');
+            res.status(404).json({ error: 'Book not found' });
         }
     });
 };
