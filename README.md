@@ -71,6 +71,8 @@ Hello! I am Digambar Kumbhar
 🚀 
 I'm a full stack developer...
 
-
 ## Contact
 For inquiries or feedback, feel free to contact the project maintainer at [digambarckumbhar299@gmail.com] or connect on [LinkedIn](https://www.linkedin.com/in/digambar-kumbhar/).
+
+## License
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
