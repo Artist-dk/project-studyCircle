@@ -1,7 +1,6 @@
 
 const db = require('../config/dbConfig');
 
-// Define the generateToken function
 function generateToken(length = 32) {
   const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
   let token = '';
@@ -65,9 +64,6 @@ const Account = {
     if (password !== confirmPassword) {
       return res.send("Password and confirm password don't match")
     }
-    
-    // const {firstName, lastName, userName, phoneNo, email, password, description} = req.body;
-    // console.log(firstName, lastName, userName, phoneNo, email, password, description)
 
     const sql = `INSERT INTO users (firstName, lastName, userName, phoneNo, email, password, description)
     VALUES (?, ?, ?, ?, ?, ?, ?)`

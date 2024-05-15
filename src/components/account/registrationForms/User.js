@@ -24,7 +24,7 @@ export default function User() {
     
     const handleSubmit = async (e) => {
         e.preventDefault();
-        Api.CreateNewAccount(JSON.stringify(formData));
+        const dt = Api.createNewAccount(formData);
     };
     
     return (

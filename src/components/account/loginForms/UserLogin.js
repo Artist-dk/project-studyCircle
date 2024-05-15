@@ -3,40 +3,36 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import axios from 'axios';
 
+import Api from '../../../services/api'
 
 export default function UserLogin() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
-
+    
 
     const handleLogin = (e) => {
         e.preventDefault();
-        try {
-            axios.post('http://localhost:8081/login', 
-                {
-                    username: username,
-                    password: password
-                }, 
-                {
-                    headers: {
-                        Accept: "*/*",
-                        "Content-Type": "application/json"
-                    },
-                    withCredentials: true
-                }
-            )
-            .then(function (response) {
-                if(response) {
-                    navigate('/')
-                }
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-        } catch (error) {
-            console.log(error)
-        }
+
+        // my code
+        // const dt = Api.login({
+        //     username: username,
+        //     password: password
+        // });
+        // console.log(dt)
+
+
+        Api.login({
+            username: username,
+            password: password
+        })
+        .then((responseData) => {
+            console.log(responseData);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+
     }
     return (
         <div className="mid">
