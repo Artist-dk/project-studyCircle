@@ -14,25 +14,16 @@ export default function UserLogin() {
     const handleLogin = (e) => {
         e.preventDefault();
 
-        // my code
-        // const dt = Api.login({
-        //     username: username,
-        //     password: password
-        // });
-        // console.log(dt)
-
-
         Api.login({
             username: username,
             password: password
         })
-        .then((responseData) => {
-            console.log(responseData);
+        .then((res) => {
+            console.log(res);
         })
-        .catch((error) => {
-            console.error('Error:', error);
+        .catch((err) => {
+            console.error('Error:', err);
         });
-
     }
     return (
         <div className="mid">

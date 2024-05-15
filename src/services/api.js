@@ -1,8 +1,12 @@
+
+import axios from "axios";
+
 const apiEnv = {
   url: process.env.REACT_APP_BASE_URL,
   headers: {
-    Accept: "*/*",
-    "Content-Type": "application/json",
+    // Accept: "*/*",
+    // "Content-Type": "application/json",
+    'Content-Type': 'multipart/form-data'
   },
   credentials: "include",
 };
@@ -30,7 +34,7 @@ function makeRequest(endpoint, method, data) {
     method,
     headers,
     credentials,
-    body: method !== 'GET' ? JSON.stringify(data) : undefined,
+    body: (method !== 'GET') ? data : undefined,
   })
   .then((response) => {
     console.log("Response:", response); // Log the entire response object
@@ -64,6 +68,23 @@ const Api = {
       return data; 
     });
   },
+
+  addNewBook(dt) {
+    console.log(dt)
+    axios.post('http://localhost:8081/library/add-new-book', dt, {
+        headers: {'Content-Type': 'multipart/form-data'}
+    })
+    .then(response => {
+        console.log('Form submitted successfully:', response.data);
+    })
+    .catch(error => {
+        console.error('Error submitting form:', error);
+    });
+    // return makeRequest("library/add-new-book", "POST", dt).then((data) => {
+    //   console.log("Login successful:", data);
+    //   return data; 
+    // });
+  }
 };
 
 

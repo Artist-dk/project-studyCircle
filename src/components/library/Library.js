@@ -3,6 +3,7 @@ import { withRouter, Link,  } from 'react-router-dom';
 
 import axios from 'axios';
 import FormValidation from '../../services/FormValidation';
+import Api from '../../services/api';
 
 const Library = () => {
     const [contactUsData, setContactUsData] = useState({
@@ -45,6 +46,37 @@ const Library = () => {
             r[k] = dt.get(k);
             return r;
         }, {});
+        
+    
+//         const boundary = '--------------------------' + Date.now().toString(16);
+
+// fetch('http://localhost:8081/library/add-new-book', {
+//     method: 'POST',
+//     headers: {
+//        'Content-Type': `multipart/form-data; boundary=${boundary}`
+//     },
+//     body: dt
+// })
+// .then(response => {
+//     if (!response.ok) {
+//         throw new Error('Network response was not ok');
+//     }
+//     return response.json();
+// })
+// .then(data => {
+//     console.log('Form submitted successfully:', data);
+// })
+// .catch(error => {
+//     console.error('Error submitting form:', error);
+// });
+
+        // Api.addNewBook(dt)
+        // .then(response => {
+        //     console.log('Form submitted successfully:', response);
+        // })
+        // .catch(error => {
+        //     console.error('Error submitting form:', error);
+        // });
 
         axios.post('http://localhost:8081/library/add-new-book', dt, {
             headers: {'Content-Type': 'multipart/form-data'}
