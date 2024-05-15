@@ -39,10 +39,6 @@ import LibraryMain from './components/library/LibraryMain.js';
 // import StudentResult from './components/student/Result.js';
 // import StudentTodo from './components/student/Todo.js';
 
-const a = fetchData();
-console.log(a)
-
-
 export default function App(){
   const loggedIn = () => {
     if(Cookies.get('spy')) {
