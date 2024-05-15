@@ -25,7 +25,8 @@ function ELibrary() {
                 console.error('Error submitting form:', error);
             });  
     }
-    return (<div>
+    return (
+    <div className='libraryebook'>
         <h1>Library Books</h1>
         {ebooks.result && (
             ebooks.result.map(el => (

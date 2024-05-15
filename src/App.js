@@ -65,27 +65,29 @@ export default function App(){
             <Route path="p" element={<Plibrary />} ></Route>
           </Route>
           <Route path="*" element={<NoPage />}></Route>
-          <Route path='student' element={<StudentMain />}>
-            <Route index element={<StudentProfile />}></Route>
-            <Route path="discussion" element={<StudentDiscussion />}></Route>
-            <Route path="assignment" element={<StudentAssignement />}></Route>
-            {/* <Route path="notice" element={<StudentNotice />}></Route> */}
-            {/* <Route path="progress" element={<StudentProgress />}></Route> */}
-            {/* <Route path="result" element={<StudentResult />}></Route> */}
-            {/* <Route path="todo" element={<StudentTodo />}></Route> */}
-          </Route>
-          <Route path="account" element={<AccountsMain />}>
-            <Route index element={<Login />}></Route>
-            <Route path="newacc" element={<User />}></Route>
-            <Route path="sections" element={<Sections />}>
-              <Route path="student" element={<StudentLogin />}></Route>
-              <Route path="teacher" element={<TeacherLogin />}></Route>
-              <Route path="hod" element={<HodLogin />}></Route>
-              <Route path="librarian" element={<LibrarianLogin />}></Route>
-              <Route path="college" element={<CollegeLogin />}></Route>
-            </Route>
-          </Route>
           <Route path="logout" element={<Logout />}></Route>
+        </Route>
+        
+        <Route path="account" element={<AccountsMain />}>
+          <Route index element={<Login />}></Route>
+          <Route path="newacc" element={<User />}></Route>
+          <Route path="sections" element={<Sections />}>
+            <Route path="student" element={<StudentLogin />}></Route>
+            <Route path="teacher" element={<TeacherLogin />}></Route>
+            <Route path="hod" element={<HodLogin />}></Route>
+            <Route path="librarian" element={<LibrarianLogin />}></Route>
+            <Route path="college" element={<CollegeLogin />}></Route>
+          </Route>
+        </Route>
+        
+        <Route path='student' element={<StudentMain />}>
+          <Route index element={<StudentProfile />}></Route>
+          <Route path="discussion" element={<StudentDiscussion />}></Route>
+          <Route path="assignment" element={<StudentAssignement />}></Route>
+          {/* <Route path="notice" element={<StudentNotice />}></Route> */}
+          {/* <Route path="progress" element={<StudentProgress />}></Route> */}
+          {/* <Route path="result" element={<StudentResult />}></Route> */}
+          {/* <Route path="todo" element={<StudentTodo />}></Route> */}
         </Route>
       </Routes>
     </BrowserRouter>
