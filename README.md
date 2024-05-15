@@ -26,6 +26,7 @@ Study Circle is an innovative educational platform designed to revolutionize the
 2. Navigate to the project folder: `cd study-circle`
 3. Install front-end dependencies: 
 - `npm install sass`
+- `npm i --save-dev dotenv`
 - `npm install react-router-dom`
 - `npm install --save react-google-charts`
 - `npm install axios`

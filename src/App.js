@@ -2,9 +2,12 @@ import React, {useState, useEffect} from 'react';
 import { BrowserRouter, Routes, Route, Navigate,Link, Redirect } from 'react-router-dom';
 import Cookies from 'js-cookie';
 
-import './styles/Main.css'
+import './styles/Main.css';
 
-import HomeHeader from './components/HomeHeader';
+import {fetchData} from "./services/api.js";
+
+
+import HomeHeader from './components/HomeHeader.js';
 import Home from './components/main/Home.js';
 import About from './components/about/About.js';
 import Bridge from './components/bridge/BridgeMain.js'
@@ -38,6 +41,9 @@ import LibraryMain from './components/library/LibraryMain.js';
 // import StudentProgress from './components/student/Progress.js';
 // import StudentResult from './components/student/Result.js';
 // import StudentTodo from './components/student/Todo.js';
+
+const a = fetchData();
+console.log(a)
 
 
 export default function App(){

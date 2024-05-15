@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 
-import FormValidation from '../../controllers/FormValidation';
+import FormValidation from '../../services/FormValidation';
 
 export default function Contactus() {
   const [contactUsData, setContactUsData] = useState({
