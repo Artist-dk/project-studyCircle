@@ -5,10 +5,9 @@
     justify-content: center;
     gap: 10px;
     .ebook-container {
-      border: solid 1px #aaaa;
-      /* background: #112a; */
+      border: solid 1px #444a;
       backdrop-filter: blur(15px);
-      /* border-radius: 13px; */
+      background: #8881;
       max-width: 600px;
       height: fit-content;
       width: fit-content;
@@ -18,11 +17,12 @@
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
-        /* border-radius: 13px; */
         padding: 11% 10px;
         background: #334;
-        /* -webkit-clip-path: polygon(71% 5%, 75% 0, 100% 0, 100% 85%, 95% 90%, 40% 90%, 30% 100%, 0 100%, 0 9%, 70% 10%); */
-        /* clip-path: polygon(71% 5%, 75% 0, 100% 0, 100% 85%, 95% 90%, 40% 90%, 30% 100%, 0 100%, 0 9%, 70% 10%); */
+        -webkit-clip-path: polygon(
+          0 0, 30px 0, 40px 20px, calc(100% - 40px) 20px, calc(100% - 30px) 0, 100% 0,
+          100% calc(100% - 40px), calc(100% - 30px)  calc(100% - 40px) , calc(100% - 40px) calc(100% - 20px), 40px calc(100% - 20px), 30px calc(100% - 40px) ,0 calc(100% - 40px), 0 0
+        );
         clip-path: polygon(
           0 0, 30px 0, 40px 20px, calc(100% - 40px) 20px, calc(100% - 30px) 0, 100% 0,
           100% calc(100% - 40px), calc(100% - 30px)  calc(100% - 40px) , calc(100% - 40px) calc(100% - 20px), 40px calc(100% - 20px), 30px calc(100% - 40px) ,0 calc(100% - 40px), 0 0
@@ -30,6 +30,9 @@
         flex-direction: row;
         gap: 10px;
         .ebook-image {
+          border: solid 7px transparent;
+          border-top: 0;
+          border-bottom: 0;
           width: 200px;
           min-height: 200px;
           background: black;

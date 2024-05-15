@@ -38,32 +38,32 @@ const Library = () => {
     
   
     const sendFormData = (e) => {
-        console.log("----------saveFormData")
-        console.log(e.target)
         e.preventDefault();
         var dt = new FormData(e.target)
         dt.append('file', fileInputRef.current.files[0]);
-        console.log(fileInputRef.current.files[0])
         dt = Array.from(dt.keys()).reduce((r, k) => {
             r[k] = dt.get(k);
             return r;
         }, {});
-        console.log(dt)
-        // dt = JSON.stringify(dt);
-        console.log(dt)
-        console.log("----------sendFormData")
-        axios.post('http://localhost:8081/library/add-new-book', dt, {headers: {'Content-Type': 'multipart/form-data'}} )
-            .then(response => {
-                console.log('Form submitted successfully:', response.data);
-            })
-            .catch(error => {
-                console.error('Error submitting form:', error);
-            });
-    };  
-  
+
+        axios.post('http://localhost:8081/library/add-new-book', dt, {
+            headers: {'Content-Type': 'multipart/form-data'}
+        })
+        .then(response => {
+            console.log('Form submitted successfully:', response.data);
+        })
+        .catch(error => {
+            console.error('Error submitting form:', error);
+        });
+    };
+
+    function fetchLibraryMainData() {
+        
+    }
     useEffect(() => {
       console.log("Calling to setForm() ")
       setForm();
+      fetchLibraryMainData();
     },[]);
   return (
     <div className="body home">
