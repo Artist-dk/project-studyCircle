@@ -4,9 +4,6 @@ import Cookies from 'js-cookie';
 
 import './styles/Main.css';
 
-import {fetchData} from "./services/api.js";
-
-
 import HomeHeader from './components/HomeHeader.js';
 import Home from './components/main/Home.js';
 import About from './components/about/About.js';

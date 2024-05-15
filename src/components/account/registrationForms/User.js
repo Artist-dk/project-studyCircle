@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-
+import { Navigate } from 'react-router-dom';
+import Api from '../../../services/api'
 
 export default function User() {
     const [formData, setFormData] = useState({
@@ -23,22 +24,7 @@ export default function User() {
     
     const handleSubmit = async (e) => {
         e.preventDefault();
-        try {
-            const response = await fetch('http://localhost:8081/account/createnew/', {
-                method: 'POST',
-                headers: {
-                    Accept: "*/*",
-                    "Content-Type": "application/json"
-                },
-                withCredentials: true,
-                body: JSON.stringify(formData),
-            });
-            console.log(JSON.stringify(formData))
-            const data = await response.json();
-            console.log('Form data submitted:', data);
-        } catch (error) {
-            console.error('Error submitting form data:', error);
-        }
+        Api.CreateNewAccount(JSON.stringify(formData));
     };
     
     return (
