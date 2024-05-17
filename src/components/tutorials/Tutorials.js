@@ -1,4 +1,5 @@
 import React from 'react'
+import TutorialBuilder from './TutorialBuilder';
 
 export default function Tutorials() {
   return (
@@ -17,6 +18,7 @@ export default function Tutorials() {
             <div className="box-2">
                 <div className="mid">
                     
+      <TutorialBuilder />
 <h1>Computer Networking Tutorial</h1>
 
 <h2>Introduction to Computer Networking</h2>
