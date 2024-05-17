@@ -82,7 +82,7 @@ const Api = {
 
   async downloadFile(filename) {
     try {
-      const response = await fetch(`${BASE_URL}/uploads/${filename}`, {
+      const response = await fetch(`uploads/${filename}`, {
         method: 'GET',
       });
       if (!response.ok) {
