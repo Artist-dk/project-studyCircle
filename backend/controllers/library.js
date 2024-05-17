@@ -5,6 +5,8 @@ exports.addNewBook = (req, res) => {
     console.log("adding new book in database")
     const { title, author, pages, language, bookType, publicationDate, publisher, genre, edition, price, description, coverImageURL } = req.body;
 
+    console.log(req.body);
+    
     const filename = req.file.originalname;
     const fileUrl = req.file.path; 
 

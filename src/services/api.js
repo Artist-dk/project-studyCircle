@@ -4,7 +4,7 @@ import axios from "axios";
 const apiEnv = {
   url: process.env.REACT_APP_BASE_URL,
   headers: {
-    // Accept: "*/*",
+    Accept: "*/*",
     // "Content-Type": "application/json",
     'Content-Type': 'multipart/form-data'
   },
@@ -71,19 +71,13 @@ const Api = {
 
   addNewBook(dt) {
     console.log(dt)
-    axios.post('http://localhost:8081/library/add-new-book', dt, {
-        headers: {'Content-Type': 'multipart/form-data'}
-    })
+    axios.post('http://localhost:8081/library/add-new-book', dt)
     .then(response => {
         console.log('Form submitted successfully:', response.data);
     })
     .catch(error => {
         console.error('Error submitting form:', error);
     });
-    // return makeRequest("library/add-new-book", "POST", dt).then((data) => {
-    //   console.log("Login successful:", data);
-    //   return data; 
-    // });
   }
 };
 

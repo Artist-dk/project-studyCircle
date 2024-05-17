@@ -46,6 +46,8 @@ export default function App(){
     }
     return true;
   }
+
+  console.log(__dirname)
   return (
     <BrowserRouter>
       <Routes>
