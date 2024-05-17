@@ -1,6 +1,11 @@
 const express = require('express');
 
+const path = require('path')
+const session = require('express-session');
+const cors = require("cors");
 const bodyParser = require('body-parser');
+const MySQLStore = require('express-mysql-session')(session); 
+
 const contactusRoute = require('./routes/contactus');
 const libraryRoute = require('./routes/library');
 const testRoute = require('./routes/test');
@@ -12,10 +17,8 @@ const upload = require('./config/multerConfig');
 const accountController = require('./controllers/account')
 const messageController = require('./controllers/message')
 
-const session = require('express-session');
-const cors = require("cors");
 const db = require('./config/dbConfig');
-const MySQLStore = require('express-mysql-session')(session);
+const { stat } = require('fs');
 
 const app = express();
 const sessionStore = new MySQLStore({}, db);
@@ -32,7 +35,12 @@ app.use(session({
   }
 }));
 
-app.use(express.static('public'));
+const staticPath = path.join(__dirname,"/public")
+
+console.log(__dirname)
+console.log(staticPath)
+
+app.use(express.static(staticPath));
 
 app.use( cors({
   // origin: '*',
@@ -61,6 +69,8 @@ app.get('/ses', (req, res)=> {
   res.status(201).send(req.session.id)
 })
 
+
+
 app.use('/contactus', contactusRoute);
 app.use('/library', libraryRoute);
 
@@ -74,10 +84,12 @@ app.get('/authenticate', Authenticate.frontEnd, (req, res)=> {
   res.status(200).send("authentication succeessfull");
 });
 
-// router.post('/saveMessage', upload.single('file'), messageController.saveMessage);
+app.post('/file', upload.single('file'), (req, res) => {
+  console.log("express:post/file")
+});
 
 
 const PORT = 8081;
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`Server is running on port ${PORT} \nhttp://localhost:${PORT}`);
 });
