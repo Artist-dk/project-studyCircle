@@ -88,6 +88,18 @@ app.post('/file', upload.single('file'), (req, res) => {
   console.log("express:post/file")
 });
 
+// Route to download a book file
+app.get('/uploads/:filename', (req, res) => {
+  const filename = req.params.filename;
+  const filePath = path.join(__dirname, 'uploads', filename);
+
+  res.download(filePath, (err) => {
+    if (err) {
+      console.error('Error downloading file:', err);
+      res.status(500).send('Error downloading file');
+    }
+  });
+});
 
 const PORT = 8081;
 app.listen(PORT, () => {
