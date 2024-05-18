@@ -149,7 +149,7 @@ ${trimmedContent}`;
     await fs.writeFile(filePath, tutorialContent);
 
     // Insert file link and ID into the MySQL table
-    const fileLink = `/uploads/${uniqueId}.md`;  // Adjust the path if necessary
+    const fileLink = `/uploads/tutorial/${uniqueId}.md`;  // Adjust the path if necessary
     const sql = 'INSERT INTO tutorials (file_id, file_link, title, description) VALUES (?, ?, ?, ?)';
     await db.query(sql, [uniqueId, fileLink, tutorialData.title, tutorialData.description]);
 
@@ -166,60 +166,47 @@ ${trimmedContent}`;
 
 
 
-// app.post('/tutorial/save', async (req, res) => {
-//   console.log("Entered int tutorial/save")
-//   try {
-//     const tutorialData = req.body;
 
-//     const uniqueId = generateUniqueId();
-//     const filePath = path.join(uploadsDir, `${uniqueId}.md`);
 
-//     const tutorialContent = `# ${tutorialData.title}
 
-// ${tutorialData.description}
+// Route to fetch tutorial data by ID
+app.get('/tutorial/:id', async (req, res) => {
+  const tutorialId = req.params.id;
 
-// ${tutorialData.sections.map((section) => {
-// const trimmedContent = section.content.trim();
-// return `## ${section.title}
+  db.query('SELECT * FROM tutorials WHERE file_id = ?', [tutorialId], async (error, results) => {
+    if (error) {
+      console.error(error);
+      return res.status(500).json({ message: 'Error fetching tutorial' });
+    }
 
-// ${section.media ? `![${section.title} Media](${section.media})` : ''}
+    if (results.length === 0) {
+      return res.status(404).json({ message: 'Tutorial not found' });
+    }
 
-// ${trimmedContent}`;
-// }).join('\n\n')}`;
+    const tutorialData = results[0];
+    const filePath = path.join(__dirname, tutorialData.file_link);
 
-//     // Create uploads directory if it doesn't exist
-//     await fs.mkdir(uploadsDir, { recursive: true });
+    
+    console.log(`Sending file from path: ${filePath}`);
 
-//     // Write Markdown content to file
-//     await fs.writeFile(filePath, tutorialContent);
+    // Send the file as a response
+    res.sendFile(filePath, (fileError) => {
+      if (fileError) {
+        console.error(`Error sending file ${filePath}:`, fileError);
+        res.status(500).json({ message: 'Error sending tutorial file' });
+      }
+    });
+  });
+});
 
-//     const fileLink = `/uploads/${uniqueId}.md`;  // Adjust the path if necessary
-//     const query = 'INSERT INTO tutorials (file_id, file_link) VALUES (?, ?)';
-//     // (query, [uniqueId, fileLink])
-//     const values = [uniqueId, fileLink];
 
-//     db.query(query, values ,(error, result) => {
-//       if (error) {
-//           console.error('Error fetching books from the library:', error);
-//           res.status(500).json({ error: 'Error fetching books from the library' });
-//       }
-//       if (result.length > 0) {
-//           console.log('Books fetched from the library successfully');
-//           res.status(200).json({result});
-//       } else {
-//           console.log('Book not found');
-//           res.status(404).json({ error: 'Book not found' });
-//       }
-//     });
-//     await connection.release();
 
-//     res.json({ message: 'Tutorial saved successfully!', id: uniqueId });
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ message: 'Error saving tutorial' });
 
-//   }
-// });
+
+
+
+
+
 
 const PORT = 8081;
 app.listen(PORT, () => {
