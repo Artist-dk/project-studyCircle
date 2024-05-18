@@ -37,14 +37,8 @@ const TutorialBuilder = () => {
     setSections(newSections);
   };
 
-  // const handleChangeSectionContent = (index, event) => {
-  //   const newSections = [...sections];
-  //   newSections[index].content = event.target.value;
-  //   setSections(new sections);
-  // };
-
   const handleChangeSectionContent = (index, event) => {
-    const newSections = [...sections]; // Create a copy of the sections array
+    const newSections = [...sections];
     newSections[index].content = event.target.value;
     setSections(newSections);
   };
@@ -54,33 +48,55 @@ const TutorialBuilder = () => {
     newSections[index].media = event.target.value;
     setSections(newSections);
   };
-
   const handleSave = () => {
-    // const title = ...; // Get content from component state
-    // const description = ...;
-    // const sections = ...; // Get sections array from component state
-
     const tutorialContent = `# ${title}
 
-    ${description}
+${description}
 
-    ${sections.map((section) => `## ${section.title}
+${sections.map((section) => {
 
-    ${section.media ? `![<span class="math-inline">\{section\.title\} Media\]\(</span>{section.media})` : ''}
+const trimmedContent = section.content.trim();
+return `## ${section.title}
 
-    ${section.content}`).join('\n\n')}
-    `;
+${section.media ? `![${section.title} Media](${section.media})` : ''}
 
+${trimmedContent}`;
+    }).join('\n\n')}`;
+
+  
     const blob = new Blob([tutorialContent], { type: 'text/markdown' });
     const url = URL.createObjectURL(blob);
-
+  
     const link = document.createElement('a');
     link.href = url;
-    link.download = 'tutorial.md';
+    link.download = 'README.md';
     link.click();
-
+  
     URL.revokeObjectURL(url); // Clean up memory leak
   };
+  
+  // const handleSave = () => {
+  //   const tutorialContent = `# ${title}
+
+  //   ${description}
+
+  //   ${sections.map((section) => `## ${section.title}
+
+  //   ${section.media ? `![<span class="math-inline">\{section\.title\} Media\]\(</span>{section.media})` : ''}
+
+  //   ${section.content}`).join('\n\n')}
+  //   `;
+
+  //   const blob = new Blob([tutorialContent], { type: 'text/markdown' });
+  //   const url = URL.createObjectURL(blob);
+
+  //   const link = document.createElement('a');
+  //   link.href = url;
+  //   link.download = 'tutorial.md';
+  //   link.click();
+
+  //   URL.revokeObjectURL(url); // Clean up memory leak
+  // };
 
   return (
     <div className={TutorialBuilderContainer}>
