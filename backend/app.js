@@ -16,6 +16,7 @@ const upload = require('./config/multerConfig');
 
 const accountController = require('./controllers/account')
 const messageController = require('./controllers/message')
+const tutorialController = require('./controllers/tutorial')
 
 const db = require('./config/dbConfig');
 const { stat } = require('fs');
@@ -75,6 +76,7 @@ app.use('/contactus', contactusRoute);
 app.use('/library', libraryRoute);
 
 app.use('/message', messageRoute)
+app.use('/tutorial', tutorialController)
 
 app.use('/settings', settingsRoute)
 app.use('/account/createnew', accountController.createNew);

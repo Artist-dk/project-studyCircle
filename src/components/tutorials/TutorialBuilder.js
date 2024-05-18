@@ -48,55 +48,58 @@ const TutorialBuilder = () => {
     newSections[index].media = event.target.value;
     setSections(newSections);
   };
-  const handleSave = () => {
+
+
+  const jsonToReadme = (jsonData) => {
+    jsonData = JSON.parse(jsonData)
+    // Validate and extract data from jsonData (if needed)
+    const title = jsonData.title || ""; // Use default value if not present
+    const description = jsonData.description || "";
+    const sections = jsonData.sections || []; // Use empty array if not present
+  
     const tutorialContent = `# ${title}
 
 ${description}
 
 ${sections.map((section) => {
-
 const trimmedContent = section.content.trim();
-return `## ${section.title}
+return (
+`## ${section.title}
 
 ${section.media ? `![${section.title} Media](${section.media})` : ''}
 
-${trimmedContent}`;
-    }).join('\n\n')}`;
-
+${trimmedContent}`)
+}).join('\n\n')}`;
   
     const blob = new Blob([tutorialContent], { type: 'text/markdown' });
     const url = URL.createObjectURL(blob);
   
     const link = document.createElement('a');
     link.href = url;
-    link.download = 'README.md';
+    link.download = 'README1.md';
     link.click();
   
-    URL.revokeObjectURL(url); // Clean up memory leak
+    URL.revokeObjectURL(url);
   };
   
-  // const handleSave = () => {
-  //   const tutorialContent = `# ${title}
+  const handleSaveAsJson = () => {
+    const formData = {
+      title: document.getElementById('title').value,
+      description: document.getElementById('description').value,
+      sections: sections.map((section) => ({
+        title: section.title,
+        content: section.content,
+        media: section.media,
+      })),
+    };
+  
+    const jsonData = JSON.stringify(formData, null, 2); // Stringify with indentation
+  
+    // You can use the jsonData variable for further processing or download
+    console.log(jsonData); // Example: log to console for debugging
 
-  //   ${description}
-
-  //   ${sections.map((section) => `## ${section.title}
-
-  //   ${section.media ? `![<span class="math-inline">\{section\.title\} Media\]\(</span>{section.media})` : ''}
-
-  //   ${section.content}`).join('\n\n')}
-  //   `;
-
-  //   const blob = new Blob([tutorialContent], { type: 'text/markdown' });
-  //   const url = URL.createObjectURL(blob);
-
-  //   const link = document.createElement('a');
-  //   link.href = url;
-  //   link.download = 'tutorial.md';
-  //   link.click();
-
-  //   URL.revokeObjectURL(url); // Clean up memory leak
-  // };
+    jsonToReadme(jsonData)
+  };
 
   return (
     <div className={TutorialBuilderContainer}>
@@ -164,7 +167,7 @@ ${trimmedContent}`;
           Add Section
         </button>
 
-        <button type="button" onClick={handleSave} className={TutorialBuilderButton}>
+        <button type="button" onClick={handleSaveAsJson} className={TutorialBuilderButton}>
           Save to tutorial.md
         </button>
       </form>
