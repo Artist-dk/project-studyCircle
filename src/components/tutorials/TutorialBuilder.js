@@ -7,6 +7,7 @@ const TutorialBuilderLabel = 'tutorial-builder-label';
 const TutorialBuilderInput = 'tutorial-builder-input';
 const TutorialBuilderTextarea = 'tutorial-builder-textarea';
 const TutorialBuilderButton = 'tutorial-builder-button';
+const TutorialBuilderRemoveButtonContainer = 'tutorial-builder-remove-button-container';
 const TutorialBuilderSection = 'tutorial-builder-section';
 const TutorialBuilderSectionTitle = 'tutorial-builder-section-title';
 const TutorialBuilderSectionInput = 'tutorial-builder-section-input';
@@ -36,10 +37,16 @@ const TutorialBuilder = () => {
     setSections(newSections);
   };
 
+  // const handleChangeSectionContent = (index, event) => {
+  //   const newSections = [...sections];
+  //   newSections[index].content = event.target.value;
+  //   setSections(new sections);
+  // };
+
   const handleChangeSectionContent = (index, event) => {
-    const newSections = [...sections];
+    const newSections = [...sections]; // Create a copy of the sections array
     newSections[index].content = event.target.value;
-    setSections(new sections);
+    setSections(newSections);
   };
 
   const handleChangeSectionMedia = (index, event) => {
@@ -128,9 +135,11 @@ const TutorialBuilder = () => {
               className={TutorialBuilderSectionMediaInput}
             />
             {sections.length > 1 && (
-              <button type="button" onClick={() => handleRemoveSection(index)}>
-                Remove Section
-              </button>
+              <div className={TutorialBuilderRemoveButtonContainer}>
+                <button type="button" onClick={() => handleRemoveSection(index)}>
+                  Remove Section
+                </button>
+              </div>
             )}
           </div>
         ))}
