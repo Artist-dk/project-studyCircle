@@ -1,16 +1,23 @@
 .tutorial-builder-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2rem;
-    border-radius: 4px;
-    background-color: #223;
-    color: white;
-    margin: 1rem;
-  }
+  color: white;
+  background-color: #111;
+  border: 2px solid #444a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  border-radius: 4px;
+  border-radius: 13px;
+  margin: 1rem;
+}
   
   .tutorial-builder-title {
+    font-size: 30px;
+    padding: 0 0 1rem 0;
     margin: 0 0 1rem 0;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #444a;
     color: white;
   }
   
@@ -22,7 +29,7 @@
   }
   
   .tutorial-builder-label {
-    color: white;
+    color: #666;
     margin-bottom: 0.5rem;
     font-weight: bold;
   }
@@ -30,29 +37,59 @@
   .tutorial-builder-input,
   .tutorial-builder-section-input,
   .tutorial-builder-section-media-input {
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    background-color: #111;
+    padding: 1rem;
+    border: 2px solid #444a;
+    background-color: #000;
+    outline: none;
     color: white;
     border-radius: 3px;
-    margin-bottom: 1rem;
+    /* margin-bottom: 1rem; */
   }
   
   .tutorial-builder-textarea {
     padding: 0.5rem;
-    background-color: #111;
-    border: 1px solid #ccc;
+    margin: 0.5rem 0;
+    border: 2px solid #444a;
+    background-color: #000;
+    outline: none;
     color: white;
     border-radius: 3px;
     margin-bottom: 1rem;
     height: 10rem;
+    resize: vertical;
   }
-  
+  .tutorial-builder-remove-button-container {
+    padding: 1rem 0 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .tutorial-builder-remove-button-container button {
+    width: 100%;
+    border-radius: 7px;
+    border: #44a;
+
+  }
+  .tutorial-builder-remove-button-container button:hover{
+    width: 100%;
+    border-radius: 7px;
+    border: #44a;
+  }
   .tutorial-builder-button {
-    background-color: #007bff;
+    background-color: #ff2c2c !important;
     color: white;
     padding: 0.75rem 1.5rem;
-    border: 1px solid #007bff;
+    outline: none;
+    border: 1px solid #ff2c2c !important;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+  .tutorial-builder-button:hover {
+    background: #ff2c2c !important;
+    color: white !important;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid #ff2c2c;
     border-radius: 3px;
     cursor: pointer;
     margin-top: 1rem;
@@ -60,7 +97,10 @@
   
   .tutorial-builder-section {
     color: white;
-    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
   }
   
   .tutorial-builder-section-title {

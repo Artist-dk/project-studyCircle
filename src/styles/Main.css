@@ -1,3 +1,5 @@
+@import url("./ThemeDark.css");
+@import url("./Style.css");
 
 @import url("./accounts/Account.css");
 /* @import url("./Chatapp.css");
@@ -14,9 +16,7 @@
 @import url("./Main.css");
 /* @import url("./Putla.css"); */
 @import url("./components/Main.css");
-@import url("./Style.css");
 /* @import url("./Typing.css"); */
-@import url("./ThemeDark.css");
 
 @import url('./student/Discussion.css');
 @import url('./student/StudentDashboard.css');
