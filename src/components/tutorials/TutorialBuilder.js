@@ -93,12 +93,27 @@ ${trimmedContent}`)
       })),
     };
   
-    const jsonData = JSON.stringify(formData, null, 2); // Stringify with indentation
+    const jsonData = JSON.stringify(formData, null, 2);
   
-    // You can use the jsonData variable for further processing or download
-    console.log(jsonData); // Example: log to console for debugging
+    console.log(jsonData);
 
     jsonToReadme(jsonData)
+
+    fetch('http://localhost:8081/tutorial/save', {
+      method: 'POST', 
+      headers: { 'Content-Type': 'application/json' },
+      body: jsonData
+    })
+    .then(response => {
+      // if (!response.ok) {
+      //   throw new Error(`Error saving tutorial: ${response.statusText}`);
+      // }
+      console.log('Tutorial saved successfully!');
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+
   };
 
   return (
