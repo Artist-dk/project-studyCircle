@@ -62,3 +62,13 @@ CREATE TABLE settings (
 );
 
 
+CREATE TABLE tutorials (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    file_id VARCHAR(255) NOT NULL,
+    file_link VARCHAR(255) NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    description TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
