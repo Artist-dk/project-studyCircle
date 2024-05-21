@@ -100,8 +100,19 @@ const Api = {
       console.error('Error downloading file:', error);
       throw error;
     }
+  },
+  async fetchBridgeUsers() {
+  try {
+    const response = await fetch(`${apiEnv.url}/user/profile`);
+    if (!response.ok) {
+      throw new Error('Failed to fetch user profile');
+    }
+    return await response.json();
+  } catch (error) {
+    console.error('Error fetching user profile:', error);
+    throw error;
   }
-
+}
 };
 
 

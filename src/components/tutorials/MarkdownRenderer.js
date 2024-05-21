@@ -2,8 +2,8 @@ import React from 'react';
 import {marked} from 'marked';
 import DOMPurify from 'dompurify';
 
-const MarkdownRenderer = ({ content }) => {
-  const parsedContent = marked(content);
+const MarkdownRenderer = (props) => {
+  const parsedContent = marked(props.content);
   const cleanContent = DOMPurify.sanitize(parsedContent);
 
   return (

@@ -204,6 +204,16 @@ app.get('/tutorial/:id', async (req, res) => {
 
 
 
+const userProfile = {
+  username: 'johndoe',
+  email: 'johndoe@example.com',
+  profilePicture: 'https://i.pinimg.com/originals/5d/ad/83/5dad83eac77969d6583e067e3a82f0b3.jpg',
+  bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+};
+
+app.get('/user/profile', (req, res) => {
+  res.json(userProfile);
+});
 
 
 

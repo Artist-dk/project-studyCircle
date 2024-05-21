@@ -2,6 +2,18 @@ import React from 'react'
 import TutorialBuilder from './TutorialBuilder';
 import MarkdownRenderer from './MarkdownRenderer';
 
+const content = `
+# My Project
+
+This is a description of my project.
+
+Here's an image: 
+![Image](https://i.pinimg.com/236x/49/f4/d8/49f4d8021fb9c0c88aee615fbd16c532.jpg)
+
+You can also use other Markdown features.
+`;
+
+
 export default function Tutorials() {
   return (
     <div className="body">
@@ -23,7 +35,7 @@ export default function Tutorials() {
             </div>
             <div className="box-1">
                 <div className="mid">
-                  <MarkdownRenderer />
+                  <MarkdownRenderer content={content} />
                 </div>
             </div>
             <div className="box bgSvg2">
