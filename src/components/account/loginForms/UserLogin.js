@@ -20,6 +20,7 @@ export default function UserLogin() {
         })
         .then((res) => {
             console.log(res);
+            navigate('/')
         })
         .catch((err) => {
             console.error('Error:', err);

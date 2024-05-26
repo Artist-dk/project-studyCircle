@@ -44,14 +44,15 @@ export default function App(){
     if(Cookies.get('spy')) {
       return true;
     }
-    return true;
+      // return true;
+      return false;
   }
 
   console.log(__dirname)
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<HomeHeader />}>
+        <Route path="/" element={(loggedIn()) ? <HomeHeader />: <Navigate to="/account" />}>
           <Route index element={<Home />}></Route>
           <Route path="about" element={<About />}></Route>
           <Route path="contactus" element={<Contactus />}></Route>

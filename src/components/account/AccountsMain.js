@@ -4,6 +4,12 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 
 
+const loggedIn = () => {
+  if(Cookies.get('spy')) {
+    return true;
+  }
+  return false;
+}
 export default function AccountsMain() {
   return (
     <>
@@ -12,7 +18,7 @@ export default function AccountsMain() {
         <Link to="/account"><span>Login</span></Link>
         <Link to="/account/newacc"><span>New Account</span></Link>
         <Link to="/account/sections"><span>Sections</span></Link>
-        <Link to="/logout"><span>Logout</span></Link>
+        {(loggedIn()) ? <Link to="/logout"><span>Logout</span></Link>: ""}
       </div>
       <Outlet />
     </>

@@ -5,8 +5,8 @@ const apiEnv = {
   url: process.env.REACT_APP_BASE_URL,
   headers: {
     Accept: "*/*",
-    // "Content-Type": "application/json",
-    'Content-Type': 'multipart/form-data'
+    "Content-Type": "application/json",
+    // 'Content-Type': 'multipart/form-data'
   },
   credentials: "include",
 };
@@ -34,7 +34,7 @@ function makeRequest(endpoint, method, data) {
     method,
     headers,
     credentials,
-    body: (method !== 'GET') ? data : undefined,
+    body: (method !== 'GET') ? JSON.stringify(data) : undefined,
   })
   .then((response) => {
     console.log("Response:", response); // Log the entire response object
@@ -50,6 +50,7 @@ function makeRequest(endpoint, method, data) {
 
 const Api = {
   createNewAccount(formData) {
+    console.log(formData)
     return makeRequest("account/createnew", "POST", formData).then((data) => {
       console.log("Form data submitted:", data);
     });

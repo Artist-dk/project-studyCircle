@@ -44,6 +44,7 @@ const Account = {
   },
 
   createNew: (req, res) => {
+
     const firstName = req.body.firstName;
     const lastName = req.body.lastName;
     const userName = req.body.userName;
@@ -52,6 +53,8 @@ const Account = {
     const password = req.body.password;
     const description = req.body.description;
     const confirmPassword = req.body.confirmPassword;
+    
+    console.log(firstName, lastName, userName, phoneNo, email, password, description)
 
     if(!firstName) return res.send("first name is required")
     if(!lastName) return res.send("lastName name is required")
@@ -64,6 +67,7 @@ const Account = {
     if (password !== confirmPassword) {
       return res.send("Password and confirm password don't match")
     }
+
 
     const sql = `INSERT INTO users (firstName, lastName, userName, phoneNo, email, password, description)
     VALUES (?, ?, ?, ?, ?, ?, ?)`
