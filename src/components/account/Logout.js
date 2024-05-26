@@ -9,6 +9,7 @@ export default function Logout() {
     const navigate = useNavigate();
     useEffect(() => {
         Api.logout();
+        navigate('/account')
         // try {
         //     axios.get('http://localhost:8081/logout',
         //         {

@@ -19,7 +19,7 @@ export default function UserLogin() {
             password: password
         })
         .then((res) => {
-            console.log(res);
+            // console.log(res);
             navigate('/')
         })
         .catch((err) => {
