@@ -42,29 +42,35 @@ import LibraryMain from './components/library/LibraryMain.js';
 export default function App(){
   const loggedIn = () => {
     if(Cookies.get('spy')) {
+      console.log("spy detected")
       return true;
-    }
-      // return true;
+    } else {
+      console.log("spy not detected")
       return false;
+    }
   }
+
+  useEffect(() => {
+    loggedIn();
+  },[])
 
   console.log(__dirname)
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={(loggedIn()) ? <HomeHeader />: <Navigate to="/account" />}>
-          <Route index element={<Home />}></Route>
-          <Route path="about" element={<About />}></Route>
-          <Route path="contactus" element={<Contactus />}></Route>
-          <Route path="settings" element={<Settings />}></Route>
-          <Route path="bridge" element={<Bridge />}></Route>
-          <Route path="tutorials" element={<Tutorials />}></Route>
-          <Route path="practice" element={<Practice />}></Route>
-          <Route path="contests" element={<Contests />}></Route>
-          <Route path="library" element={<LibraryMain />}>
-            <Route index element={<Library />}></Route>
-            <Route path="e" element={<Elibrary />} ></Route>
-            <Route path="p" element={<Plibrary />} ></Route>
+        <Route path="/" element={<HomeHeader />}>
+          <Route index element={(loggedIn()) ? <Home />: <Navigate to="/account" />} ></Route>
+          <Route path="about" element={(loggedIn()) ? <About />: <Navigate to="/account" />}></Route>
+          <Route path="contactus" element={(loggedIn()) ? <Contactus />: <Navigate to="/account" />}></Route>
+          <Route path="settings" element={(loggedIn()) ? <Settings />: <Navigate to="/account" />}></Route>
+          <Route path="bridge" element={(loggedIn()) ? <Bridge />: <Navigate to="/account" />}></Route>
+          <Route path="tutorials" element={(loggedIn()) ? <Tutorials />: <Navigate to="/account" />}></Route>
+          <Route path="practice" element={(loggedIn()) ? <Practice />: <Navigate to="/account" />}></Route>
+          <Route path="contests" element={(loggedIn()) ? <Contests />: <Navigate to="/account" />}></Route>
+          <Route path="library" element={(loggedIn()) ? <LibraryMain />: <Navigate to="/account" />}>
+            <Route index element={(loggedIn()) ? <Library />: <Navigate to="/account" />}></Route>
+            <Route path="e" element={(loggedIn()) ? <Elibrary />: <Navigate to="/account" />} ></Route>
+            <Route path="p" element={(loggedIn()) ? <Plibrary />: <Navigate to="/account" />} ></Route>
           </Route>
           <Route path="*" element={<NoPage />}></Route>
           <Route path="logout" element={<Logout />}></Route>
@@ -82,7 +88,7 @@ export default function App(){
           </Route>
         </Route>
         
-        <Route path='student' element={<StudentMain />}>
+        <Route path='student' element={(loggedIn()) ? <StudentMain />: <Navigate to="/account" />}>
           <Route index element={<StudentProfile />}></Route>
           <Route path="discussion" element={<StudentDiscussion />}></Route>
           <Route path="assignment" element={<StudentAssignement />}></Route>

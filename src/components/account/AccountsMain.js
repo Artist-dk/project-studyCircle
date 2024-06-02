@@ -4,13 +4,14 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 
 
-const loggedIn = () => {
-  if(Cookies.get('spy')) {
-    return true;
-  }
-  return false;
-}
 export default function AccountsMain() {
+  const loggedIn = () => {
+    if(Cookies.get('spy')) {
+      return true;
+    }
+    return false;
+  }
+  useEffect();
   return (
     <>
       <div className="account-nav">

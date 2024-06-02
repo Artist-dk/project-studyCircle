@@ -72,6 +72,33 @@ exports.fetchNewBook = (req, res) => {
         }
     });
 };
+exports.main = (req, res) => {
+    const bookType = req.params.bookId; // Assuming bookId is passed as a parameter
+
+    const sql = `SELECT * FROM books WHERE bookType = ?`;
+
+    let data = {
+        ebooks: 0,
+        ebAccessRate: 0,
+        pbooks: 0,
+        pbAccessRate: 0,
+    }
+
+    db.query(sql, [bookType], (error, result) => {
+        if (error) {
+            console.error('Error fetching book from the library:', error);
+            res.status(500).json({ error: 'Error fetching book from the library' });
+        } else {
+            if (result.length > 0) {
+                console.log('Book fetched from the library successfully');
+                res.status(200).json({ book: result[0] });
+            } else {
+                console.log('Book not found');
+                res.status(404).json({ error: 'Book not found' });
+            }
+        }
+    });
+};
 // Update Book Details
 // Remove a Book
 // Search for Books

@@ -94,7 +94,7 @@ export default function Home() {
         </div>
         <div className="box-1">
             <div className="mid">
-                <AcademicProgressGraph data={academicProgressData} />
+                {/* <AcademicProgressGraph data={academicProgressData} /> */}
             </div>
         </div>
         <div className="box-2">
