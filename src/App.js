@@ -75,7 +75,7 @@ export default function App(){
           </Route>
         </Route>
         
-        <Route path='student' element={<StudentMain />}>
+        <Route path='student' element={spy ? <StudentMain /> : <Navigate to="/account" />}>
           <Route index element={<StudentProfile />}></Route>
           <Route path="discussion" element={<StudentDiscussion />}></Route>
           <Route path="assignment" element={<StudentAssignement />}></Route>

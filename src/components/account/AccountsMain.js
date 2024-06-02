@@ -4,14 +4,7 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 
 export default function AccountsMain() {
-  const [login, setLogin] = useState();
-  useEffect( () => {
-    if(Cookies.get('spy')) {
-      setLogin(true)
-    }
-    setLogin(false)
-  }
-  ,[])
+  const spy = Cookies.get('spy');
   return (
     <>
       <div className="account-nav">
@@ -19,7 +12,7 @@ export default function AccountsMain() {
         <Link to="/account"><span>Login</span></Link>
         <Link to="/account/newacc"><span>New Account</span></Link>
         <Link to="/account/sections"><span>Sections</span></Link>
-        {(login) ? <Link to="/logout"><span>Logout</span></Link>: ""}
+        {spy? <Link to="/logout"><span>Logout</span></Link>: ""}
       </div>
       <Outlet />
     </>
