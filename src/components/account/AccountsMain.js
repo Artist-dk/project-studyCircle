@@ -3,14 +3,13 @@ import { Link, Navigate, Outlet } from 'react-router-dom';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
-
+export default function AccountsMain() {
 const loggedIn = () => {
   if(Cookies.get('spy')) {
     return true;
   }
   return false;
 }
-export default function AccountsMain() {
   return (
     <>
       <div className="account-nav">

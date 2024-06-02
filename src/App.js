@@ -40,12 +40,12 @@ import LibraryMain from './components/library/LibraryMain.js';
 // import StudentTodo from './components/student/Todo.js';
 
 export default function App(){
+
   const loggedIn = () => {
     if(Cookies.get('spy')) {
       return true;
     }
-      // return true;
-      return false;
+    return false;
   }
 
   console.log(__dirname)
