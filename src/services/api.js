@@ -62,12 +62,6 @@ const Api = {
       return true;
     });
   },
-  fetchLibraryMainData() {
-    return makeRequest("library/main", "GET").then((data) => {
-      console.log("Logout successful:", data);
-      return true;
-    });
-  },
 
   login(formData) {
     return makeRequest("login", "POST", formData).then((data) => {

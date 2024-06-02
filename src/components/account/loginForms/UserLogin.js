@@ -9,15 +9,6 @@ export default function UserLogin() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
-
-    const loggedIn = () => {
-        if(Cookies.get('spy')) {
-            navigate('/')
-            return true;
-        }
-        // return true;
-        return false;
-    }
     
 
     const handleLogin = (e) => {

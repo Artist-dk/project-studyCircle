@@ -37,7 +37,7 @@ CREATE TABLE ContestParticipants (
     UserID INT,
     PRIMARY KEY (ContestID, UserID),
     FOREIGN KEY (ContestID) REFERENCES Contests(ContestID),
-    FOREIGN KEY (UserID) REFERENCES Users(id)
+    FOREIGN KEY (UserID) REFERENCES Users(UserID)
 );
 
 -- Create table for library resources
@@ -47,7 +47,7 @@ CREATE TABLE LibraryResources (
     Description TEXT,
     AuthorID INT NOT NULL,
     ResourceType ENUM('Book', 'Article', 'Video') NOT NULL,
-    FOREIGN KEY (AuthorID) REFERENCES Users(id)
+    FOREIGN KEY (AuthorID) REFERENCES Users(UserID)
 );
 
 -- Create table for practice questions
@@ -64,7 +64,7 @@ CREATE TABLE UserPracticeProgress (
     UserID INT,
     QuestionID INT,
     CompletionStatus ENUM('Not Started', 'In Progress', 'Completed') DEFAULT 'Not Started',
-    FOREIGN KEY (UserID) REFERENCES Users(id),
+    FOREIGN KEY (UserID) REFERENCES Users(UserID),
     FOREIGN KEY (QuestionID) REFERENCES PracticeQuestions(QuestionID)
 );
 
@@ -76,7 +76,7 @@ CREATE TABLE Courses (
     CollegeID INT,
     TeacherID INT,
     FOREIGN KEY (CollegeID) REFERENCES Colleges(CollegeID),
-    FOREIGN KEY (TeacherID) REFERENCES Users(id)
+    FOREIGN KEY (TeacherID) REFERENCES Users(UserID)
 );
 
 -- Create table for assignments
@@ -95,7 +95,7 @@ CREATE TABLE Grades (
     StudentID INT,
     AssignmentID INT,
     Grade DECIMAL(5,2),
-    FOREIGN KEY (StudentID) REFERENCES Users(id),
+    FOREIGN KEY (StudentID) REFERENCES Users(UserID),
     FOREIGN KEY (AssignmentID) REFERENCES Assignments(AssignmentID)
 );
 
@@ -107,7 +107,7 @@ CREATE TABLE Announcements (
     AnnouncerID INT,
     AnnouncementTime DATETIME,
     FOREIGN KEY (CourseID) REFERENCES Courses(CourseID),
-    FOREIGN KEY (AnnouncerID) REFERENCES Users(id)
+    FOREIGN KEY (AnnouncerID) REFERENCES Users(UserID)
 );
 
 -- Create table for course materials
@@ -121,7 +121,7 @@ CREATE TABLE CourseMaterials (
     UploadedBy INT,
     UploadTime DATETIME,
     FOREIGN KEY (CourseID) REFERENCES Courses(CourseID),
-    FOREIGN KEY (UploadedBy) REFERENCES Users(id)
+    FOREIGN KEY (UploadedBy) REFERENCES Users(UserID)
 );
 
 -- Create table for conversations
@@ -130,7 +130,7 @@ CREATE TABLE Conversations (
     ConversationName VARCHAR(100),
     CreatedBy INT, -- UserID of the user who created the conversation
     CreatedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (CreatedBy) REFERENCES Users(id)
+    FOREIGN KEY (CreatedBy) REFERENCES Users(UserID)
 );
 
 -- Create table for members of conversations
@@ -139,5 +139,5 @@ CREATE TABLE ConversationMembers (
     UserID INT,
     PRIMARY KEY (ConversationID, UserID),
     FOREIGN KEY (ConversationID) REFERENCES Conversations(ConversationID),
-    FOREIGN KEY (UserID) REFERENCES Users(id)
+    FOREIGN KEY (UserID) REFERENCES Users(UserID)
 );
