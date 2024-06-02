@@ -3,10 +3,23 @@ import React, { useEffect } from 'react'
 import Footer from './Footer'
 import Slider from './home/Slider'
 import AcademicProgressGraph from '../student/AcademicProgressGraph';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Cookies from 'js-cookie';
 
 export default function Home() {
+    const navigate = useNavigate();
+  
+    useEffect(() => {
+      checkLoginStatus();
+    });
+
+    const checkLoginStatus = () => {
+      if (!(Cookies.get('spy'))) {
+        navigate('/account')
+      }
+    };
+  
     const authenticateUser = () => {
       try {
           axios.get('http://localhost:8081/authenticate', 

@@ -1,9 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useNavigate} from "react-router-dom";
 
 export default function StudentMain() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    checkLoginStatus();
+  });
+
+  const checkLoginStatus = () => {
+    if (!(Cookies.get('spy'))) {
+      navigate('/account')
+    }
+  };
+
+
+
   function open(e) {
     e = e.currentTarget;
     var lsb = document.querySelector(".lsidebar");
