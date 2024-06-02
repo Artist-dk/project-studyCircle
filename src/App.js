@@ -40,19 +40,12 @@ import LibraryMain from './components/library/LibraryMain.js';
 // import StudentTodo from './components/student/Todo.js';
 
 export default function App(){
-
-  const loggedIn = () => {
-    if(Cookies.get('spy')) {
-      return true;
-    }
-    return false;
-  }
-
+  const spy = Cookies.get('spy');
   console.log(__dirname)
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={(loggedIn()) ? <HomeHeader />: <Navigate to="/account" />}>
+        <Route path="/" element={spy ? <HomeHeader /> : <Navigate to="/account" />}>
           <Route index element={<Home />}></Route>
           <Route path="about" element={<About />}></Route>
           <Route path="contactus" element={<Contactus />}></Route>
