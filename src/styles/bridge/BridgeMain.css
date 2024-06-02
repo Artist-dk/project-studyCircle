@@ -1,5 +1,24 @@
 .bridge-user-profile {
   .expert-user {
-    
+    backdrop-filter: blur(15px);
+    padding: 40px 20px;
+    border: solid 1px #aaaa;
+    display: grid;
+    grid-template-columns: 80px auto;
+    border-radius: 13px;
+    img {
+      height: 60px;
+      width: 60px;
+    }
+    .exper-user-details {
+      h2 {
+        font-size: 18px !important;
+      }
+      p {
+        font-size: 14px !important;
+        padding: 0;
+        margin: 0;
+      }
+    }
   }
 }

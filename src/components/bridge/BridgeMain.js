@@ -34,16 +34,22 @@ export default function BridgeMain() {
   }
 
   return (
+    <div className='box-3 mid' >
     <div className="bridge-user-profile">
       <h1>User Profile</h1>
       {user && (
         <div className='expert-user'>
-          <img src={user.profilePicture} alt="Profile" className="profile-picture" />
-          <h2>{user.username}</h2>
-          <p>Email: {user.email}</p>
-          <p>Bio: {user.bio}</p>
+          <div>
+            <img src={user.profilePicture} alt="Profile" className="profile-picture" />
+          </div>
+          <div className='exper-user-details'>
+            <h2>{user.username}</h2>
+            <p>Email: {user.email}</p>
+            <p>Bio: {user.bio}</p>
+          </div>
         </div>
       )}
+    </div>
     </div>
   );
 }
