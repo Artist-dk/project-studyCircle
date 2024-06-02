@@ -1,21 +1,7 @@
-const val = document.getElementById('form')
-const file = document.getElementById('img')
 
-val.addEventListener('submit', (e) => {
-  sendFile(e)
-});
-
-function sendFile(e) {
-  e.preventDefault();
-  var a = new FormData(e.currentTarget)
-
-  for (const item of new FormData(val)) {
-    console.log(item[0], item[1])
-  }
-}
 
 function Hack() {
-  fetch('http://localhost:8081/tutorial/701b1d1b129e231650b2edef521bfffc')
+  fetch('http://localhost:8081/tutorial/22b9d41a5bd50dcb4603cc5652f4aa10')
   .then(response => {
     if (!response.ok) {
       throw new Error('Network response was not ok');
@@ -31,8 +17,8 @@ function Hack() {
   });
 
   
-  const tutorialId = '701b1d1b129e231650b2edef521bfffc';
-  fetchTutorial(tutorialId);
+  // const tutorialId = '701b1d1b129e231650b2edef521bfffc';
+  // fetchTutorial(tutorialId);
   
 
 }

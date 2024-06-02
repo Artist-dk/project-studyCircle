@@ -1,20 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import TutorialBuilder from './TutorialBuilder';
 import MarkdownRenderer from './MarkdownRenderer';
 
-const content = `
-# My Project
-
-This is a description of my project.
-
-Here's an image: 
-![Image](https://i.pinimg.com/236x/49/f4/d8/49f4d8021fb9c0c88aee615fbd16c532.jpg)
-
-You can also use other Markdown features.
-`;
-
-
 export default function Tutorials() {
+  const [content, setContent] = useState('');
+
+  fetch('http://localhost:8081/tutorial/64bb76e5372fc9124ba6021baf604a7e')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    console.log(response)
+    return response.text(); 
+  })
+  .then(data => {
+    setContent(data)
+    console.log(data);
+  })
+  .catch(error => {
+    console.error('There was a problem with the fetch operation:', error);
+  });
   return (
     <div className="body">
             <div className="h-box-1 welcome">

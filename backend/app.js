@@ -35,7 +35,7 @@ app.use(session({
   saveUninitialized: false,
   store: sessionStore,
   cookie: {
-    secure: false, // Set to true if using HTTPS
+    secure: false,
     maxAge: 1000 * 60 * 60 * 24 
   }
 }));
@@ -80,7 +80,6 @@ app.use('/contactus', contactusRoute);
 app.use('/library', libraryRoute);
 
 app.use('/message', messageRoute)
-// app.use('/tutorial', tutorialController)
 
 app.use('/settings', settingsRoute)
 app.use('/account/createnew', accountController.createNew);
@@ -94,7 +93,6 @@ app.post('/file', upload.single('file'), (req, res) => {
   console.log("express:post/file")
 });
 
-// Route to download a book file
 app.get('/uploads/:filename', (req, res) => {
   const filename = req.params.filename;
   const filePath = path.join(__dirname, 'uploads', filename);
@@ -121,14 +119,11 @@ app.post('/tutorial/save', async (req, res) => {
   console.log("Entered into tutorial/save")
   let connection;
   try {
-    // Get tutorial data from request body
     const tutorialData = req.body;
 
-    // Generate unique ID for the file
     const uniqueId = generateUniqueId();
     const filePath = path.join(uploadsDir, `${uniqueId}.md`);
 
-    // Generate Markdown content from tutorial data
     const tutorialContent = `# ${tutorialData.title}
 
 ${tutorialData.description}
@@ -142,14 +137,11 @@ ${section.media ? `![${section.title} Media](${section.media})` : ''}
 ${trimmedContent}`;
 }).join('\n\n')}`;
 
-    // Create uploads directory if it doesn't exist
     await fs.mkdir(uploadsDir, { recursive: true });
 
-    // Write Markdown content to file
     await fs.writeFile(filePath, tutorialContent);
 
-    // Insert file link and ID into the MySQL table
-    const fileLink = `/uploads/tutorial/${uniqueId}.md`;  // Adjust the path if necessary
+    const fileLink = `/uploads/tutorial/${uniqueId}.md`;
     const sql = 'INSERT INTO tutorials (file_id, file_link, title, description) VALUES (?, ?, ?, ?)';
     await db.query(sql, [uniqueId, fileLink, tutorialData.title, tutorialData.description]);
 
@@ -189,7 +181,6 @@ app.get('/tutorial/:id', async (req, res) => {
     
     console.log(`Sending file from path: ${filePath}`);
 
-    // Send the file as a response
     res.sendFile(filePath, (fileError) => {
       if (fileError) {
         console.error(`Error sending file ${filePath}:`, fileError);
@@ -216,12 +207,8 @@ app.get('/user/profile', (req, res) => {
 });
 
 
-
-
 const PORT = 8081;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT} \nhttp://localhost:${PORT}`);
 });
-
-
 
