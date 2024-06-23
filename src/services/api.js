@@ -115,16 +115,22 @@ const Api = {
   }
 },
 async fetchTutorial(id) {
-try {
-  const response = await fetch(`${apiEnv.url}/tutorial/${id}`);
-  if (!response.ok) {
-    throw new Error('Failed to fetch user profile');
-  }
-  return await response.json();
-} catch (error) {
-  console.error('Error fetching user profile:', error);
-  throw error;
-}
+  // fetch('http://localhost:8081/tutorial/64bb76e5372fc9124ba6021baf604a7e')
+  fetch(`http://localhost:8081/tutorial/${id}`)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    console.log(response)
+    return response.text(); 
+  })
+  .then(data => {
+    console.log(data);
+    return data;
+  })
+  .catch(error => {
+    console.error('There was a problem with the fetch operation:', error);
+  });
 }
 
 };

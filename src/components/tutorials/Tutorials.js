@@ -1,10 +1,16 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import TutorialBuilder from './TutorialBuilder';
 import MarkdownRenderer from './MarkdownRenderer';
+
+import Api from '../../services/api';
 
 export default function Tutorials() {
   const [content, setContent] = useState('');
 
+  useEffect(()=> {
+    // let dt = Api.fetchTutorial('64bb76e5372fc9124ba6021baf604a7e');
+    // console.log(dt)
+    // setContent(dt)
   fetch('http://localhost:8081/tutorial/64bb76e5372fc9124ba6021baf604a7e')
   .then(response => {
     if (!response.ok) {
@@ -20,6 +26,7 @@ export default function Tutorials() {
   .catch(error => {
     console.error('There was a problem with the fetch operation:', error);
   });
+  },[])
   return (
     <div className="body">
             <div className="h-box-1 welcome">

@@ -35,7 +35,7 @@ export default function HomeHeader() {
           <div className="row3">
             <Link to="/"><span>HOME</span></Link>
             <Link to="/bridge"><span>BRIDGE</span></Link>
-            <Link to="/tutorialS"><span>TUTORIAL</span></Link>
+            <Link to="/tutorials"><span>TUTORIAL</span></Link>
             <Link to="/practice"><span>PRACTICE</span></Link>
             <Link to="/contests"><span>CONTESTS</span></Link>
             <Link to="/library"><span>LIBRARY</span></Link>
