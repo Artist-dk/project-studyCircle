@@ -22,6 +22,13 @@ Study Circle is an innovative educational platform designed to revolutionize the
 
 ### Installation
 
+Ensure you have Node.js installed on your system. You can check if it's installed by running:
+
+```bash
+node -v
+npm -v
+```
+
 1. Clone the repository: `git clone https://github.com/Artist-dk/study-cricle.git`
 2. Navigate to the project folder: `cd study-circle`
 3. Install front-end dependencies: 
