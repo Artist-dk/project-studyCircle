@@ -1,5 +1,5 @@
 import React from 'react'
-import Footer from '../main/Footer'
+import Footer from '../main/footer'
 export default function About() {
   return (<>
     <div className="box-3">

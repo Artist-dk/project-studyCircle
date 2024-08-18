@@ -1,6 +1,6 @@
 
 import React, { useEffect } from 'react'
-import Footer from './Footer'
+import Footer from './footer'
 import Slider from './home/Slider'
 import AcademicProgressGraph from '../student/AcademicProgressGraph';
 import { Link, useNavigate } from 'react-router-dom';
