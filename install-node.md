@@ -1,7 +1,7 @@
 Installing Node.js can be done in several ways depending on your operating system. Here's how to do it on Windows, macOS, and Linux:
 
 ## 1. Installing Node.js on Windows:
-Using the Installer:<br />
+### Using the Installer:<br />
 Download the Installer:
 
 - Go to the Node.js official website.
@@ -22,7 +22,7 @@ npm -v
 ```
 You should see the installed version numbers.
 ## 2. Installing Node.js on macOS:
-Using Homebrew:<br />
+### Using Homebrew:<br />
 Install Homebrew (if not already installed):
 
 Open Terminal and run:
@@ -44,7 +44,7 @@ Check the installed versions by running:
 node -v
 npm -v
 ```
-Using the Installer:<br />
+### Using the Installer:<br />
 Download the Installer:
 
 Visit the Node.js official website and download the macOS installer (LTS or Current).<br />
@@ -59,7 +59,7 @@ node -v
 npm -v
 ```
 ## 3. Installing Node.js on Linux:
-Using the NodeSource Binary Distributions (Debian, Ubuntu):
+### Using the NodeSource Binary Distributions (Debian, Ubuntu):
 Add NodeSource Repository:
 
 Open a terminal and run the following commands:
@@ -80,7 +80,7 @@ Copy code
 node -v
 npm -v
 ```
-## Using a Package Manager (CentOS, Fedora):
+### Using a Package Manager (CentOS, Fedora):
 Enable EPEL Repository (if needed):
 
 ```bash
