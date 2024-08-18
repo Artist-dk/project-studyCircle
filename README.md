@@ -28,6 +28,7 @@ Ensure you have Node.js installed on your system. You can check if it's installe
 node -v
 npm -v
 ```
+If you not getting version of node and npm in output, then [install node](./install-node.mdREADME.md)
 
 1. Clone the repository: `git clone https://github.com/Artist-dk/study-cricle.git`
 2. Navigate to the project folder: `cd study-circle`
