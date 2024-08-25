@@ -39,13 +39,18 @@ export default function BridgeMain() {
       <h1>User Profile</h1>
       {user && (
         <div className='expert-user'>
-          <div>
-            <img src={user.profilePicture} alt="Profile" className="profile-picture" />
+          <div className="row-1">
+            <div className='img-cont'>
+              <img src={user.profilePicture} alt="Profile" className="profile-picture" />
+            </div>
           </div>
           <div className='exper-user-details'>
             <h2>{user.username}</h2>
             <p>Email: {user.email}</p>
             <p>Bio: {user.bio}</p>
+          </div>
+          <div className="row-3">
+            <button>Connect</button>
           </div>
         </div>
       )}
