@@ -207,6 +207,41 @@ app.get('/user/profile', (req, res) => {
 });
 
 
+
+// ################################## SCREENER ##################################
+// Serve static files (HTML, CSS, JS)
+app.use(express.static('public'));
+
+// API endpoint to get users
+app.get('/screener/users', (req, res) => {
+    connection.query('SELECT id, firstName, lastName, userName, email, userType FROM users', (err, results) => {
+        if (err) throw err;
+        console.log(results)
+        res.json(results);
+    });
+});
+
+// API endpoint to get books
+app.get('/screener/books', (req, res) => {
+    connection.query('SELECT id, title, author, pages, language, price FROM books', (err, results) => {
+        if (err) throw err;
+        res.json(results);
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const PORT = 8081;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT} \nhttp://localhost:${PORT}`);
