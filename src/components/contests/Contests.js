@@ -4,7 +4,7 @@ export default function Contests() {
   return (
     
     <>
-      <div className="body home">
+        <div className="A5">
             <div className="h-box-1 welcome">
                 <div className="mid">
                     {/* <p>Education is the most powerful weapon which you can use to change the world.</p> */}
@@ -98,7 +98,7 @@ export default function Contests() {
                     <path className="path-2" d="M100,0  L15,0  90,100z"></path>
                 </svg>
             </div>
-    </div>
+        </div>
     </>
   )
 }

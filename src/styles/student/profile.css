@@ -2,9 +2,27 @@
   display: block;
   justify-content: center;
   /* background-color: #ff000050; */
+  .sdp-footer {
+        display: block;
+        margin-top: 30px;
+}
   
-  
-
+.student-activity {
+  .activity-grid {
+    .progress-card * {
+      color: black;
+    }
+    .progress-card {
+      .progress-circle {
+        height: 200px;
+        width: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}
 /*Page Container */
 .welcome-page {
   display: flex;
@@ -911,6 +929,8 @@
   font-weight: 700;
   color: #111827;
 }
+
+
 
 /* Progress Variants */
 .p80 {

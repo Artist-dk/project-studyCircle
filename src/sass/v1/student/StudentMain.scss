@@ -1,0 +1,263 @@
+.A4 {
+  /* OPEN BUTTON */
+.sc-toggle-nav__open-btn {
+  padding: 10px 16px;
+  background: #0f2027;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* OVERLAY */
+.sc-toggle-nav__overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 99;
+}
+
+/* NAV PANEL */
+.sc-toggle-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 0;
+  width: 0;
+  display: none;
+}
+// 9175727752
+.sc-toggle-nav--close {  
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+}.sc-toggle-nav--open {  
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: initial;
+  width: initial;
+  background: #ffffff;
+  z-index: 100;
+  box-shadow: 5px 0 25px rgba(0, 0, 0, 0.15);
+  transition: left 0.35s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+.sc-toggle-nav__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: #203a43;
+  color: #fff;
+  width: 100;
+  h2 {
+    font-size: 18px;
+    margin: 0;
+  }
+}
+
+/* CLOSE BUTTON */
+.sc-toggle-nav__close-btn {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* CONTENT */
+.sc-toggle-nav__body {
+  padding: 16px;
+  // flex: 1;
+  overflow-y: auto;
+  // height: 100vh;
+  // width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+
+  .st-toogle-nav__card {
+    padding: 20px 40px;
+    margin: 10px auto;
+    gap: 5px;
+    color: #333;
+    width: fit-content;
+    height: fit-content;
+    text-decoration: none;
+    border-bottom: 1px solid #eee;
+    background: rgba(0, 0, 0, 0.08);
+    border-radius: 15px;
+
+    &:hover {
+      color: #0072ff;
+    }
+  }
+}
+
+
+  .scroll-container {
+    display: flex;
+    gap: 7px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 6px;
+    // cursor: grab;
+    user-select: none;
+    background: #333;
+    /* border-radius: 14px; */
+
+    &.active {
+      cursor: grabbing;
+    }
+
+    &::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #666;
+      border-radius: 10px;
+    }
+  }
+
+  .card {
+    padding: 5px 15px;
+    background: #aaa;
+    border-radius: 7px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ================= DASHBOARD ================= */
+
+  .hidden {
+    display: none;
+  }
+
+  .icon {
+    height: 40px;
+    width: 50px;
+    border-radius: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    PADDING: 0 5PX;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: 1s;
+    overflow: hidden;
+    z-index: 10;
+    background: #333;
+
+    span {
+      position: absolute;
+      display: block;
+      height: 4px;
+      width: 30px;
+      border-radius: 10px;
+      transition: .5s;
+      background: #fff;
+    }
+
+    span:nth-child(1) {
+      width: 20px;
+      transform: translateY(-7px);
+      left: 10px;
+    }
+
+    span:nth-child(2) {
+      width: 30px;
+      transform: translateY(0px);
+      left: 10px;
+    }
+
+    span:nth-child(3) {
+      transform: translateY(7px);
+      width: 30px;
+      left: 10px;
+    }
+  }
+
+  .active-icon {
+    transform: translate(0px);
+    width: 40px !important;
+
+    span:nth-child(1) {
+      width: 30px;
+      transform: translateY(0px) rotate(45deg);
+      left: initial;
+    }
+
+    span:nth-child(2) {
+      width: 30px;
+      transform: translateX(100px);
+      left: initial;
+    }
+
+    span:nth-child(3) {
+      transform: translateY(0px) rotate(675deg);
+      width: 30px;
+      left: initial;
+    }
+  }
+
+  background: #eee;
+
+  * {
+    color: black;
+  }
+
+  .main {
+    box-sizing: border-box;
+    // max-height: 100vh;
+    display: block;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header {
+    transition: 1s;
+    overflow-x: hidden;
+    overflow-y: auto;
+    z-index: 10;
+
+    .title {
+      h1 {
+
+        text-align: center;
+      }
+    }
+
+  }
+
+  .body {
+    flex-shrink: 3;
+    width: -webkit-fill-available;
+    z-index: 9;
+    // overflow: auto;
+    // height: 100vh;
+    padding: 30px;
+  }
+
+  .main {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 1000px;
+  }
+}

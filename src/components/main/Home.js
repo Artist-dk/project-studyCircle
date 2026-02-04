@@ -81,7 +81,7 @@ export default function Home() {
     
 
         return (
-    <div className="body home">
+    <div className="body A2-home">
         <div className="h-box-1 welcome">
             <div className="mid">
                 <p>Education is the most powerful weapon which you can use to change the world.</p>
@@ -90,7 +90,7 @@ export default function Home() {
                     materials that cater to all levels of education, ensuring that you have access to the latest and most relevant information. At Study Town, we understand that education is the key to unlocking your potential, and we are committed to helping
                     you achieve your academic goals. Join us today and take the first step towards a brighter future!</p>
                 <div className="btnarea">
-                    <Link state="login" to="/accounts">
+                    <Link state="login" to="/account">
                         <div className="btn-wrapper">
                             <div className="btn">
                                 <button>GO TO OTHER SECTION</button>

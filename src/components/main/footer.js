@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Footer() {
   return (
-    <div className="footer">
+    <div className="A3-footer">
       <div className="mid">
         <h1>Study Circle</h1>
         <h2>Supportive Academic Environment</h2>

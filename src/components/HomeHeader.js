@@ -17,7 +17,7 @@ export default function HomeHeader() {
   
     return (
       <>
-        <header className="header">
+        <header className="A1-header">
           <div className="row1">
               <Link to="/about"><span>ABOUT</span></Link>
               <Link to="/contactus"><span>CONTACTUS</span></Link>
@@ -41,7 +41,7 @@ export default function HomeHeader() {
             <Link to="/library"><span>LIBRARY</span></Link>
           </div>
         </header>
-        <div className="box">
+        <div className="A1-box">
           <svg width="100%" height="40" viewBox="0 0 100 100" preserveAspectRatio="none">
             <path className="path-1" d="M0,0  L100,0 0,100z"></path>
             <path className="path-2" d="M0,0  L100,30 100,0z"></path>

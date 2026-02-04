@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { BrowserRouter, Routes, Route, Navigate, useNavigate} from 'react-router-dom';
 import Cookies from 'js-cookie';
-import './styles/Main.css';
+import './sass/Main.scss';
 
 import ApiTester from './components/ApiTester';
 
@@ -40,12 +40,15 @@ import LibraryMain from './components/library/LibraryMain';
 import StudentNotice from './components/student/NoticeBoard';
 import StudentProgress from './components/student/FavouriteBooks';
 import StudentResult from './components/student/TodoPlanner';
-import StudentTodo from './components/student/KeepRecords';
+import StudentTodo from './components/student/TodoPlanner';
+// import StudentTodo from './components/student/KeepRecords';
 import Discussion from './components/student/Discussion';
 
 import StudentCalendar from './components/student/StudentCalendar';
 import TestMain from './components/test/TestMain';
 import ProtectedRoute from './components/ProtectedRoute';
+
+// import ToggleNav from './components/student/ToggleNav';
 
 import axios from 'axios';
 
@@ -88,6 +91,7 @@ export default function App() {
             <Route path="*" element={<NoPage />} />
           </Route>
           <Route path="logout" element={<Logout />} />
+          {/* <Route path="ToggleNav" element={<ToggleNav />} /> */}
 
           <Route path="test" element={<TestMain />}>
             <Route index element={<Login />} />

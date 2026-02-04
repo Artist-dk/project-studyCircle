@@ -19,6 +19,7 @@ export const AuthProvider = ({
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        console.log("request to auth/me api")
         axios
             .get("http://localhost:8081/auth/me")
             .then((res) => {

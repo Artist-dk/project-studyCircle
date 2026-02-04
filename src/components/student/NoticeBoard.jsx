@@ -1,5 +1,4 @@
 import React from "react";
-import "./noticeBoard.css";
 
 const NoticeBoard = () => {
   return (

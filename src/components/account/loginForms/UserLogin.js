@@ -19,9 +19,11 @@ export default function UserLogin() {
             password: password
         })
         .then((res) => {
-            console.log(res);
-            console.log(Cookies.get('spy'))
-            navigate('/')
+            console.log('login response:', res);
+            console.log('status:', res.status);
+            console.log('cookie:', Cookies.get('spy'));
+
+            navigate('/student');
         })
         .catch((err) => {
             console.error('Error:', err);
@@ -60,6 +62,7 @@ export default function UserLogin() {
                         </div>
                     </form>
             </div>
+            
         </div>
     )
 }

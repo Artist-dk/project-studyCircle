@@ -33,21 +33,21 @@ a {
     width: 100%;
     box-sizing: border-box;
 }
-button {
+/* .btn-1 {
     padding: 10px 20px;
     border: solid 2px;
     border-radius: 50px;
     cursor: pointer;
     background: #333;
 }
-button:hover {
+.btn-1:hover {
     background: #fff;
     color: black;
     padding: 10px 20px;
     border: solid 2px;
     border-radius: 50px;
     cursor: pointer;
-}
+} */
 .loaded-page {
     display: block;
 }
@@ -474,7 +474,7 @@ form p {
 
 
 
-@media only screen and (max-width: 950px){
+/* @media only screen and (max-width: 950px){
     .dashboard {
         display: block;
     }
@@ -493,7 +493,7 @@ form p {
         position: fixed;
     }
     
-}
+} */
 
 
 
@@ -529,6 +529,16 @@ form p {
 
 
 
+.scroll-container::-webkit-scrollbar {
+  height: 8px;
+  display: none;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background: #bbb;
+  border-radius: 10px;
+  display: none;
+}
 
 
 

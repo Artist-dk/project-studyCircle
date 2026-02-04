@@ -1,3 +1,67 @@
+.scroll-container {
+  display: flex;
+  gap: 7px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 6px;
+  cursor: grab;
+  user-select: none;
+  background: #333;
+  /* border-radius: 14px; */
+}
+
+.scroll-container.active {
+  cursor: grabbing;
+}
+
+.scroll-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background: #666;
+  border-radius: 10px;
+}
+
+.card {
+    padding: 5px 15px;
+  background: #aaa;
+  border-radius: 7px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* font-weight: 600; */
+  /* font-size: 18px; */
+}
+
+
+
+
+
+
+
+/* .scroll-container {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 10px;
+  scroll-behavior: smooth;
+  white-space: nowrap;
+}
+.card {
+  min-width: 200px; 
+  height: 120px;
+  background: #f1f1f1;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  flex-shrink: 0;    
+} */
 
 /* // dashboard  */
 
@@ -5,8 +69,7 @@
     display: none;
 }
 .dashboard {
-    display: flex;
-    /* height: calc(100vh - 145px); */
+    /* display: flex; */
     .main {
         box-sizing: border-box;
         max-height: 100vh;
@@ -16,15 +79,17 @@
         justify-content: center;
     }    
     .lsidebar {
-        width: 50px;
-        height: 100vh;
-        display: block;
+        /* width: 50px; */
+        /* height: 100vh; */
+        /* display: block; */
+        display: flex;
         transition: 1s;
         overflow-x: hidden;
         overflow-y: auto;
         z-index: 10;
         .lsb-head {
             display: flex;
+            /* display: block; */
             height: 40px;
             justify-content:flex-end;
             .lsb-title {
@@ -49,8 +114,10 @@
             }
         }
         .lsb-body {
-            padding: 30px 0;
+            /* padding: 30px 0; */
             box-sizing: border-box;
+            display: flex;
+            overflow-y: auto;
             .stdlsb-li {
                 display: grid;
                 grid-template-columns: 50px auto;
@@ -59,21 +126,23 @@
                     display: flex;
                     height: 50px;
                     width: 50px;
-                    /* background: red; */
                     justify-content: center;
                     align-items: center;
 
                 }
-            }
-            span{
-                display: flex;
-                padding: 10px;
-                display: block;
-                font-size: 16px;
-                cursor: pointer;
-            }
-            span:hover{
-                display: block;
+                span {
+                    display: flex;
+                    align-items: center;
+                }
+                span{
+                    display: flex;
+                    /* padding: 10px; */
+                    display: block;
+                    font-size: 16px;
+                    cursor: pointer;
+                }
+                span:hover{
+                }
             }
         }
     }

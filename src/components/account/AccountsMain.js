@@ -20,14 +20,16 @@ export default function AccountsMain() {
 
   return (
     <>
-      <div className="account-nav">
-        <Link to="/"><span>Home</span></Link>
-        <Link to="/account"><span>Login</span></Link>
-        <Link to="/account/newacc"><span>New Account</span></Link>
-        <Link to="/account/sections"><span>Sections</span></Link>
-        {login && <span onClick={handleLogout}>Logout</span>}
+      <div className="home">
+        <div className="account-nav">
+          <Link to="/"><span>Home</span></Link>
+          <Link to="/account"><span>Login</span></Link>
+          <Link to="/account/newacc"><span>New Account</span></Link>
+          <Link to="/account/sections"><span>Sections</span></Link>
+          {login && <span onClick={handleLogout}>Logout</span>}
+        </div>
+        <Outlet />
       </div>
-      <Outlet />
     </>
   );
 }

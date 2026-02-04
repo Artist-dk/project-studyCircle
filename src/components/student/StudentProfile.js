@@ -572,6 +572,10 @@ const StudentProfile = () => {
       <div className="a2-suggetions">
 
       </div>
+      <div className="sdp-footer">
+        footer
+      </div>
+
     </div>
   );
 };

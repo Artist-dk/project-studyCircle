@@ -26,26 +26,33 @@
       border-radius: 10px;
       cursor: pointer;
       flex-shrink: 2;
-      background: #444;
+      background: #fff;
+      color: black;
+      border-color: #0005;
+      border-width: 2px;
+      border-style: solid;
   }
   span:hover {
     background: #fff;
     color: #000;
   }
   .active {
-    background: #fff;
+    background: #0cf;
     color: #000;
   }
 }
   
 
+.card-1 * {
+    color: black;
+}
 
 .card-1 {
   border-radius: 13px;
   padding: 10px 20px;
   margin-top: 10px;
   font-weight: bold;
-  background: #000a;
+  background: #fff;
   backdrop-filter: blur(15px);
   border: solid 1px #666a;
   .top {
@@ -57,16 +64,16 @@
           margin-bottom: 5px;
       }
       .date {
-          color: #ffffffaa;
+          /* color: #ffffffaa; */
       }
       .time {
-          color: #888;
+          /* color: #888; */
       }
       .title {
           justify-self: center;
           flex-grow: 2;
           padding: 5px;
-          color: #999;
+          /* color: #999; */
       }
       .status {
           /* color: white; */
@@ -100,12 +107,13 @@
       width: 100%;
       box-sizing: border-box;
       outline: none;
-      border: solid 1px #222;
+      /* border: solid 1px #2222; */
+      border: none;
       padding: 10px 20px;
       font-size: 18px;
       margin: 0;
       margin-bottom: -5px;
-      background: #111;
+      background: #eee;
   }
   .middle {
       width: 100%;
@@ -152,4 +160,189 @@
           padding: 2px 10px;
       }
   }
+}
+.todo-section * {
+    color: black;
+}
+.todo-section {
+  margin-top: 40px;
+  background: #ffffff;
+  color: black;
+  padding: 24px;
+  border-radius: 22px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+
+
+    .todo-section h2 {
+    margin-bottom: 16px;
+    }
+
+    /* Input */
+    .todo-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 18px;
+    }
+
+    .todo-input input {
+    flex: 1;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid #d1d5db;
+    }
+
+    .todo-input button {
+    padding: 12px 18px;
+    border-radius: 12px;
+    background: #10b981;
+    color: #ffffff;
+    border: none;
+    font-weight: 600;
+    }
+
+    /* List */
+    .todo-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    }
+
+    .todo-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f9fafb;
+    padding: 12px 14px;
+    border-radius: 14px;
+    button {
+        color: #f00;
+        margin-left: auto;
+        background: none;
+        border: none;
+        padding: 3px 10px;
+        border-radius: 15px;
+        cursor: pointer;
+    }
+    button:hover {
+        color: #0af;
+        margin-left: auto;
+        background: #0001;
+        /* background: red; */
+        border: none;
+        border-radius: 15px;
+        transition: .5s;
+    }
+    }
+
+    .todo-item.done span {
+    text-decoration: line-through;
+    color: #9ca3af;
+    }
+}
+
+
+
+/* Notice Board */
+.notice-board {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 22px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+  margin-top: 40px;
+
+
+    /* Header */
+    .notice-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    }
+
+    .notice-header h2 {
+    font-size: 24px;
+    color: #111827;
+    }
+
+    .notice-count {
+    background: #ef4444;
+    color: #ffffff;
+    padding: 6px 12px;
+    border-radius: 14px;
+    font-size: 12px;
+    font-weight: 600;
+    }
+
+    /* List */
+    .notice-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    }
+
+    /* Notice Card */
+    .notice-card {
+    background: #f9fafb;
+    padding: 18px 20px;
+    border-radius: 18px;
+    border-style: solid;
+    border-width: 1px 1px 1px 6px; 
+    border-color: #6366f1;
+    position: relative;
+    /* box-shadow: 0 0 10px  #0005; */
+    }
+
+    .notice-card h3 {
+    font-size: 16px;
+    margin-bottom: 6px;
+    color: #111827;
+    }
+
+    .notice-card p {
+    font-size: 14px;
+    color: #4b5563;
+    line-height: 1.6;
+    }
+
+    .notice-date {
+    font-size: 12px;
+    color: #6b7280;
+    margin-top: 6px;
+    display: inline-block;
+    }
+
+    /* Important Notice */
+    .notice-card.important {
+    background: #fff1f2;
+    border-color: #ef4444;
+    }
+
+    .notice-tag {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    background: #ef4444;
+    color: #ffffff;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    }
+
+    /* Hover */
+    .notice-card:hover {
+    transform: translateY(-2px);
+    transition: 0.3s ease;
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+    .notice-board {
+        padding: 18px;
+    }
+
+    .notice-header h2 {
+        font-size: 20px;
+    }
+    }
 }

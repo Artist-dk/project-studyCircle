@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./todoPlanner.css";
+// import "./todoPlanner.css";
 
 const TodoPlanner = () => {
   const [todos, setTodos] = useState([]);
@@ -44,7 +44,7 @@ const TodoPlanner = () => {
 
   return (
     <div className="todo-section">
-      <h2>📝 Plan To-Do’s</h2>
+      <h2>Plan To-Do’s</h2>
 
       <div className="todo-input">
         <input
@@ -68,7 +68,7 @@ const TodoPlanner = () => {
               onChange={() => toggleTodo(todo.id)}
             />
             <span>{todo.task}</span>
-            <button onClick={() => deleteTodo(todo.id)}>🗑️</button>
+            <button onClick={() => deleteTodo(todo.id)}>del</button>
           </div>
         ))}
       </div>
